@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AnShengApplication.iml" filepath="$PROJECT_DIR$/AnShengApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nbsxs/nbsxs.iml" filepath="$PROJECT_DIR$/nbsxs/nbsxs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nbyhbz/nbyhbz.iml" filepath="$PROJECT_DIR$/nbyhbz/nbyhbz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/widget/widget.iml" filepath="$PROJECT_DIR$/widget/widget.iml" />
+    </modules>
+  </component>
+</project>
