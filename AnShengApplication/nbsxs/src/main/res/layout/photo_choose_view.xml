@@ -1,0 +1,40 @@
+<!-- 底部选择图片方式 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:background="#64000000">
+    <LinearLayout
+        android:id="@+id/view_choose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical" >
+        <TextView
+            android:id="@+id/tv_takephoto"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_view_item_height"
+            android:gravity="center"
+            android:text="拍照"
+            android:textSize="@dimen/normal_text_size" />
+        <View style="@style/thin_line_x" />
+        <TextView
+            android:id="@+id/tv_choose_photo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_view_item_height"
+            android:gravity="center"
+            android:text="从手机相册选择"
+            android:textSize="@dimen/normal_text_size" />
+        <View style="@style/wide_line_x" />
+        <TextView
+            android:id="@+id/tv_cancle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_view_item_height"
+            android:gravity="center"
+            android:text="取消"
+            android:textSize="@dimen/normal_text_size" />
+    </LinearLayout>
+</RelativeLayout>

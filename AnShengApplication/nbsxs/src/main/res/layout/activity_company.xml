@@ -1,0 +1,295 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:windowSoftInputMode="adjustPan" >
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/common_title_bar"
+        />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/title_bar" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+			<!--  门店名称-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_dw"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_dw"
+                    android:layout_toRightOf="@id/iv_dw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="门店名称　"
+                    android:textSize="@dimen/normal_text_size" />
+                <TextView
+                    android:id="@+id/tv_dw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/list_view_item_height_high"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toRightOf="@+id/tv_t_dw"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginLeft="10dip"
+                    android:gravity="center|left"
+                    android:textSize="@dimen/normal_text_size"
+                    />
+            </RelativeLayout>
+
+            <View style="@style/wide_line_x" />
+            <!--  工商注冊號-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_dm"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_gszch"
+                    android:layout_toRightOf="@id/iv_dm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="工商注册号"
+                    android:textSize="@dimen/normal_text_size" />
+                <TextView
+                    android:id="@+id/tv_gszch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/list_view_item_height_high"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toRightOf="@+id/tv_t_gszch"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginLeft="10dip"
+                    android:gravity="center|left"
+                    android:textSize="@dimen/normal_text_size" />
+            </RelativeLayout>
+
+            <View style="@style/thin_line_x" />
+           
+            <!--  门店负责人-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_mdfzr"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_mdfzr"
+                    android:layout_toRightOf="@id/iv_mdfzr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="门店负责人"
+                    android:textSize="@dimen/normal_text_size" />
+                <EditText
+                    android:id="@+id/tv_mdfzr"
+                    android:layout_toRightOf="@+id/tv_t_mdfzr"
+                    style="@style/normal_exittext_bg_style"
+                    android:maxLength="10"/>
+            </RelativeLayout>
+
+            <View style="@style/thin_line_x" />
+            <!--  联系方式-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_lxfs"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_lxfs"
+                    android:layout_toRightOf="@id/iv_lxfs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="联系方式　"
+                    android:textSize="@dimen/normal_text_size" />
+                <EditText
+                    android:id="@+id/tv_lxfs"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_lxfs"
+                    android:inputType="phone"
+                    android:maxLength="13"/>
+            </RelativeLayout>
+			<View style="@style/thin_line_x" />
+             <!--  所在区域-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_szqy"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_szqy"
+                    android:layout_toRightOf="@id/iv_szqy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="所在区域　"
+                    android:textSize="@dimen/normal_text_size" />
+                <ImageView
+                    android:id="@+id/iv_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/right_" />
+                <TextView
+                    android:id="@+id/tv_szqy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/list_view_item_height_high"
+                    android:layout_toLeftOf="@+id/iv_r"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toRightOf="@+id/tv_t_szqy"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginLeft="10dip"
+                    android:gravity="center|left"
+                    android:textSize="@dimen/normal_text_size" />
+            </RelativeLayout>
+            <View style="@style/thin_line_x" />
+             <!--  门店地址-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_dz"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_dz"
+                    android:layout_toRightOf="@id/iv_dz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="门店地址　"
+                    android:textSize="@dimen/normal_text_size" />
+                <EditText
+                    android:id="@+id/tv_dz"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_dz"
+                    android:maxLength="80"
+                    />
+            </RelativeLayout>
+
+            <View style="@style/thin_line_x" />
+            <!--  证件信息-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_zjxx"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_zjxx"
+                    android:layout_toRightOf="@id/iv_zjxx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="证件信息　"
+                    android:textSize="@dimen/normal_text_size" />
+                <EditText
+                    android:id="@+id/tv_zjxx"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_zjxx"
+                    android:maxLength="30"
+                    />
+            </RelativeLayout>
+
+            <View style="@style/thin_line_x" />
+            <!--  经营范围-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_jyfw"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_jyfw"
+                    android:layout_toRightOf="@id/iv_jyfw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="经营范围　"
+                    android:textSize="@dimen/normal_text_size" />
+                <EditText
+                    android:id="@+id/tv_jyfw"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_jyfw"
+                    android:maxLength="200"/>
+            </RelativeLayout>
+
+            <View style="@style/thin_line_x" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

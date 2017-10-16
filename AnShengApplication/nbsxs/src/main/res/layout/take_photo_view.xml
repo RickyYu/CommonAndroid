@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/takephoto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_view_item_height"
+    android:orientation="horizontal" >
+    	<ImageView
+        	android:id="@+id/iv_r5"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/list_view_item_height"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/dot_blue" />
+            <TextView
+            	android:id="@+id/tv7"
+                style="@style/list_item_dot_left_text_style"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/iv_r5"
+                android:text="隐患的照片" />
+            <ImageView
+                android:id="@+id/iv_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_margin="2dip"
+                android:scaleType="center"
+                android:src="@drawable/takephoto" />
+            <HorizontalScrollView
+                android:id="@+id/scrollview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv7"
+                android:layout_toLeftOf="@id/iv_photo"
+                android:visibility="visible" >
+                <LinearLayout
+                    android:id="@+id/photos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+            </HorizontalScrollView>
+</RelativeLayout>
+            

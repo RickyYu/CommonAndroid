@@ -1,1 +1,1 @@
-include ':nbsxs', ':nbyhbz', ':widget'
+include ':nbsxs', ':nbyhbz', ':widget', ':testapp'

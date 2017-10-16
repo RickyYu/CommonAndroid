@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import com.safetys.nbsxs.base.BaseActivity;
-import com.safetys.widget.common.PrefKeys;
+import com.safetys.nbsxs.common.PrefKeys;
 import com.safetys.widget.common.ToastUtils;
+
+import static com.umeng.analytics.pro.x.R;
+
 
 public class MainActivity extends BaseActivity {
 

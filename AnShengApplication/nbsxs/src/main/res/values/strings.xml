@@ -1,3 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">松香水</string>
+
+    <string name="app_name">松香水实名</string>
+	<string name="network_error">抱歉，网络异常或后台未响应。</string>
+	<string name="has_no_data">没有查询到相关信息。</string>
+	<string name="get_data_error">后台或网络异常，获取数据失败。</string>
+	<string name="account_security_tip">你的账号在另一台设备登录，如非本人操作，请注意账号安全!</string>
+	<string name="account_security_tip2">密钥验证失败，请重新登录</string>
+	
+	<string name="upgrade_request">移动APP检测到新版本，是否立即下载？</string>
+    <string name="upgrade_is_the_latest_version">已经是最新版！</string>
+    <string name="upgrade_version_detect_exception">移动APP版本检测异常！</string>
+    <string name="upgrade_now">正在检测新版本&#8230;</string>
+    
+    <string name="company_szqy">所在区域</string>
+    <string name="company_sshy">所属行业</string>
+    <string name="company_zgbm">主管部门</string>
+    <string name="company_jjlx">经济类型</string>
+    <string name="company_gmjjfl">国民经济分类</string>
+    <string name="company_frdb">法人代表</string>
+    <string name="company_agfzr">安管负责人</string>
+    <string name="company_agfzrdh">安管负责人电话</string>
+    <string name="company_qygm">企业规模</string>
+    <string name="company_jyfw">经营范围</string>
+    
+    <string name="danger_source">录入隐患来源</string>
+    <string name="danger_des">隐患描述</string>
+    <string name="danger_yhtype">隐患类别</string>
+    <string name="danger_company_name">公司名称</string>
+    <string name="danger_lxr">联系人</string>
+    <string name="danger_lxrdh">联系电话</string>
+    <string name="danger_zgzk">整改状况</string>
+    <string name="danger_lrtime">录入时间</string>
+    <string name="danger_zgtime">整改时间</string>
+    <string name="danger_photo">隐患的照片</string>
 </resources>

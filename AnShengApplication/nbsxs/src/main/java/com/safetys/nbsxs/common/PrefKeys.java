@@ -2,6 +2,7 @@ package com.safetys.nbsxs.common;
 
 /**
  * 应用 SharedPreferences 使用的所有固定的 key name
+ * @author hehc@safetys.cn
  *
  */
 public class PrefKeys {

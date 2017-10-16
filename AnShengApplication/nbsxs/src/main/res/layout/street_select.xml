@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000">
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_marginLeft="8dip"
+    android:layout_marginRight="8dip"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="27dip"
+            android:layout_marginTop="27dip"
+            android:text="宁波市"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_marginTop="30dip"
+        android:orientation="horizontal" >
+
+       <com.safetys.nbsxs.ui.WheelView
+            android:id="@+id/id_province"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+        </com.safetys.nbsxs.ui.WheelView>
+
+        <com.safetys.nbsxs.ui.view.WheelView
+            android:id="@+id/id_city"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+        </com.safetys.nbsxs.ui.view.WheelView>
+
+        <com.safetys.nbsxs.ui.view.WheelView
+            android:id="@+id/id_district"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+        </com.safetys.nbsxs.ui.view.WheelView>
+    </LinearLayout>
+	<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dip"
+            android:layout_marginBottom="21dip" >
+
+                <TextView
+                    android:id="@+id/btn_myinfo_sure"
+                    android:layout_width="77dip"
+                    android:layout_height="33dip"
+                    android:text="确认"
+                    android:gravity="center"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dip"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/btn_myinfo_cancel"
+                    android:layout_width="77dip"
+                    android:layout_height="33dip"
+                    android:layout_toLeftOf="@+id/btn_myinfo_sure"
+                    android:gravity="center"
+                    android:text="取消"
+                    android:textSize="16sp" />
+        </RelativeLayout>
+
+</LinearLayout>
+</LinearLayout>

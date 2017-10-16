@@ -1,0 +1,419 @@
+﻿<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:windowSoftInputMode="adjustPan" >
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/common_title_bar"
+        />
+	<LinearLayout
+	    android:id="@+id/btn_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dip"
+        android:layout_marginTop="15dip"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="6" >
+
+        <LinearLayout
+        	android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal" >
+
+            <Button
+            	android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/normal_button_height"
+                android:background="@drawable/btn_normal_blue_select"
+                android:text="保存"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/title_bar" 
+        android:layout_above="@+id/btn_view"
+        >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+			<!-- 姓名-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_name"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_name"
+                    android:layout_toRightOf="@id/iv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="姓　　名"
+                    android:textSize="@dimen/normal_text_size" />
+                <EditText
+                    android:id="@+id/tv_name"
+                    android:layout_toRightOf="@+id/tv_t_name"
+                    style="@style/normal_exittext_bg_style"
+                    android:maxLength="10"/>
+            </RelativeLayout>
+
+            <View style="@style/wide_line_x" />
+            <!--  证件类型-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_idtype"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_idtype"
+                    android:layout_toRightOf="@id/iv_idtype"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="证件类型"
+                    android:textSize="@dimen/normal_text_size" />
+                <ImageView
+                    android:id="@+id/iv_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/right_" />
+                <TextView
+                    android:id="@+id/tv_idtype"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/list_view_item_height"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/tv_t_idtype"
+                    android:layout_toLeftOf="@+id/iv_r"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginLeft="10dip"
+                    android:gravity="center|left"
+                    android:textSize="@dimen/normal_text_size" 
+                    android:text="身份证"/>
+            </RelativeLayout>
+
+            <View style="@style/thin_line_x" />
+           <!--  证件号码-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_idcard"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_idcard"
+                    android:layout_toRightOf="@id/iv_idcard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="证件号码"
+                    android:textSize="@dimen/normal_text_size" />
+                <EditText
+                    android:id="@+id/tv_idcard"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_idcard"
+                    android:maxLength="30" />
+            </RelativeLayout>
+
+            <View style="@style/thin_line_x" />
+            
+             <!-- 品名-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_pm"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_pm"
+                    android:layout_toRightOf="@id/iv_pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="品　　名"
+                    android:textSize="@dimen/normal_text_size" />
+                <EditText
+                    android:id="@+id/tv_pm"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_pm"
+                    android:maxLength="10"/>
+            </RelativeLayout>
+
+            <View style="@style/thin_line_x" />
+            <!--  数量-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_num"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_num"
+                    android:layout_toRightOf="@id/iv_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="数量(升) "
+                    android:textSize="@dimen/normal_text_size" />
+                <EditText
+                    android:id="@+id/tv_num"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_num"
+                    android:inputType="numberDecimal"
+                    android:maxLength="8"/>
+            </RelativeLayout>
+
+            <View style="@style/thin_line_x" />
+             <!--  联系电话-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_tel"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_tel"
+                    android:layout_toRightOf="@id/iv_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="联系电话"
+                    android:textSize="@dimen/normal_text_size" 
+                    />
+
+                <EditText
+                    android:id="@+id/tv_tel"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_tel"
+                    android:inputType="phone"           
+                    android:maxLength="13"/>
+            </RelativeLayout>
+            <View style="@style/thin_line_x" />
+            <!--  住址-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_address"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_address"
+                    android:layout_toRightOf="@id/iv_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="现  住 址 "
+                    android:textSize="@dimen/normal_text_size" 
+                    />
+                <EditText
+                    android:id="@+id/tv_address"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_address"
+                    android:hint="选填"
+                    android:maxLength="80"/>
+            </RelativeLayout>
+
+            <View style="@style/thin_line_x" />
+            <!--  所在单位-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_unit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_unit"
+                    android:layout_toRightOf="@id/iv_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="所在单位"
+                    android:textSize="@dimen/normal_text_size" 
+                    />
+                <EditText
+                    android:id="@+id/tv_unit"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_unit"
+                    android:hint="选填"
+                    android:maxLength="80"/>
+            </RelativeLayout>
+			<View style="@style/thin_line_x" />
+             <!--  经办人-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_unit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_operator"
+                    android:layout_toRightOf="@id/iv_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="经  办 人 "
+                    android:textSize="@dimen/normal_text_size" 
+                    />
+                <EditText
+                    android:id="@+id/tv_operator"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_operator"
+                    android:hint="选填"
+                    android:maxLength="80"/>
+            </RelativeLayout>
+			<View style="@style/thin_line_x" />
+            <!--  用途-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:id="@+id/iv_yt"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_yt"
+                    android:layout_toRightOf="@id/iv_yt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="用　　途"
+                    android:textSize="@dimen/normal_text_size" 
+                    />
+                <EditText
+                    android:id="@+id/tv_yt"
+                    style="@style/normal_exittext_bg_style"
+                    android:layout_toRightOf="@+id/tv_t_yt"
+                    android:hint="选填"
+                    android:maxLength="50"/>
+            </RelativeLayout>
+
+            <View style="@style/thin_line_x" />
+            <!--  购买时间-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                android:id="@+id/view_time"
+                android:visibility="gone">
+                <ImageView
+                    android:id="@+id/iv_time"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:src="@drawable/dot_blue" />
+                <TextView
+                    android:id="@+id/tv_t_time"
+                    android:layout_toRightOf="@id/iv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/list_view_item_height_high"
+                    android:layout_marginLeft="5dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines= "1"
+                    android:text="购买时间"
+                    android:textSize="@dimen/normal_text_size" />
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/list_view_item_height_high"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toRightOf="@+id/tv_t_time"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginLeft="10dip"
+                    android:gravity="center|left"
+                    android:textSize="@dimen/normal_text_size" />
+            </RelativeLayout>
+            <View 
+                android:id="@+id/view_line"
+                style="@style/thin_line_x" 
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
