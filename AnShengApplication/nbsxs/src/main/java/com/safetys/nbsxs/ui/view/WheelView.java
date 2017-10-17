@@ -19,11 +19,6 @@
 
 package com.safetys.nbsxs.ui.view;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.wheel.widget.adapters.WheelViewAdapter;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.graphics.Canvas;
@@ -36,6 +31,12 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
+
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.adapter.WheelViewAdapter;
+
+import java.util.LinkedList;
+import java.util.List;
 
 
 /**

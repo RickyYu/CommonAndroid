@@ -8,7 +8,6 @@ import android.view.View;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.safetys.widget.common.AppUtils;
-import com.safetys.widget.common.SDCardUtils;
 import com.safetys.widget.common.SPUtils;
 import com.safetys.widget.common.ScreenUtils;
 import com.safetys.widget.common.ToastUtils;
@@ -23,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         mContext = getApplicationContext();
         Logger.addLogAdapter(new AndroidLogAdapter());
         Logger.d("hello");
+
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override

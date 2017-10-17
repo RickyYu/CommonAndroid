@@ -1,6 +1,5 @@
 package com.safetys.nbsxs.ui.view;
 
-import cn.safetys.nbsxs.R;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -12,7 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import static com.umeng.analytics.pro.x.R;
+import com.safetys.nbsxs.R;
+
 
 public class SearchBar extends LinearLayout implements View.OnClickListener {
 

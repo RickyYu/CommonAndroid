@@ -2,8 +2,10 @@ package com.safetys.widget.common;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +34,7 @@ public class SPUtils {
             util = new SPUtils(context, name);
         }
     }
+
     /**
      * 保存数据到SharedPreferences
      *
@@ -129,7 +132,7 @@ public class SPUtils {
         boolean result;
         String type = list.get(0).getClass().getSimpleName();
         SharedPreferences.Editor editor = sp.edit();
-       // JsonArray array = new JsonArray();
+        // JsonArray array = new JsonArray();
         JSONArray array = new JSONArray();
         try {
             switch (type) {
@@ -184,7 +187,7 @@ public class SPUtils {
         if (!json.equals("") && json.length() > 0) {
             list = JSON.parseArray(json, cls);
         }
-        return  list;
+        return list;
     }
 
     /**
@@ -198,7 +201,7 @@ public class SPUtils {
         boolean result;
         SharedPreferences.Editor editor = sp.edit();
         try {
-           String json = JSON.toJSONString(map);
+            String json = JSON.toJSONString(map);
             editor.putString(key, json);
             result = true;
         } catch (Exception e) {
@@ -211,6 +214,7 @@ public class SPUtils {
 
     /**
      * 获取map集合
+     *
      * @param key key
      * @return HashMap
      */
@@ -221,10 +225,10 @@ public class SPUtils {
 
     /**
      * 移除某个key值已经对应的值
+     *
      * @param key
      */
-    public static void remove(String key)
-    {
+    public static void remove(String key) {
         SharedPreferences.Editor editor = sp.edit();
         editor.remove(key);
         editor.apply();
@@ -233,8 +237,7 @@ public class SPUtils {
     /**
      * 清除所有数据
      */
-    public static void clear()
-    {
+    public static void clear() {
         SharedPreferences.Editor editor = sp.edit();
         editor.clear();
         editor.apply();
@@ -242,20 +245,20 @@ public class SPUtils {
 
     /**
      * 查询某个key是否已经存在
+     *
      * @param key
      * @return
      */
-    public static boolean contains(String key)
-    {
+    public static boolean contains(String key) {
         return sp.contains(key);
     }
 
     /**
      * 返回所有的键值对
+     *
      * @return
      */
-    public static Map<String, ?> getAll()
-    {
+    public static Map<String, ?> getAll() {
         return sp.getAll();
     }
 

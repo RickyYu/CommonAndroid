@@ -212,10 +212,4 @@
                 android:textSize="10sp" />
         </LinearLayout>
     </RelativeLayout>
-    <com.sobin.library.TransitionView
-        android:id="@+id/ani_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="invisible">
-    </com.sobin.library.TransitionView>
 </RelativeLayout>

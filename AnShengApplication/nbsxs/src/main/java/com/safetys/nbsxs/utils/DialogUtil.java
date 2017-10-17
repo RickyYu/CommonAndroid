@@ -1,7 +1,5 @@
 package com.safetys.nbsxs.utils;
 
-import cn.safetys.nbsxs.LoginActivity;
-import cn.safetys.nbsxs.R;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,6 +15,9 @@ import android.provider.Settings;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
+
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.ui.activity.LoginActivity;
 
 /**
  * 基本 Dialog 工具
@@ -39,7 +40,7 @@ public class DialogUtil {
 		}
 	};
 
-	private static cn.safetys.nbsxs.widget.Dialog mDialog;
+	private static com.safetys.nbsxs.ui.view.Dialog mDialog;
 
 	public static void showProgressDialog(Context context, int title,
 			int message) {
@@ -189,7 +190,7 @@ public class DialogUtil {
 			
 		}
 		try{
-			mDialog = new cn.safetys.nbsxs.widget.Dialog(mActivity,"提示",hintString);
+			mDialog = new com.safetys.nbsxs.ui.view.Dialog(mActivity,"提示",hintString);
 			if (hintString.equals(mActivity
 					.getString(R.string.account_security_tip))
 					||hintString.equals(mActivity
@@ -233,8 +234,8 @@ public class DialogUtil {
 	 */
 	public static void showMsgDialog2(final Activity mActivity,String hintString,String cancelStr,boolean onFinishClick,OnClickListener mOnClickListener){
 		try{
-			cn.safetys.nbsxs.widget.Dialog mDialog = 
-					new cn.safetys.nbsxs.widget.Dialog(mActivity,"提示",hintString);
+			com.safetys.nbsxs.ui.view.Dialog mDialog =
+					new com.safetys.nbsxs.ui.view.Dialog(mActivity,"提示",hintString);
 			if(onFinishClick){
 				mDialog.setOnAcceptButtonClickListener(new OnClickListener() {
 					
@@ -258,12 +259,12 @@ public class DialogUtil {
 	
 	/**
 	 * 带取消按钮的提示框
-	 * @param mActivity
+	 * @param mContext
 	 */
 	public static void showMsgDialog2(final Context mContext,String hintString,String cancelStr,OnClickListener mOnClickListener){
 		try{
-			cn.safetys.nbsxs.widget.Dialog mDialog = 
-					new cn.safetys.nbsxs.widget.Dialog(mContext,"提示",hintString);
+			com.safetys.nbsxs.ui.view.Dialog mDialog =
+					new com.safetys.nbsxs.ui.view.Dialog(mContext,"提示",hintString);
 			if(mOnClickListener != null){
 				mDialog.setOnAcceptButtonClickListener(mOnClickListener);
 			}
@@ -278,7 +279,7 @@ public class DialogUtil {
 	/**
 	 * 带取消按钮的提示框
 	 * 
-	 * @param mActivity
+	 * @param mContext
 	 */
 	public static void showSystemMsgDialog(final Context mContext,
 			String hintString, String cancelStr,
@@ -293,7 +294,7 @@ public class DialogUtil {
 				return;
 			} else {
 				try {
-					cn.safetys.nbsxs.widget.Dialog mDialog = new cn.safetys.nbsxs.widget.Dialog(
+					com.safetys.nbsxs.ui.view.Dialog mDialog = new com.safetys.nbsxs.ui.view.Dialog(
 							mContext, "提示", hintString);
 					if (mOnClickListener != null) {
 						mDialog.setOnAcceptButtonClickListener(mOnClickListener);
@@ -309,7 +310,7 @@ public class DialogUtil {
 			}
 		} else {
 			try {
-				cn.safetys.nbsxs.widget.Dialog mDialog = new cn.safetys.nbsxs.widget.Dialog(
+				com.safetys.nbsxs.ui.view.Dialog mDialog = new com.safetys.nbsxs.ui.view.Dialog(
 						mContext, "提示", hintString);
 				if (mOnClickListener != null) {
 					mDialog.setOnAcceptButtonClickListener(mOnClickListener);

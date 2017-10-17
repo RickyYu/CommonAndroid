@@ -1,10 +1,5 @@
 package com.safetys.nbsxs.ui.view;
 
-import java.io.File;
-import java.util.UUID;
-
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.config.AppConfig;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +9,12 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.common.AppConfig;
+
+import java.io.File;
+import java.util.UUID;
 
 
 /**

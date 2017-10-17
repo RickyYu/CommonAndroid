@@ -1,15 +1,9 @@
 package com.safetys.nbsxs.ui.view;
 
-import java.text.SimpleDateFormat;
-
-import cn.safetys.nbsxs.R;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.RotateAnimation;
 import android.widget.AbsListView;
@@ -18,6 +12,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.safetys.nbsxs.R;
+
+import java.text.SimpleDateFormat;
 
 public class PullToRefresh extends ListView implements OnScrollListener {
 

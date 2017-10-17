@@ -1,7 +1,7 @@
 package com.safetys.nbsxs.http;
 
-import cn.safetys.nbsxs.bean.JsonResult;
 
+import com.safetys.nbsxs.entity.JsonResult;
 
 /**
  * @author sjw

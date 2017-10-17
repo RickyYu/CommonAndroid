@@ -1,24 +1,21 @@
 package com.safetys.nbsxs.ui.activity;
 
-import org.xutils.x;
-
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.base.BaseActivity;
-import cn.safetys.nbsxs.util.DialogUtil;
-import cn.safetys.nbsxs.util.ImageUtil;
-import android.app.Activity;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageView;
 
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.base.BaseActivity;
+
+import org.xutils.x;
+
 /**
  * 图片查看
  *
  */
-public class ViewPhotoActivity extends BaseActivity{
+public class ViewPhotoActivity extends BaseActivity {
 
 	private ImageView mPhotoShow;
 	

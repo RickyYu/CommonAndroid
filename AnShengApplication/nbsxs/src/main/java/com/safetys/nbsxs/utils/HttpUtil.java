@@ -1,20 +1,19 @@
 package com.safetys.nbsxs.utils;
 
-import java.net.URLEncoder;
+import com.alibaba.fastjson.JSON;
+import com.orhanobut.logger.Logger;
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.entity.JsonResult;
+import com.safetys.nbsxs.http.onNetCallback;
+
+import org.xutils.common.Callback.Cancelable;
+import org.xutils.common.Callback.CommonCallback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
+
 import java.util.Iterator;
 import java.util.Map;
 
-import org.xutils.x;
-import org.xutils.common.Callback.Cancelable;
-import org.xutils.common.Callback.CommonCallback;
-import org.xutils.common.util.LogUtil;
-import org.xutils.http.RequestParams;
-
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.bean.JsonResult;
-import cn.safetys.nbsxs.http.onNetCallback;
-
-import com.alibaba.fastjson.JSON;
 
 
 /**
@@ -33,7 +32,7 @@ public class HttpUtil {
 	 * @param requestCode 请求的code，用户返回时区分
 	 * @param mListener 监听
 	 */
-	public static Cancelable sendRequestWithCookie(String uri,String key,boolean hasFile,Map<String , Object> mDatas,final int requestCode,final onNetCallback mListener,int timeout){
+	public static Cancelable sendRequestWithCookie(String uri, String key, boolean hasFile, Map<String , Object> mDatas, final int requestCode, final onNetCallback mListener, int timeout){
 		RequestParams mParams = new RequestParams(uri);
 		/*在Cookie中加入登录返回的key*/
 		if(key!=null){
@@ -80,7 +79,7 @@ public class HttpUtil {
 
 			@Override
 			public void onSuccess(String jsonStr) {
-				LogUtil.i("jsonStr："+jsonStr);
+				Logger.i("jsonStr："+jsonStr);
 				//解析一次，看返回的消息是否为正确信息
 				JsonResult mJsonResult = JSON.parseObject(jsonStr, JsonResult.class);
 				if(mJsonResult.isSuccess()){

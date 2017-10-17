@@ -1,30 +1,31 @@
 package com.safetys.nbsxs.ui.activity;
 
 
-import com.alibaba.fastjson.JSON;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.base.BaseActivity;
-import cn.safetys.nbsxs.bean.CompanyVo;
-import cn.safetys.nbsxs.bean.JsonResult;
-import cn.safetys.nbsxs.http.HttpRequestHelper;
-import cn.safetys.nbsxs.http.onNetCallback;
-import cn.safetys.nbsxs.util.CheckPhoneUtil;
-import cn.safetys.nbsxs.util.DialogUtil;
-import cn.safetys.nbsxs.util.LoadingDialogUtil;
-import cn.safetys.nbsxs.util.StringUtil;
-import cn.safetys.nbsxs.util.ToastUtils;
-import cn.safetys.nbsxs.wheel.widget.views.StreetSelectDialog;
+
+import com.alibaba.fastjson.JSON;
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.base.BaseActivity;
+import com.safetys.nbsxs.entity.CompanyVo;
+import com.safetys.nbsxs.entity.JsonResult;
+import com.safetys.nbsxs.http.HttpRequestHelper;
+import com.safetys.nbsxs.http.onNetCallback;
+import com.safetys.nbsxs.ui.view.StreetSelectDialog;
+import com.safetys.nbsxs.utils.CheckPhoneUtil;
+import com.safetys.nbsxs.utils.DialogUtil;
+import com.safetys.nbsxs.utils.LoadingDialogUtil;
+import com.safetys.nbsxs.utils.StringUtil;
+import com.safetys.widget.common.ToastUtils;
+
 
 /**
  * 门店基本信息界面
  */
-public class CompanyActivity extends BaseActivity implements OnClickListener,onNetCallback{
+public class CompanyActivity extends BaseActivity implements OnClickListener,onNetCallback {
 
 	private View btn_back;
 	private TextView mTv_mdmc;//门店名称
@@ -76,7 +77,7 @@ public class CompanyActivity extends BaseActivity implements OnClickListener,onN
 			
 			@Override
 			public void onClick(View v) {
-				StreetSelectDialog mDialog = new StreetSelectDialog(CompanyActivity.this, 
+				StreetSelectDialog mDialog = new StreetSelectDialog(CompanyActivity.this,
 						new StreetSelectDialog.OnTextCListener() {
 							@Override
 							public void onClick(String msText,String mtText,String mfText, String scode, String tcode, String fcode) {

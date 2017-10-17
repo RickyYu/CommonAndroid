@@ -1,10 +1,10 @@
 package com.safetys.nbsxs.base;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -22,7 +22,7 @@ import org.xutils.image.ImageOptions;
  * Email:584182977@qq.com
  * Description:
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends Activity {
     private ImageOptions mImageOptions;//加载图片的格式设置
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
@@ -45,7 +45,7 @@ public class BaseActivity extends AppCompatActivity {
     /**
      * 返回按钮监听
      */
-    public void setBackBtnClick(OnClickListener mListener){
+    public void setBackBtnClick(View.OnClickListener mListener){
         findViewById(R.id.btn_back).setOnClickListener(mListener);
     }
 
@@ -65,7 +65,7 @@ public class BaseActivity extends AppCompatActivity {
     /**
      * 右侧文字按钮监听
      */
-    public void setRightBtnClick(OnClickListener mListener){
+    public void setRightBtnClick(View.OnClickListener mListener){
         findViewById(R.id.title_right).setOnClickListener(mListener);
     }
 
@@ -82,7 +82,7 @@ public class BaseActivity extends AppCompatActivity {
     /**
      * 右侧背景按钮监听
      */
-    public void setRightImgBtnClick(OnClickListener mListener){
+    public void setRightImgBtnClick(View.OnClickListener mListener){
         findViewById(R.id.iv_right).setOnClickListener(mListener);
     }
 

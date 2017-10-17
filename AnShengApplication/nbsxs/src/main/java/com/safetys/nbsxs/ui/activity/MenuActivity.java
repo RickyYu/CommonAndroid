@@ -1,10 +1,5 @@
 package com.safetys.nbsxs.ui.activity;
 
-import java.util.List;
-
-import com.alibaba.fastjson.JSON;
-import com.safetys.nbsxs.R;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -12,20 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.activity.CompanyActivity;
-import cn.safetys.nbsxs.activity.SellListActivity;
-import cn.safetys.nbsxs.activity.RegisterActivity;
-import cn.safetys.nbsxs.activity.SettingActivity;
-import cn.safetys.nbsxs.base.AppApplication;
-import cn.safetys.nbsxs.base.BaseActivity;
-import cn.safetys.nbsxs.bean.CountInfo;
-import cn.safetys.nbsxs.bean.JsonResult;
-import cn.safetys.nbsxs.config.PrefKeys;
-import cn.safetys.nbsxs.http.HttpRequestHelper;
-import cn.safetys.nbsxs.http.onNetCallback;
 
-public class MenuActivity extends BaseActivity implements OnClickListener,onNetCallback{
+import com.alibaba.fastjson.JSON;
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.SxsApplication;
+import com.safetys.nbsxs.base.BaseActivity;
+import com.safetys.nbsxs.common.PrefKeys;
+import com.safetys.nbsxs.entity.CountInfo;
+import com.safetys.nbsxs.entity.JsonResult;
+import com.safetys.nbsxs.http.HttpRequestHelper;
+import com.safetys.nbsxs.http.onNetCallback;
+
+import java.util.List;
+
+
+public class MenuActivity extends BaseActivity implements OnClickListener,onNetCallback {
 
 	private View btn_qy;
 	private View btn_ls;
@@ -101,7 +97,7 @@ public class MenuActivity extends BaseActivity implements OnClickListener,onNetC
 		// TODO Auto-generated method stub
 		super.onResume();
 		//第一次登录的时候，默认先跳转到企业信息界面
-		SharedPreferences mPreferences = ((AppApplication)getApplicationContext()).getAppMainPreferences();
+		SharedPreferences mPreferences = ((SxsApplication)getApplicationContext()).getAppMainPreferences();
 		if(!mPreferences.getBoolean(PrefKeys.PREF_NOT_IS_FIRST_LOGIN, false)){
 			Editor mEditor = mPreferences.edit();
 			mEditor.putBoolean(PrefKeys.PREF_NOT_IS_FIRST_LOGIN, true);

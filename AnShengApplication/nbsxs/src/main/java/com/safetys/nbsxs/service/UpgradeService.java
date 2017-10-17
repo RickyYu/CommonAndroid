@@ -1,20 +1,5 @@
 package com.safetys.nbsxs.service;
 
-import org.xutils.x;
-import org.xutils.common.util.LogUtil;
-
-import cn.safetys.nbsxs.base.AppApplication;
-import cn.safetys.nbsxs.bean.JsonResult;
-import cn.safetys.nbsxs.bean.VerInfo;
-import cn.safetys.nbsxs.config.AppConfig;
-import cn.safetys.nbsxs.config.PrefKeys;
-import cn.safetys.nbsxs.http.HttpRequestHelper;
-import cn.safetys.nbsxs.http.onNetCallback;
-import cn.safetys.nbsxs.util.DialogUtil;
-import cn.safetys.nbsxs.util.DownloadFileUtil;
-
-import com.alibaba.fastjson.JSON;
-
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
@@ -22,9 +7,23 @@ import android.os.IBinder;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-public class UpgradeService extends Service implements onNetCallback{
+import com.alibaba.fastjson.JSON;
+import com.safetys.nbsxs.SxsApplication;
+import com.safetys.nbsxs.common.AppConfig;
+import com.safetys.nbsxs.common.PrefKeys;
+import com.safetys.nbsxs.entity.JsonResult;
+import com.safetys.nbsxs.entity.VerInfo;
+import com.safetys.nbsxs.http.HttpRequestHelper;
+import com.safetys.nbsxs.http.onNetCallback;
+import com.safetys.nbsxs.utils.DialogUtil;
+import com.safetys.nbsxs.utils.DownloadFileUtil;
+import com.safetys.widget.common.SPUtils;
+
+import org.xutils.x;
+
+public class UpgradeService extends Service implements onNetCallback {
 	private int count = 0;
-	public static final String ACTION_UPGRADE = "cn.safetys.nbsxs.service.UpgradeService";
+	public static final String ACTION_UPGRADE = "com.safetys.nbsxs.service.UpgradeService";
 	private static VerInfo newVerInfo;
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -32,10 +31,7 @@ public class UpgradeService extends Service implements onNetCallback{
 	}
 	@Override
 	public void onCreate() {
-		Editor mEditor = ((AppApplication)getApplicationContext()).getAppMainPreferences().edit();
-		mEditor.putBoolean(PrefKeys.PREF_HAVE_NEW_VERSION, false);
-		mEditor.commit();
-//		Toast.makeText(this, R.string.upgrade_now, Toast.LENGTH_LONG).show();
+		SPUtils.saveData(PrefKeys.PREF_HAVE_NEW_VERSION, false);
 		HttpRequestHelper.getInstance().getVersionInfo(this, 0, this);
 	}
 
@@ -62,9 +58,7 @@ public class UpgradeService extends Service implements onNetCallback{
 		}
 		if ((newVerNum-verNum) > 0) {
 			//有新版本
-			Editor mEditor = ((AppApplication)x.app()).getAppMainPreferences().edit();
-			mEditor.putBoolean(PrefKeys.PREF_HAVE_NEW_VERSION, true);
-			mEditor.commit();
+			SPUtils.saveData(PrefKeys.PREF_HAVE_NEW_VERSION, true)
 			// 提示下载
 			DialogUtil.showSystemMsgDialog(this, "检查到最新版本，是否立即下载？", "取消", new OnClickListener(){
 
@@ -78,9 +72,7 @@ public class UpgradeService extends Service implements onNetCallback{
 			});
 		}else{
 			//无新版本
-			Editor mEditor = ((AppApplication)x.app()).getAppMainPreferences().edit();
-			mEditor.putBoolean(PrefKeys.PREF_HAVE_NEW_VERSION, false);
-			mEditor.commit();
+			SPUtils.saveData(PrefKeys.PREF_HAVE_NEW_VERSION, false);
 		}
 		stopSelf();
 	}

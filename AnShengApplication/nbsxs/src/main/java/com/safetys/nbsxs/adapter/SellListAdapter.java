@@ -10,12 +10,14 @@ import android.widget.AbsListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.entity.RegisterInfo;
+import com.safetys.nbsxs.utils.StringUtil;
+
 import java.util.List;
 
 
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.bean.RegisterInfo;
-import cn.safetys.nbsxs.util.StringUtil;
+
 
 /**
  * 销售历史信息列表适配器
@@ -78,7 +80,7 @@ public class SellListAdapter extends BaseListAdapter<RegisterInfo> {
 //        					+" "+"数量:"+mDataList.get(position).getProductNumber());
         	
         	holder.mTextView1.setText(mDataList.get(position).getName()+"购买（"+mDataList.get(position).getProductName()+"）"+mDataList.get(position).getProductNumber()+"升");
-        	holder.mTextView2.setText("联系电话:"+StringUtil.nvl(mDataList.get(position).getPhone()));
+        	holder.mTextView2.setText("联系电话:"+ StringUtil.nvl(mDataList.get(position).getPhone()));
 //        	holder.mTextView3.setText();
         	holder.mTextView4.setText(mDataList.get(position).getPayTime());
         }

@@ -1,40 +1,38 @@
 package com.safetys.nbsxs.ui.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.xutils.common.Callback.Cancelable;
-
-import com.alibaba.fastjson.JSON;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.adapter.SellListAdapter;
-import cn.safetys.nbsxs.base.AppApplication;
-import cn.safetys.nbsxs.base.BaseActivity;
-import cn.safetys.nbsxs.bean.JsonResult;
-import cn.safetys.nbsxs.bean.RegisterInfo;
-import cn.safetys.nbsxs.http.HttpRequestHelper;
-import cn.safetys.nbsxs.http.onNetCallback;
-import cn.safetys.nbsxs.util.DialogUtil;
-import cn.safetys.nbsxs.util.HttpUtil;
-import cn.safetys.nbsxs.util.ToastUtils;
-import cn.safetys.nbsxs.view.LoadMoreListView;
-import cn.safetys.nbsxs.view.SearchBar;
-import cn.safetys.nbsxs.view.SearchBar.onSearchListener;
+
+import com.alibaba.fastjson.JSON;
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.adapter.SellListAdapter;
+import com.safetys.nbsxs.base.BaseActivity;
+import com.safetys.nbsxs.entity.JsonResult;
+import com.safetys.nbsxs.entity.RegisterInfo;
+import com.safetys.nbsxs.http.HttpRequestHelper;
+import com.safetys.nbsxs.http.onNetCallback;
+import com.safetys.nbsxs.ui.view.LoadMoreListView;
+import com.safetys.nbsxs.ui.view.SearchBar;
+import com.safetys.nbsxs.utils.DialogUtil;
+import com.safetys.nbsxs.utils.HttpUtil;
+import com.safetys.widget.common.ToastUtils;
+
+import org.xutils.common.Callback.Cancelable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /** 
  * 销售历史--列表
  */
-public class SellListActivity extends BaseActivity implements 
+public class SellListActivity extends BaseActivity implements
 	OnClickListener,
-	cn.safetys.nbsxs.view.LoadMoreListView.OnRefreshListener,
-	onNetCallback{
+	com.safetys.nbsxs.ui.view.LoadMoreListView.OnRefreshListener,
+		onNetCallback {
 	
 	private static final int FLAG_ORDER_TIME = 1;
 	private static final int FLAG_ORDER_NUM = 2;
@@ -130,7 +128,7 @@ public class SellListActivity extends BaseActivity implements
 		
 
 		searchBar = (SearchBar) findViewById(R.id.search_bar);
-		searchBar.setOnSearchListener(new onSearchListener() {
+		searchBar.setOnSearchListener(new SearchBar.onSearchListener() {
 			
 			@Override
 			public void onSearchButtonClick(String searchStr) {
@@ -196,7 +194,7 @@ public class SellListActivity extends BaseActivity implements
 		if(orderFlag == FLAG_ORDER_NUM){
 			productNumber = "true";
 		}
-		return HttpRequestHelper.getInstance().getSellList(SellListActivity.this, 
+		return HttpRequestHelper.getInstance().getSellList(SellListActivity.this,
 				searchBar.getSearchData(), mListView.getItemCount(),productNumber, SellListActivity.this);
 	}
 	

@@ -14,15 +14,80 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity" >
+
+       <!--友盟统计-->
+        <meta-data android:value="59e0567abbea8324b0000013" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="Personal ID" android:name="UMENG_CHANNEL"/>
+
+        <!-- 欢迎界面 -->
+        <activity
+            android:name=".ui.activity.WelComeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       <!--友盟统计-->
-        <meta-data android:value="59e0567abbea8324b0000013" android:name="UMENG_APPKEY"/>
-        <meta-data android:value="Personal ID" android:name="UMENG_CHANNEL"/>
+        <!-- 登录界面 -->
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <!-- 主界面 -->
+        <activity
+            android:name=".ui.activity.MenuActivity"
+            android:screenOrientation="portrait" >
+
+        </activity>
+        <!-- 企业基本信息界面 -->
+        <activity
+            android:name=".ui.activity.CompanyActivity"
+            android:screenOrientation="portrait" >
+
+        </activity>
+        <!-- 销售实名登记界面 -->
+        <activity
+            android:name=".ui.activity.RegisterActivity"
+            android:screenOrientation="portrait" >
+
+        </activity>
+        <!-- 销售实名登记界面 -->
+        <activity
+            android:name=".ui.activity.RegisterShowActivity"
+            android:screenOrientation="portrait" >
+
+        </activity>
+        <!-- 销售记录列表界面 -->
+        <activity
+            android:name=".ui.activity.SellListActivity"
+            android:screenOrientation="portrait" >
+
+        </activity>
+        <!-- 修改密码界面 -->
+        <activity
+            android:name=".ui.activity.ChangePasswordActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 修改电话界面 -->
+        <activity
+            android:name=".ui.activity.PhoneChangeActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 照片显示 -->
+        <activity
+            android:name=".ui.activity.ViewPhotoActivity"
+            android:screenOrientation="portrait" />
+        <!-- 个人中心 -->
+        <activity
+            android:name=".ui.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <!-- 版本检测更新 -->
+        <service
+            android:name=".service.UpgradeService"
+            android:exported="false" >
+        </service>
+
+
     </application>
 
 </manifest>

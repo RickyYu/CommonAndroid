@@ -1,23 +1,6 @@
 package com.safetys.nbsxs.service;
 
 
-import org.xutils.x;
-import org.xutils.common.util.LogUtil;
-
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.base.*;
-import cn.safetys.nbsxs.bean.JsonResult;
-import cn.safetys.nbsxs.bean.VerInfo;
-import cn.safetys.nbsxs.config.AppConfig;
-import cn.safetys.nbsxs.config.Const;
-import cn.safetys.nbsxs.config.PrefKeys;
-import cn.safetys.nbsxs.http.HttpRequestHelper;
-import cn.safetys.nbsxs.http.onNetCallback;
-import cn.safetys.nbsxs.util.DialogUtil;
-import cn.safetys.nbsxs.util.DownloadFileUtil;
-
-import com.alibaba.fastjson.JSON;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
@@ -27,11 +10,28 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.SxsApplication;
+import com.safetys.nbsxs.common.AppConfig;
+import com.safetys.nbsxs.common.Const;
+import com.safetys.nbsxs.common.PrefKeys;
+import com.safetys.nbsxs.entity.JsonResult;
+import com.safetys.nbsxs.entity.VerInfo;
+import com.safetys.nbsxs.http.HttpRequestHelper;
+import com.safetys.nbsxs.http.onNetCallback;
+import com.safetys.nbsxs.utils.DialogUtil;
+import com.safetys.nbsxs.utils.DownloadFileUtil;
+
+import org.xutils.x;
+
+
+
 /**
  * 升级装饰器
  */
 public class UpgradeDetector {
-	private  Activity mActivity;
+	private Activity mActivity;
 	private  String errorMsg;
 	// 检查更新结果处理者
 	private Handler handler = null;
@@ -53,7 +53,7 @@ public class UpgradeDetector {
 				int newVerNum = verNum;
 				if(newVerInfo != null){
 					newVerNum = Integer.parseInt(newVerInfo.getVersionNum());
-					Editor mEditor = ((AppApplication)x.app()).getAppMainPreferences().edit();
+					Editor mEditor = ((SxsApplication)x.app()).getAppMainPreferences().edit();
 					mEditor.putBoolean(PrefKeys.PREF_HAVE_NEW_VERSION, true);
 					mEditor.commit();
 				}
@@ -81,7 +81,7 @@ public class UpgradeDetector {
 			@Override
 			public void handleMessage(Message msg) {
 				//停止服务
-				((AppApplication)x.app()).stopUploadService();
+				((SxsApplication)x.app()).stopUploadService();
 				int what = msg.what;
 				Object isBackstage = msg.obj;
 				//发送关闭广播
@@ -93,7 +93,7 @@ public class UpgradeDetector {
 				
 				if (what > 0) {
 					//有新版本
-					Editor mEditor = ((AppApplication)x.app()).getAppMainPreferences().edit();
+					Editor mEditor = ((SxsApplication)x.app()).getAppMainPreferences().edit();
 					mEditor.putBoolean(PrefKeys.PREF_HAVE_NEW_VERSION, true);
 					mEditor.commit();
 					// 提示下载

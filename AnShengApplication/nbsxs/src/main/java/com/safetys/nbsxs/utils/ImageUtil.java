@@ -1,16 +1,5 @@
 package com.safetys.nbsxs.utils;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import org.xutils.common.util.DensityUtil;
-import org.xutils.image.ImageOptions;
-
-import cn.safetys.nbsxs.activity.ViewPhotoActivity;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
@@ -20,7 +9,11 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
-import android.widget.ImageView;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * 通过compress的方法只是减小了文件的大小，但是并不能保证减低bitmap文件解码后在内存的占用量，

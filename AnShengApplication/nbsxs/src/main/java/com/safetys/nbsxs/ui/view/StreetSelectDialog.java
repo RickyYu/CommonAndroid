@@ -1,6 +1,26 @@
 package com.safetys.nbsxs.ui.view;
 
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.res.AssetManager;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.adapter.AbstractWheelTextAdapter;
+import com.safetys.nbsxs.common.AppConfig;
+import com.safetys.nbsxs.entity.CityModel;
+import com.safetys.nbsxs.entity.DistrictModel;
+import com.safetys.nbsxs.entity.ProvinceModel;
+import com.safetys.nbsxs.service.XmlParserHandler;
+
+import org.xutils.common.util.LogUtil;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -11,27 +31,6 @@ import java.util.Map;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-
-import org.xutils.common.util.LogUtil;
-
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.bean.CityModel;
-import cn.safetys.nbsxs.bean.DistrictModel;
-import cn.safetys.nbsxs.bean.ProvinceModel;
-import cn.safetys.nbsxs.config.AppConfig;
-import cn.safetys.nbsxs.service.XmlParserHandler;
-import cn.safetys.nbsxs.wheel.widget.adapters.AbstractWheelTextAdapter;
-import cn.safetys.nbsxs.wheel.widget.adapters.ArrayWheelAdapter;
-import android.os.Bundle;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * @author sjw
@@ -57,7 +56,7 @@ public class StreetSelectDialog extends Dialog implements OnClickListener, OnWhe
 	private int minsize = 14;
 
 	public StreetSelectDialog(Context context,OnTextCListener mListener) {
-		super(context,cn.safetys.nbsxs.R.style.ShareDialog);
+		super(context,com.safetys.nbsxs.R.style.ShareDialog);
 		this.mListener = mListener;
 	}
 	

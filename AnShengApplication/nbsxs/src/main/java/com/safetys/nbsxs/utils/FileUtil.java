@@ -1,5 +1,14 @@
 package com.safetys.nbsxs.utils;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.widget.Toast;
+
+import com.safetys.nbsxs.common.AppConfig;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -9,14 +18,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
-
-import cn.safetys.nbsxs.config.AppConfig;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.widget.Toast;
 
 public class FileUtil {
 	private static final String[][] MIME_MapTable={

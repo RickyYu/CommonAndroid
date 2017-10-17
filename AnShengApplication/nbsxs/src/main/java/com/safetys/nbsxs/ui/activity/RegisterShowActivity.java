@@ -1,14 +1,6 @@
 package com.safetys.nbsxs.ui.activity;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.xutils.common.util.LogUtil;
-
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,30 +9,30 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.base.AppApplication;
-import cn.safetys.nbsxs.base.BaseActivity;
-import cn.safetys.nbsxs.bean.CompanyVo;
-import cn.safetys.nbsxs.bean.JsonResult;
-import cn.safetys.nbsxs.bean.RegisterInfo;
-import cn.safetys.nbsxs.config.IdTypeEnum;
-import cn.safetys.nbsxs.http.HttpRequestHelper;
-import cn.safetys.nbsxs.http.onNetCallback;
-import cn.safetys.nbsxs.util.CheckPhoneUtil;
-import cn.safetys.nbsxs.util.DialogUtil;
-import cn.safetys.nbsxs.util.IdCardUtil;
-import cn.safetys.nbsxs.util.LoadingDialogUtil;
-import cn.safetys.nbsxs.util.StringUtil;
-import cn.safetys.nbsxs.util.ToastUtils;
-import cn.safetys.nbsxs.wheel.widget.views.SigleWheelDialog;
-import cn.safetys.nbsxs.wheel.widget.views.SigleWheelDialog.OnTextCListener;
-import cn.safetys.nbsxs.wheel.widget.views.StreetSelectDialog;
+
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.base.BaseActivity;
+import com.safetys.nbsxs.common.IdTypeEnum;
+import com.safetys.nbsxs.entity.JsonResult;
+import com.safetys.nbsxs.entity.RegisterInfo;
+import com.safetys.nbsxs.http.HttpRequestHelper;
+import com.safetys.nbsxs.http.onNetCallback;
+import com.safetys.nbsxs.ui.view.SigleWheelDialog;
+import com.safetys.nbsxs.utils.CheckPhoneUtil;
+import com.safetys.nbsxs.utils.DialogUtil;
+import com.safetys.nbsxs.utils.IdCardUtil;
+import com.safetys.nbsxs.utils.LoadingDialogUtil;
+import com.safetys.nbsxs.utils.StringUtil;
+import com.safetys.widget.common.ToastUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * 销售实名登记展示  修改 删除
  */
-public class RegisterShowActivity extends BaseActivity implements OnClickListener,onNetCallback{
+public class RegisterShowActivity extends BaseActivity implements OnClickListener,onNetCallback {
 
 	private View btn_back;
 	private EditText mEt_name;//姓名
@@ -119,7 +111,7 @@ public class RegisterShowActivity extends BaseActivity implements OnClickListene
 					mDatas.add("护照");
 					mDatas.add("驾驶证");
 					SigleWheelDialog mDialog = new SigleWheelDialog(RegisterShowActivity.this, mDatas);
-					mDialog.setAddresskListener(new OnTextCListener() {
+					mDialog.setAddresskListener(new SigleWheelDialog.OnTextCListener() {
 						
 						@Override
 						public void onClick(String mText) {

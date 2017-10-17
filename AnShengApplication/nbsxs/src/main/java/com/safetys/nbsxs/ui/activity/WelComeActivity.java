@@ -1,19 +1,9 @@
 package com.safetys.nbsxs.ui.activity;
 
-
-
-import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import cn.safetys.nbsxs.adapter.WelcomePagerAdapter;
-import cn.safetys.nbsxs.base.BaseActivity;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
@@ -22,8 +12,12 @@ import android.view.ViewTreeObserver.OnPreDrawListener;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
-
 import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.adapter.WelcomePagerAdapter;
+import com.safetys.nbsxs.base.BaseActivity;
+import com.safetys.widget.common.SPUtils;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 欢迎界面
@@ -34,7 +28,7 @@ public class WelComeActivity extends BaseActivity {
 	private int[] ids = { R.drawable.welcome_frist_image,
 			R.drawable.welcome_two_image, R.drawable.welcome_three_image };
 
-	SharedPreferences share;
+
 	private List<View> guides = new ArrayList<View>();
 	private ViewPager pager;
 	private ImageView curDot;
@@ -49,19 +43,16 @@ public class WelComeActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		share = getSharedPreferences("showWelcomm", Context.MODE_PRIVATE);
-		editor = share.edit();
+
 		// 判断是否首次登录程序
-		if (share.contains("shownum")) {
+		if (SPUtils.contains("shownum")) {
 			setContentView(R.layout.activity_welcome);
 			simpleInitView();
-			int num = share.getInt("shownum", 0);
-			editor.putInt("shownum", num++);
-			editor.commit();
+			int num = (Integer) SPUtils.getData("shownum", 0);
+			SPUtils.saveData("shownum", num++);
 			skipActivity(1);
 		} else {
-			editor.putInt("shownum", 1);
-			editor.commit();
+			SPUtils.saveData("shownum", 1);
 			setContentView(R.layout.activity_welcome);
 			initView();
 		}

@@ -1,25 +1,25 @@
 package com.safetys.nbsxs.utils;
 
-import java.io.File;
-import java.math.BigDecimal;
-
-import org.xutils.common.Callback.CancelledException;
-import org.xutils.ex.DbException;
-
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.config.AppConfig;
-import cn.safetys.nbsxs.download.DownloadInfo;
-import cn.safetys.nbsxs.download.DownloadManager;
-import cn.safetys.nbsxs.download.DownloadViewHolder;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
+
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.common.AppConfig;
+import com.safetys.nbsxs.download.DownloadInfo;
+import com.safetys.nbsxs.download.DownloadManager;
+import com.safetys.nbsxs.download.DownloadViewHolder;
+
+import org.xutils.common.Callback.CancelledException;
+import org.xutils.ex.DbException;
+
+import java.io.File;
+import java.math.BigDecimal;
 
 /**
  * 下载文件工具类,支持下载完成直接打开
@@ -66,7 +66,7 @@ public class DownloadFileUtil {
 		
 	}
 	
-	private static class MyDownloadViewHolder extends DownloadViewHolder{
+	private static class MyDownloadViewHolder extends DownloadViewHolder {
 		
 		private Notification notification;
 		

@@ -1,15 +1,16 @@
 package com.safetys.nbsxs.ui.view;
 
-import java.util.List;
-
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.adapter.BaseListAdapter;
-import cn.safetys.nbsxs.util.ViewUtil;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.adapter.BaseListAdapter;
+import com.safetys.nbsxs.utils.ViewUtil;
+
+import java.util.List;
 
 /**
  *	分页使用时，底部加载更多按钮
@@ -98,10 +99,10 @@ public class LoadMoreListView extends ListView{
 	 * 更新界面
 	 * @param <T>
 	 * @param dataList 数据
-	 * @param isloading 是否在加载中
+	 * @param isLoading 是否在加载中
 	 * @param networkSuccess 网络是否访问成功
 	 */
-	public <T> void updateListView(List<T> dataList,BaseListAdapter<T> mAdapter,boolean isLoading,boolean networkSuccess){
+	public <T> void updateListView(List<T> dataList, BaseListAdapter<T> mAdapter, boolean isLoading, boolean networkSuccess){
 		mAdapter.updateListView(dataList, isLoading,networkSuccess);
 		if(dataList==null||dataList.size()==0){
 			setDividerHeight(0);

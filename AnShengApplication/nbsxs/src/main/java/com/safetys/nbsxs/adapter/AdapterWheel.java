@@ -16,9 +16,10 @@
 
 package com.safetys.nbsxs.adapter;
 
-import cn.safetys.nbsxs.wheel.widget.views.WheelAdapter;
+
 import android.content.Context;
 
+import com.safetys.nbsxs.ui.view.WheelAdapter;
 
 
 /**

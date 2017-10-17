@@ -5,18 +5,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 import com.safetys.nbsxs.common.AppConfig;
+import com.safetys.nbsxs.service.UpgradeService;
 import com.safetys.widget.common.SPUtils;
 import com.umeng.analytics.MobclickAgent;
 
 import org.xutils.DbManager;
+import org.xutils.DbManager.DaoConfig;
+import org.xutils.x;
 
 /**
  * Author:Created by Ricky on 2017/10/9.
  * Description:
  */
 public class SxsApplication extends Application{
-    public static final  String SP_DATA_NAME = "sxs.sp";
+    public static final  String SP_DATA_NAME = AppConfig.BASE_PACKAGE;
     private SharedPreferences mAppMainPreferences;
     private DbManager.DaoConfig mDaoConfig;
 
@@ -28,6 +33,7 @@ public class SxsApplication extends Application{
         MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
         //SharedPreferences 初始化
         SPUtils.getInstance(getApplicationContext(),SP_DATA_NAME);
+        Logger.addLogAdapter(new AndroidLogAdapter());
         x.Ext.init(this);
         //xutils 开启debug
         x.Ext.setDebug(true);

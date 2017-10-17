@@ -1,4 +1,4 @@
-package com.safetys.nbsxs;
+package com.safetys.nbsxs.ui.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.safetys.nbsxs.R;
 
 public class Dialog extends android.app.Dialog{
 	

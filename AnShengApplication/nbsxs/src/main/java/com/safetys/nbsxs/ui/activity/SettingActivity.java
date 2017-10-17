@@ -1,36 +1,30 @@
 package com.safetys.nbsxs.ui.activity;
 
-import java.io.File;
-
-import org.xutils.common.util.LogUtil;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
-import cn.safetys.nbsxs.LoginActivity;
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.base.AppApplication;
-import cn.safetys.nbsxs.base.BaseActivity;
-import cn.safetys.nbsxs.bean.JsonResult;
-import cn.safetys.nbsxs.config.AppConfig;
-import cn.safetys.nbsxs.config.Const;
-import cn.safetys.nbsxs.config.PrefKeys;
-import cn.safetys.nbsxs.http.HttpRequestHelper;
-import cn.safetys.nbsxs.http.onNetCallback;
-import cn.safetys.nbsxs.service.UpgradeDetector;
-import cn.safetys.nbsxs.util.DialogUtil;
-import cn.safetys.nbsxs.util.LoadingDialogUtil;
+
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.SxsApplication;
+import com.safetys.nbsxs.base.BaseActivity;
+import com.safetys.nbsxs.common.AppConfig;
+import com.safetys.nbsxs.common.Const;
+import com.safetys.nbsxs.common.PrefKeys;
+import com.safetys.nbsxs.service.UpgradeDetector;
+import com.safetys.nbsxs.utils.DialogUtil;
+import com.safetys.nbsxs.utils.LoadingDialogUtil;
+import com.safetys.widget.common.AppUtils;
+
+import java.io.File;
+
 
 /**
  * 个人中心20161008
@@ -83,17 +77,17 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 		mTv_version = (TextView) findViewById(R.id.text_version);
 		tv_updata = (TextView) findViewById(R.id.tv_updata);
 
-		mPreferences = ((AppApplication) this.getApplicationContext())
+		mPreferences = ((SxsApplication) this.getApplicationContext())
 				.getAppMainPreferences();
 
 		boolean hasNew = mPreferences.getBoolean(
 				PrefKeys.PREF_HAVE_NEW_VERSION, false);
 		try {
-			String versionName = getPackageManager().getPackageInfo(
+			/*String versionName = getPackageManager().getPackageInfo(
 					this.getPackageName(), 0).versionName;
-			String result = versionName.substring(0, versionName.indexOf("_"));
-			mTv_version.setText(result);
-		} catch (NameNotFoundException e) {
+			String result = versionName.substring(0, versionName.indexOf("_"));*/
+			mTv_version.setText(AppUtils.getVersionName(getApplicationContext()));
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -164,7 +158,7 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 
 						@Override
 						public void onClick(View v) {
-							final SharedPreferences mPreferences = ((AppApplication) getApplicationContext())
+							final SharedPreferences mPreferences = ((SxsApplication) getApplicationContext())
 									.getAppMainPreferences();
 							Editor mEditor = mPreferences.edit();
 							// mEditor.remove(PrefKeys.PREF_USER_ACCOUNT);

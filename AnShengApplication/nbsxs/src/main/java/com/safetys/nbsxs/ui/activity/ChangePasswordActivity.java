@@ -1,19 +1,5 @@
 package com.safetys.nbsxs.ui.activity;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import cn.safetys.nbsxs.LoginActivity;
-import cn.safetys.nbsxs.R;
-import cn.safetys.nbsxs.base.AppApplication;
-import cn.safetys.nbsxs.base.BaseActivity;
-import cn.safetys.nbsxs.bean.JsonResult;
-import cn.safetys.nbsxs.config.PrefKeys;
-import cn.safetys.nbsxs.http.HttpRequestHelper;
-import cn.safetys.nbsxs.http.onNetCallback;
-import cn.safetys.nbsxs.util.DialogUtil;
-import cn.safetys.nbsxs.util.LoadingDialogUtil;
-import cn.safetys.nbsxs.util.ToastUtils;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -21,16 +7,28 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.safetys.nbsxs.R;
+import com.safetys.nbsxs.SxsApplication;
+import com.safetys.nbsxs.base.BaseActivity;
+import com.safetys.nbsxs.common.PrefKeys;
+import com.safetys.nbsxs.entity.JsonResult;
+import com.safetys.nbsxs.http.HttpRequestHelper;
+import com.safetys.nbsxs.http.onNetCallback;
+import com.safetys.nbsxs.utils.DialogUtil;
+import com.safetys.nbsxs.utils.LoadingDialogUtil;
+import com.safetys.widget.common.ToastUtils;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author sjw
  * 修改密码界面
  */
-public class ChangePasswordActivity extends BaseActivity implements OnClickListener ,onNetCallback{
+public class ChangePasswordActivity extends BaseActivity implements OnClickListener ,onNetCallback {
 
 	private View mBtn_back;
 	private EditText mEd_new_pass;//新密码
@@ -128,7 +126,7 @@ public class ChangePasswordActivity extends BaseActivity implements OnClickListe
 
 					@Override
 					public void onClick(View v) {
-						final SharedPreferences mPreferences = ((AppApplication) getApplicationContext())
+						final SharedPreferences mPreferences = ((SxsApplication) getApplicationContext())
 								.getAppMainPreferences();
 						Editor mEditor = mPreferences.edit();
 						// mEditor.remove(PrefKeys.PREF_USER_ACCOUNT);

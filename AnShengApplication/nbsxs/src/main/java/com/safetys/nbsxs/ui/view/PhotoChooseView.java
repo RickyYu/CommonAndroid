@@ -1,8 +1,5 @@
 package com.safetys.nbsxs.ui.view;
 
-import org.xutils.common.util.LogUtil;
-
-import cn.safetys.nbsxs.R;
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
 import android.animation.AnimatorSet;
@@ -14,6 +11,8 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.safetys.nbsxs.R;
 
 /**
  * @author sjw

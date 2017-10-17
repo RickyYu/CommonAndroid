@@ -1,15 +1,15 @@
 package com.safetys.nbsxs.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.safetys.nbsxs.entity.CityModel;
+import com.safetys.nbsxs.entity.DistrictModel;
+import com.safetys.nbsxs.entity.ProvinceModel;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import cn.safetys.nbsxs.bean.CityModel;
-import cn.safetys.nbsxs.bean.DistrictModel;
-import cn.safetys.nbsxs.bean.ProvinceModel;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class XmlParserHandler extends DefaultHandler {

@@ -1,14 +1,14 @@
 package com.safetys.nbsxs.common;
 
-import java.io.File;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import cn.safetys.nbsxs.R;
 import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Environment;
-import android.webkit.WebView;
+
+import com.safetys.nbsxs.R;
+
+import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 应用配置

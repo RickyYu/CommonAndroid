@@ -1,20 +1,22 @@
 package com.safetys.nbsxs.http;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.xutils.common.Callback.Cancelable;
-
-import cn.safetys.nbsxs.base.AppApplication;
-import cn.safetys.nbsxs.bean.CompanyVo;
-import cn.safetys.nbsxs.bean.RegisterInfo;
-import cn.safetys.nbsxs.config.AppConfig;
-import cn.safetys.nbsxs.config.PrefKeys;
-import cn.safetys.nbsxs.util.HttpUtil;
-import cn.safetys.nbsxs.util.Utils;
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+
+import com.safetys.nbsxs.SxsApplication;
+import com.safetys.nbsxs.common.AppConfig;
+import com.safetys.nbsxs.common.PrefKeys;
+import com.safetys.nbsxs.entity.CompanyVo;
+import com.safetys.nbsxs.entity.RegisterInfo;
+import com.safetys.nbsxs.utils.HttpUtil;
+import com.safetys.nbsxs.utils.Utils;
+
+import org.xutils.common.Callback.Cancelable;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author sjw
@@ -48,7 +50,7 @@ public class HttpRequestHelper {
 		mDatas.put("password", password);
 		mDatas.put("type", TYPE);
 		HttpUtil.sendRequestWithCookie(
-				AppConfig.HOST_ADDRESS_YH+AppConfig.URI_LOGIN, 
+				AppConfig.HOST_ADDRESS_YH+AppConfig.URI_LOGIN,
 				null, 
 				false, 
 				mDatas, 
@@ -64,7 +66,7 @@ public class HttpRequestHelper {
 	 */
 	public void getCompanyInfo(Context mContext,onNetCallback mCallback){
 		Map<String , Object> mDatas = new HashMap<String, Object>();
-		SharedPreferences mPreferences = ((AppApplication)mContext.getApplicationContext()).getAppMainPreferences();
+		SharedPreferences mPreferences = ((SxsApplication)mContext.getApplicationContext()).getAppMainPreferences();
 		String key = mPreferences.getString(PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
 		HttpUtil.sendRequestWithCookie(
 				AppConfig.HOST_ADDRESS_YH+AppConfig.URI_GET_COMPANY_INFO, 
@@ -82,9 +84,9 @@ public class HttpRequestHelper {
 	 * @param requestCode
 	 * @param mCallback
 	 */
-	public void submitCompanyInfo(Context mContext,CompanyVo mCompanyVo,int requestCode,onNetCallback mCallback){
+	public void submitCompanyInfo(Context mContext, CompanyVo mCompanyVo, int requestCode, onNetCallback mCallback){
 		Map<String , Object> mDatas = new HashMap<String, Object>();
-		SharedPreferences mPreferences = ((AppApplication)mContext.getApplicationContext()).getAppMainPreferences();
+		SharedPreferences mPreferences = ((SxsApplication)mContext.getApplicationContext()).getAppMainPreferences();
 		String key = mPreferences.getString(PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
 		mDatas.put("companyName",mCompanyVo.getCompanyName());
 		mDatas.put("businessRegNum", mCompanyVo.getBusinessRegNum());
@@ -112,9 +114,9 @@ public class HttpRequestHelper {
 	/**
 	 * 提交销售信息
 	 */
-	public void submitSellInfo(Context mContext,RegisterInfo mInfo,onNetCallback mCallback){
+	public void submitSellInfo(Context mContext, RegisterInfo mInfo, onNetCallback mCallback){
 		Map<String , Object> mDatas = new HashMap<String, Object>();
-		SharedPreferences mPreferences = ((AppApplication)mContext.getApplicationContext()).getAppMainPreferences();
+		SharedPreferences mPreferences = ((SxsApplication)mContext.getApplicationContext()).getAppMainPreferences();
 		String key = mPreferences.getString(PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
 		mDatas.put("type", TYPE);
 		if(mInfo.getId()!=null){
@@ -164,7 +166,7 @@ public class HttpRequestHelper {
 	public Cancelable getSellList(Context mContext,String selectWord,int itemCount,int limit
 			,String productNumber, onNetCallback mCallback){
 		Map<String , Object> mDatas = new HashMap<String, Object>();
-		SharedPreferences mPreferences = ((AppApplication)mContext.getApplicationContext()).getAppMainPreferences();
+		SharedPreferences mPreferences = ((SxsApplication)mContext.getApplicationContext()).getAppMainPreferences();
 		String key = mPreferences.getString(PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
 		mDatas.put("type", TYPE);
 		mDatas.put("limit", limit);
@@ -189,7 +191,7 @@ public class HttpRequestHelper {
 	 */
 	public Cancelable deleteSellInfo(Context mContext,String id,int requestCode, onNetCallback mCallback){
 		Map<String , Object> mDatas = new HashMap<String, Object>();
-		SharedPreferences mPreferences = ((AppApplication)mContext.getApplicationContext()).getAppMainPreferences();
+		SharedPreferences mPreferences = ((SxsApplication)mContext.getApplicationContext()).getAppMainPreferences();
 		String key = mPreferences.getString(PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
 		mDatas.put("sxsRecord.id", id);
 		mDatas.put("type", TYPE);
@@ -239,7 +241,7 @@ public class HttpRequestHelper {
 	 */
 	public void changePassword(Context mContext, String newPass,
 			String oldPass, int requestCode, onNetCallback mCallback) {
-		String key = ((AppApplication) mContext.getApplicationContext())
+		String key = ((SxsApplication) mContext.getApplicationContext())
 				.getAppMainPreferences().getString(
 						PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
 		Map<String, Object> mDatas = new HashMap<String, Object>();
@@ -258,7 +260,7 @@ public class HttpRequestHelper {
 	 * @param mCallback
 	 */
 	public void getSellCount(Context mContext, onNetCallback mCallback) {
-		String key = ((AppApplication) mContext.getApplicationContext())
+		String key = ((SxsApplication) mContext.getApplicationContext())
 				.getAppMainPreferences().getString(
 						PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
 		Map<String, Object> mDatas = new HashMap<String, Object>();
