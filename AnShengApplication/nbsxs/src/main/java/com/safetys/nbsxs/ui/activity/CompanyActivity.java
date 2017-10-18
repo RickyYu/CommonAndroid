@@ -36,7 +36,6 @@ public class CompanyActivity extends BaseActivity implements OnClickListener,onN
 	private EditText mEt_mddz;//门店地址
 	private EditText mEt_zjxx;//证件信息
 	private EditText mEt_jyfw;//经营范围
-	
 	private LoadingDialogUtil mLoading;//正在加载
 	private CompanyVo mCompanyVo;
 
@@ -46,7 +45,6 @@ public class CompanyActivity extends BaseActivity implements OnClickListener,onN
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_company);
 		initView();
-		
 		//显示加载框
 		mLoading.show();
 		//请求数据
@@ -59,7 +57,6 @@ public class CompanyActivity extends BaseActivity implements OnClickListener,onN
 		btn_back.setOnClickListener(this);
 		View title=findViewById(R.id.title_bar);
 		title.setBackgroundResource(R.drawable.qytitle);
-		
 		//右上角功能按钮
 		setRightTitle("保存");
 		setRightBtnClick(this);
@@ -72,7 +69,6 @@ public class CompanyActivity extends BaseActivity implements OnClickListener,onN
 		mEt_mddz = (EditText) findViewById(R.id.tv_dz);
 		mEt_zjxx = (EditText) findViewById(R.id.tv_zjxx);
 		mEt_jyfw = (EditText) findViewById(R.id.tv_jyfw);
-		
 		mTv_szqy.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -96,25 +92,20 @@ public class CompanyActivity extends BaseActivity implements OnClickListener,onN
 				});
 				if(mCompanyVo!=null&&mCompanyVo.getAreaName()!=null){
 					String[] areas = mCompanyVo.getAreaName().split(" ");
-					if(areas!=null){
-						mDialog.setText(areas.length>1?areas[1]:"",
-								areas.length>2?areas[2]:"", areas.length>3?areas[3]:"");
+					if(areas!=null) {
+						mDialog.setText(areas.length > 1 ? areas[1] : "",
+								areas.length > 2 ? areas[2] : "", areas.length > 3 ? areas[3] : "");
 					}
-					
 				}
 				mDialog.show();
 			}
 		});
-		
 		mLoading = new LoadingDialogUtil(this);
-		
 	}
 	
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
-		
 	}
 	
 	@Override
@@ -208,7 +199,5 @@ public class CompanyActivity extends BaseActivity implements OnClickListener,onN
 			mEt_zjxx.setText(StringUtil.nvl(mCompanyVo.getDocumentInfo()));//证件信息
 			mEt_jyfw.setText(StringUtil.nvl(mCompanyVo.getBusinessScope()));//经营范围
 		}
-		
 	}
-	
 }

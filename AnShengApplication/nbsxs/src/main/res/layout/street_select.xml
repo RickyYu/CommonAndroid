@@ -36,12 +36,12 @@
         android:layout_marginTop="30dip"
         android:orientation="horizontal" >
 
-       <com.safetys.nbsxs.ui.WheelView
+       <com.safetys.nbsxs.ui.view.WheelView
             android:id="@+id/id_province"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1">
-        </com.safetys.nbsxs.ui.WheelView>
+        </com.safetys.nbsxs.ui.view.WheelView>
 
         <com.safetys.nbsxs.ui.view.WheelView
             android:id="@+id/id_city"

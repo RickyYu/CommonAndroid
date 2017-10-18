@@ -1,12 +1,12 @@
 package com.safetys.nbsxs.utils;
 
-import java.util.Calendar;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.os.Build;
+
+import java.util.Calendar;
 
 /**
  * 时间选择器帮助类

@@ -1,28 +1,20 @@
 package com.safetys.nbsxs.utils;
-
 import com.alibaba.fastjson.JSON;
 import com.orhanobut.logger.Logger;
 import com.safetys.nbsxs.R;
 import com.safetys.nbsxs.entity.JsonResult;
 import com.safetys.nbsxs.http.onNetCallback;
-
 import org.xutils.common.Callback.Cancelable;
 import org.xutils.common.Callback.CommonCallback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
-
 import java.util.Iterator;
 import java.util.Map;
-
-
-
 /**
- * @author sjw
  * 网络请求工具
  */
 public class HttpUtil {
-	
-	
+
 	/**
 	 * 发送网络请求
 	 * @param uri 请求地址
@@ -36,9 +28,6 @@ public class HttpUtil {
 		RequestParams mParams = new RequestParams(uri);
 		/*在Cookie中加入登录返回的key*/
 		if(key!=null){
-//			LogUtil.i("abc:"+URLEncoder.encode("SXS_FIREWORK_CLIENT_AUTH_KEY_2017="+key));
-//			mParams.addHeader("Cookie", URLEncoder.encode("SXS_FIREWORK_CLIENT_AUTH_KEY_2017="+key));
-//			LogUtil.i("SXS_FIREWORK_CLIENT_AUTH_KEY_2017="+key);
 			mParams.addHeader("Cookie", "SXS_FIREWORK_CLIENT_AUTH_KEY_2017="+key);
 		}
 		mParams.addHeader("accept", "*/*");

@@ -1,8 +1,6 @@
 package com.safetys.nbsxs.ui.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,13 +8,13 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.safetys.nbsxs.R;
-import com.safetys.nbsxs.SxsApplication;
 import com.safetys.nbsxs.base.BaseActivity;
 import com.safetys.nbsxs.common.PrefKeys;
 import com.safetys.nbsxs.entity.CountInfo;
 import com.safetys.nbsxs.entity.JsonResult;
 import com.safetys.nbsxs.http.HttpRequestHelper;
 import com.safetys.nbsxs.http.onNetCallback;
+import com.safetys.widget.common.SPUtils;
 
 import java.util.List;
 
@@ -40,10 +38,6 @@ public class MenuActivity extends BaseActivity implements OnClickListener,onNetC
 	private TextView mTv_day2;
 	private TextView mTv_day3;
 	private TextView mTv_day4;
-	
-//	private ListView mListView;
-//	private MyListAdapter myListAdapter;
-//	private List<RegisterInfo> mInfos = new ArrayList<RegisterInfo>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,26 +64,11 @@ public class MenuActivity extends BaseActivity implements OnClickListener,onNetC
 		mTv_season2 = (TextView) findViewById(R.id.tv_season2);
 		mTv_season3 = (TextView) findViewById(R.id.tv_season3);
 		mTv_season4 = (TextView) findViewById(R.id.tv_season4);
-		
 		mTv_month_num = (TextView) findViewById(R.id.tv_month_num);
 		mTv_day1 = (TextView) findViewById(R.id.tv_day1);
 		mTv_day2 = (TextView) findViewById(R.id.tv_day2);
 		mTv_day3 = (TextView) findViewById(R.id.tv_day3);
 		mTv_day4 = (TextView) findViewById(R.id.tv_day4);
-		
-//		myListAdapter = new MyListAdapter(this, mInfos);
-//		mListView = (ListView) findViewById(R.id.listview);
-//		mListView.setAdapter(myListAdapter);
-//		mListView.setOnItemClickListener(new OnItemClickListener() {
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> parent, View view,
-//					int position, long id) {
-//				Intent mIntent = new Intent(MenuActivity.this,RegisterShowActivity.class);
-//				mIntent.putExtra("info", mInfos.get(position));
-//				startActivity(mIntent);
-//			}
-//		});
 	}
 
 	@Override
@@ -97,11 +76,9 @@ public class MenuActivity extends BaseActivity implements OnClickListener,onNetC
 		// TODO Auto-generated method stub
 		super.onResume();
 		//第一次登录的时候，默认先跳转到企业信息界面
-		SharedPreferences mPreferences = ((SxsApplication)getApplicationContext()).getAppMainPreferences();
-		if(!mPreferences.getBoolean(PrefKeys.PREF_NOT_IS_FIRST_LOGIN, false)){
-			Editor mEditor = mPreferences.edit();
-			mEditor.putBoolean(PrefKeys.PREF_NOT_IS_FIRST_LOGIN, true);
-			mEditor.commit();
+		boolean isFirst = (boolean) SPUtils.getData(PrefKeys.PREF_NOT_IS_FIRST_LOGIN, false);
+		if(!isFirst){
+			SPUtils.saveData(PrefKeys.PREF_NOT_IS_FIRST_LOGIN, true);
 			Intent mIntent = new Intent(this, CompanyActivity.class);
 			startActivity(mIntent);
 		}		
@@ -139,66 +116,6 @@ public class MenuActivity extends BaseActivity implements OnClickListener,onNetC
 		// TODO Auto-generated method stub
 		super.onDestroy();
 	}
-	
-	
-//	private class MyListAdapter extends BaseAdapter{
-//		
-//		private Context mContext;
-//		
-//		private LayoutInflater mInflater;
-//		
-//		private List<RegisterInfo> mDatas;
-//
-//		public MyListAdapter(Context mContext,List<RegisterInfo> mDatas){
-//			this.mContext = mContext;
-//			this.mDatas = mDatas;
-//			this.mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//		}
-//		
-//		@Override
-//		public int getCount() {
-//			// TODO Auto-generated method stub
-//			return mDatas.size();
-//		}
-//
-//		@Override
-//		public Object getItem(int position) {
-//			// TODO Auto-generated method stub
-//			return null;
-//		}
-//
-//		@Override
-//		public long getItemId(int position) {
-//			// TODO Auto-generated method stub
-//			return 0;
-//		}
-//
-//		@Override
-//		public View getView(int position, View convertView, ViewGroup parent) {
-//			ViewHodler mHodler;
-//			if(convertView==null){
-//				convertView = mInflater.inflate(R.layout.list_view_selllist_last_item, null);
-//				mHodler = new ViewHodler();
-//				mHodler.date = (TextView) convertView.findViewById(R.id.text4);
-//				mHodler.title = (TextView) convertView.findViewById(R.id.text1);
-//				mHodler.content = (TextView) convertView.findViewById(R.id.text2);
-//				convertView.setTag(mHodler);
-//			}
-//			mHodler = (ViewHodler) convertView.getTag();
-//			mHodler.date.setText(mDatas.get(position).getPayTime());
-//			mHodler.title.setText(mDatas.get(position).getName()+"购买（"+mDatas.get(position).getProductName()+"）"+mDatas.get(position).getProductNumber()+"升");
-//			mHodler.content.setText("联系电话:"+StringUtil.nvl(mDatas.get(position).getPhone()));
-//			
-//			return convertView;
-//		}
-//		
-//		
-//		private class ViewHodler{
-//			public TextView date;
-//			public TextView title;
-//			public TextView content;
-//		}
-//	}
 
 
 	@Override
@@ -210,7 +127,6 @@ public class MenuActivity extends BaseActivity implements OnClickListener,onNetC
 
 	@Override
 	public void onSuccess(int requestCode, JsonResult mJsonResult) {
-		// TODO Auto-generated method stub
 		//销售
 		int season1Num = 0,season2Num = 0,season3Num = 0,season4Num = 0,month1Num = 0,month2Num = 0,month3Num = 0,month4Num = 0;
 		List<CountInfo> mCountInfos = JSON.parseArray(mJsonResult.getJson(), CountInfo.class);

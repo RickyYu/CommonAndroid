@@ -26,7 +26,7 @@ public class HttpRequestHelper {
 	
 	private static final int TYPE = 1;//
 
-	private static HttpRequestHelper mHelper = new HttpRequestHelper();
+	private static HttpRequestHelper mHelper;
 	
 	private HttpRequestHelper() {}
 	

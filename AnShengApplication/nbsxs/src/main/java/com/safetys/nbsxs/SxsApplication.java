@@ -34,11 +34,14 @@ public class SxsApplication extends Application{
         //SharedPreferences 初始化
         SPUtils.getInstance(getApplicationContext(),SP_DATA_NAME);
         Logger.addLogAdapter(new AndroidLogAdapter());
+
+        //xUtils3
         x.Ext.init(this);
         //xutils 开启debug
         x.Ext.setDebug(true);
         //数据库初始化
-//		getDaoConfig();
+		//getDaoConfig();
+
         //启动更新服务
         Intent mIntent = new Intent(getApplicationContext(), UpgradeService.class);
         startService(mIntent);
