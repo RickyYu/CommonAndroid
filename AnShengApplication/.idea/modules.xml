@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/nbsxs/nbsxs.iml" filepath="$PROJECT_DIR$/nbsxs/nbsxs.iml" />
       <module fileurl="file://$PROJECT_DIR$/testapp/testapp.iml" filepath="$PROJECT_DIR$/testapp/testapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/widget/widget.iml" filepath="$PROJECT_DIR$/widget/widget.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zatgov/zatgov.iml" filepath="$PROJECT_DIR$/zatgov/zatgov.iml" />
     </modules>
   </component>
 </project>

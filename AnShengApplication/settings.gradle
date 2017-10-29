@@ -1,1 +1,1 @@
-include ':nbsxs', ':widget', ':testapp'
+include ':nbsxs', ':widget', ':testapp', ':zatgov'

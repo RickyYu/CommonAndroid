@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<first-area name="行业类型" code="330500">
+	<second-area name="安监" code="5987">
+		<third-area name="非煤矿山" code="9797"></third-area>
+	</second-area>
+	<second-area name="烟花爆竹" code="9798">
+		<third-area name="生产批发" code="9800"></third-area>
+		<third-area name="长期零售" code="9801"></third-area>
+	</second-area>
+	<second-area name="危险化学品" code="9802">
+		<third-area name="经营" code="9806"></third-area>
+		<third-area name="生产" code="9805"></third-area>
+	</second-area>
+	<second-area name="综合企业" code="90261">
+	    <third-area name="学校" code="6009" />
+		<third-area name="制造业" code="30585"></third-area>
+		<third-area name="机场和油料企业" code="6003"></third-area>
+		<third-area name="渔业企业" code="6004"></third-area>
+		<third-area name="农机行业\" code="6005"></third-area>
+		<third-area name="水利工程设施" code="6006"></third-area>
+		<third-area name="铁路" code="5999"></third-area>
+		<third-area name="航空公司" code="6002"></third-area>
+		<third-area name="水上运输企业" code="5995"></third-area>
+		<third-area name="电力" code="31650"></third-area>
+		<third-area name="机械制造企业" code="6032"></third-area>
+		<third-area name="纺织 印染" code="28034"></third-area>
+		<third-area name="民爆器材" code="6026"></third-area>
+		<third-area name="建筑施工企业" code="6020"></third-area>
+		<third-area name="电力企业" code="6029"></third-area>
+		<third-area name="食品加工" code="30611"></third-area>
+		<third-area name="其他企业和单位" code="6036"></third-area>
+		<third-area name="建材" code="28035"></third-area>
+		<third-area name="人员密集场所" code="6013"></third-area>
+		<third-area name="木材加工" code="28036"></third-area>
+		<third-area name="饲料加工" code="29683"></third-area>
+		<third-area name="冶金" code="29680"></third-area>
+		<third-area name="造纸" code="29679"></third-area>
+		<third-area name="船舶修造" code="29682"></third-area>
+		<third-area name="机械制造" code="29681"></third-area>
+		<third-area name="建筑" code="29676"></third-area>
+		<third-area name="塑料制品" code="29675"></third-area>
+		<third-area name="皮革加工" code="29678"></third-area>
+		<third-area name="金属制品" code="29677"></third-area>
+		<third-area name="公路（桥、涵、隧）养护施工企业" code="5991"></third-area>
+		<third-area name="道路运输企业" code="5988"></third-area>
+	
+	</second-area>
+	
+</first-area>

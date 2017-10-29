@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<first-area name="湖州市" code="330500">
+    <second-area name="请选择" code="0">
+		<third-area name="请选择" code="0" />
+	</second-area>
+	<second-area name="德清县" code="330521">
+	    <third-area name="请选择" code="0" />
+		<third-area name="武康镇" code="330521100000"></third-area>
+		<third-area name="乾元镇" code="330521101000"></third-area>
+		<third-area name="新市镇" code="330521102000"></third-area>
+		<third-area name="洛舍镇" code="330521103000"></third-area>
+		<third-area name="钟管镇" code="330521104000"></third-area>
+		<third-area name="莫干山镇" code="330521105000"></third-area>
+		<third-area name="雷甸镇" code="330521110000"></third-area>
+		<third-area name="禹越镇" code="330521113000"></third-area>
+		<third-area name="新安镇" code="330521114000"></third-area>
+		<third-area name="筏头乡" code="330521201000"></third-area>
+		<third-area name="三合乡" code="330521202000"></third-area>
+		<third-area name="开发区" code="330521203000"></third-area>
+		<third-area name="科技新城" code="330521029923"></third-area>
+	</second-area>
+	<second-area name="长兴县" code="330522">
+	    <third-area name="请选择" code="0" />
+		<third-area name="画溪街道" code="330522100000"></third-area>
+		<third-area name="洪桥镇" code="330522101000"></third-area>
+		<third-area name="李家巷镇" code="330522102000"></third-area>
+		<third-area name="夹浦镇" code="330522103000"></third-area>
+		<third-area name="林城镇" code="330522104000"></third-area>
+		<third-area name="泗安镇" code="330522105000"></third-area>
+		<third-area name="虹星桥镇" code="330522106000"></third-area>
+		<third-area name="和平镇" code="330522107000"></third-area>
+		<third-area name="小浦镇" code="330522108000"></third-area>
+		<third-area name="煤山镇" code="330522109000"></third-area>
+		<third-area name="水口乡" code="330522200000"></third-area>
+		<third-area name="吕山乡" code="330522202000"></third-area>
+		<third-area name="白岘乡" code="330522204000"></third-area>
+		<third-area name="槐坎乡" code="330522205000"></third-area>
+		<third-area name="龙山街道" code="330522207000"></third-area>
+		<third-area name="雉城街道" code="330522208000"></third-area>
+		<third-area name="开发区" code="330522206000"></third-area>
+		<third-area name="图影旅游度假区" code="330522201200"></third-area>
+		<third-area name="南太湖产业集聚区" code="330522201100"></third-area>
+		<third-area name="太湖街道" code="330522201300"></third-area>
+	</second-area>
+	<second-area name="安吉县" code="330523">
+	    <third-area name="请选择" code="0" />
+		<third-area name="递铺镇" code="330523100000"></third-area>
+		<third-area name="梅溪镇" code="330523101000"></third-area>
+		<third-area name="鄣吴镇" code="330523103000"></third-area>
+		<third-area name="杭垓镇" code="330523104000"></third-area>
+		<third-area name="孝丰镇" code="330523105000"></third-area>
+		<third-area name="报福镇" code="330523106000"></third-area>
+		<third-area name="章村镇" code="330523107000"></third-area>
+		<third-area name="天荒坪镇" code="330523108000"></third-area>
+		<third-area name="天子湖镇" code="330523109000"></third-area>
+		<third-area name="溪龙乡" code="330523201000"></third-area>
+		<third-area name="皈山乡" code="330523204000"></third-area>
+		<third-area name="上墅乡" code="330523205000"></third-area>
+		<third-area name="山川乡" code="330523206000"></third-area>
+		<third-area name="昌硕街道" code="330523207000"></third-area>
+		<third-area name="灵峰度假区" code="330523208000"></third-area>
+		<third-area name="旅游企业" code="330523209000"></third-area>
+	</second-area>
+	<second-area name="吴兴区" code="330502">
+	    <third-area name="请选择" code="0" />
+		<third-area name="月河街道" code="330502001000"></third-area>
+		<third-area name="朝阳街道" code="330502002000"></third-area>
+		<third-area name="爱山街道" code="330502003000"></third-area>
+		<third-area name="飞英街道" code="330502004000"></third-area>
+		<third-area name="龙泉街道" code="330502005000"></third-area>
+		<third-area name="凤凰街道" code="330502006000"></third-area>
+		<third-area name="康山街道" code="330502007000"></third-area>
+		<third-area name="织里镇" code="330502100000"></third-area>
+		<third-area name="八里店镇" code="330502101000"></third-area>
+		<third-area name="妙西镇" code="330502102000"></third-area>
+		<third-area name="杨家埠镇" code="330502103000"></third-area>
+		<third-area name="埭溪镇" code="330502104000"></third-area>
+		<third-area name="东林镇" code="330502105000"></third-area>
+		<third-area name="道场乡" code="330502200000"></third-area>
+		<third-area name="环渚乡" code="330502201000"></third-area>
+		<third-area name="白雀乡" code="330502202000"></third-area>
+		<third-area name="高新区" code="330502106000"></third-area>
+	</second-area>
+	<second-area name="南浔区" code="330503">
+	    <third-area name="请选择" code="0" />
+		<third-area name="南浔镇" code="330503100000"></third-area>
+		<third-area name="双林镇" code="330503101000"></third-area>
+		<third-area name="练市镇" code="330503102000"></third-area>
+		<third-area name="善琏镇" code="330503103000"></third-area>
+		<third-area name="旧馆镇" code="330503104000"></third-area>
+		<third-area name="菱湖镇" code="330503105000"></third-area>
+		<third-area name="和孚镇" code="330503106000"></third-area>
+		<third-area name="千金镇" code="330503107000"></third-area>
+		<third-area name="石淙镇" code="330503108000"></third-area>
+		<third-area name="开发区" code="330503109000"></third-area>
+	</second-area>
+	<second-area name="湖州开发区" code="330504">
+	    <third-area name="请选择" code="0" />
+		<third-area name="杨家埠街道" code="330504001000"/>
+		<third-area name="凤凰街道" code="330504002000"/>
+		<third-area name="康山街道" code="330504003000"/>
+		<third-area name="龙溪街道" code="330504004000"/>
+	</second-area>
+	<second-area name="太湖度假区" code="330505">
+	    <third-area name="请选择" code="0" />
+		<third-area name="滨湖街道" code="330505002000" />
+		<third-area name="仁皇山街道" code="330505003000" />
+	</second-area>
+</first-area>
