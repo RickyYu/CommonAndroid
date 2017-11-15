@@ -2,7 +2,7 @@ package com.safetys.zatgov.entity;
 
 /**
  * Author:Created by Ricky on 2017/10/27.
- * Description:
+ * Description: EventBus消息载体
  */
 public class MessageEvent {
 

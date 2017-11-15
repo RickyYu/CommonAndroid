@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:paddingTop="5dip">
+	
+    <RelativeLayout android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="@dimen/search_bar_hegiht"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="5dip"
+        android:background="@drawable/icon_search_input_bg">
+        <ImageView android:id="@+id/img_fdj"
+            android:layout_width="@dimen/search_bar_left_img_size"
+            android:layout_height="@dimen/search_bar_left_img_size"
+            android:background="@drawable/icon_search_img"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+        <EditText android:id="@+id/et_search_text"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/img_fdj"
+            android:textSize="@dimen/more_big_text_size"
+            android:background="@android:color/transparent"
+            android:hint="请输入企业名称"/>
+    </RelativeLayout>
+	<Button android:id="@+id/btn_search"
+	    android:layout_width="60dip"
+	    android:layout_height="@dimen/search_bar_hegiht"
+	    android:text="搜索"
+	    android:layout_marginRight="10dip"
+	    android:textColor="@color/white"
+	    android:textSize="@dimen/more_big_text_size"
+	    android:background="@drawable/btn_normal_blue_select"/>
+</LinearLayout> 

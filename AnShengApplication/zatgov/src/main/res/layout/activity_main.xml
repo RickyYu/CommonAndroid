@@ -1,20 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.safetys.zatgov.MainActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/tv_des"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="Hello World!" app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/btn_skip"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/button_bar_group"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="跳转"/>
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" 
+        android:background="@drawable/icon_main_tabhost_background">
 
-</android.support.constraint.ConstraintLayout>
+        <RelativeLayout style="@style/ButtonBar" 
+            android:id="@+id/button_law">
+
+            <ImageView
+                android:id="@+id/imagebutton"
+                style="@style/ButtonBarImgBtn"
+                android:background="@drawable/bar_law_enforcement"
+                android:contentDescription="@string/app_name"/>
+            <TextView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imagebutton"
+                android:text="行政执法"
+                android:textColor="@drawable/bar_text_color"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/ButtonBar" 
+            android:id="@+id/button_infomation">
+
+            <ImageView
+                android:id="@+id/imagebutton2"
+                style="@style/ButtonBarImgBtn"
+                android:background="@drawable/bar_infomation"
+                android:contentDescription="@string/app_name" />
+            <TextView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imagebutton2"
+                android:text="信息查询"
+               android:textColor="@drawable/bar_text_color"
+                android:gravity="center"/>
+        </RelativeLayout>
+        <RelativeLayout style="@style/ButtonBar" 
+             android:id="@+id/button_setting">
+
+            <ImageView
+                android:id="@+id/imagebutton3"
+                style="@style/ButtonBarImgBtn"
+                android:background="@drawable/bar_setting"
+                android:contentDescription="@string/app_name" />
+            <TextView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imagebutton3"
+                android:text="设置"
+                android:textColor="@drawable/bar_text_color"
+                android:gravity="center"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/button_bar_group" >
+
+        <fragment
+            android:id="@+id/fragment_scf"
+            android:name="com.safetys.zatgov.ui.fragment.InfomationFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        
+        <fragment
+            android:id="@+id/fragment_info"
+            android:name="com.safetys.zatgov.ui.fragment.InfomationFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <fragment
+            android:id="@+id/fragment_setting"
+            android:name="com.safetys.zatgov.ui.fragment.SettingFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+      
+    </FrameLayout>
+
+</RelativeLayout>

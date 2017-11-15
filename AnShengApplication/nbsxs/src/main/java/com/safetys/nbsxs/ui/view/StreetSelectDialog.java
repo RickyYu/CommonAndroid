@@ -109,7 +109,6 @@ public class StreetSelectDialog extends Dialog implements OnClickListener, OnWhe
 
 	@Override
 	public void onChanged(WheelView wheel, int oldValue, int newValue) {
-		// TODO Auto-generated method stub
 		if (wheel == mViewProvince) {
 			updateCities();
 		} else if (wheel == mViewCity) {
@@ -127,13 +126,11 @@ public class StreetSelectDialog extends Dialog implements OnClickListener, OnWhe
 	
 	@Override
 	public void onScrollingStarted(WheelView wheel) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onScrollingFinished(WheelView wheel) {
-		// TODO Auto-generated method stub
 //		if (wheel == mViewCity) {
 //			setTextviewSize(mViewCity.getCurrentItem(), mAdapterCity);
 //		} else if (wheel == mViewDistrict) {

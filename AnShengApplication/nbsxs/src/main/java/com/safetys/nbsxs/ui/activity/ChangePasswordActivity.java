@@ -40,7 +40,6 @@ public class ChangePasswordActivity extends BaseActivity implements OnClickListe
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_change_password);
 		initView();
@@ -106,7 +105,6 @@ public class ChangePasswordActivity extends BaseActivity implements OnClickListe
 			@Override
 			public void onClick(View v) {
 				mLoading.show();
-				//TODO
 				HttpRequestHelper.getInstance().changePassword(ChangePasswordActivity.this, newPass, oldPass, 0, ChangePasswordActivity.this);
 			}
 		});

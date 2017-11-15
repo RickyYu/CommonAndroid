@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">zatgov</string>
+    <string name="app_name">智安通</string>
+    <string name="network_error">抱歉，网络异常或后台未响应。</string>
+    <string name="account_security_tip">你的账号在另一台设备登录，如非本人操作，请注意账号安全!</string>
+    <string name="upgrade_is_the_latest_version">您已经是最新版！</string>
+    <string name="upgrade_now">正在检测新版本&#8230;</string>
 </resources>

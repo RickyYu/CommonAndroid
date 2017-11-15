@@ -48,7 +48,7 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_setting);
 		initView();
@@ -88,7 +88,7 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 			String result = versionName.substring(0, versionName.indexOf("_"));*/
 			mTv_version.setText(AppUtils.getVersionName(getApplicationContext()));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -224,7 +224,7 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			// TODO Auto-generated method stub
+
 			if (intent.getAction().equals(Const.ACTION_CLOSE_DIALOG)) {
 				checkLoading.dismiss();
 			}
@@ -233,7 +233,7 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 	
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
+
 		super.onDestroy();
 		if(mReceiver!=null){
 			unregisterReceiver(mReceiver);

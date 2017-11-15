@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.safetys.zatgov">
+
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -40,6 +41,7 @@
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:name=".ZatApplication"
         android:allowBackup="true"
@@ -48,14 +50,60 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <!-- 欢迎界面 -->
+        <activity
+            android:name=".ui.activity.WelcomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity"/>
+        <!-- 登陆界面 -->
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <!-- 主界面 -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 主界面 -->
+        <activity
+            android:name=".SecondActivity"
+            android:screenOrientation="portrait" />
+        <!-- 密码修改 -->
+        <activity
+            android:name=".ui.activity.ChangePasswordActivity"
+            android:screenOrientation="portrait" />
+        <!-- 信息详情 -->
+        <activity
+            android:name=".ui.activity.EnterprisePolicyDetailActivity"
+            android:screenOrientation="portrait" />
+        <!-- 法律法规 -->
+        <activity
+            android:name=".ui.activity.LawRegulationsActivity"
+            android:screenOrientation="portrait" />
+        <!-- MSDS查询 -->
+        <activity
+            android:name=".ui.activity.MsdsActivity"
+            android:screenOrientation="portrait" />
+        <!-- MSDS查询信息 -->
+        <activity
+            android:name=".ui.activity.MsdsItemActivity"
+            android:screenOrientation="portrait" />
+        <!-- 安监要闻 -->
+        <activity
+            android:name=".ui.activity.SafetyNewsActivity"
+            android:screenOrientation="portrait" />
+        <!-- 技术标准 -->
+        <activity
+            android:name=".ui.activity.TechnicalStandardActivity"
+            android:screenOrientation="portrait" />
+        <!--多图浏览-->
+        <activity
+            android:name=".ui.activity.ViewPhotosActivity"
+            android:screenOrientation="portrait" />
+        <service android:name=".service.UpgradeService" />
     </application>
 
 </manifest>

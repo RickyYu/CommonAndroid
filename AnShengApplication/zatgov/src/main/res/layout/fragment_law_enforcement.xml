@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <!-- 标题 -->
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/common_title_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/title_bar"
+        android:orientation="vertical"
+        android:weightSum="33" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="19" />
+
+        <android.support.v4.app.FragmentTabHost
+            android:id="@+id/tabhost"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1" >
+        </android.support.v4.app.FragmentTabHost>
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="13"
+            android:background="@drawable/icon_law_grid_bg"
+            android:numColumns="4" >
+        </GridView>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3" >
+
+            <!-- 待办工作 -->
+
+            <include
+                android:id="@+id/in_check"
+                layout="@layout/wgy_check"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>

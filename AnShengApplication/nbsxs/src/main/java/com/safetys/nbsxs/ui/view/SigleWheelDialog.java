@@ -69,7 +69,7 @@ public class SigleWheelDialog extends Dialog implements View.OnClickListener {
 
 			@Override
 			public void onChanged(WheelView wheel, int oldValue, int newValue) {
-				// TODO Auto-generated method stub
+
 				String currentText = (String) mAdapter.getItemText(wheel.getCurrentItem());
 				strText = currentText;
 				setTextviewSize(currentText, mAdapter);
@@ -80,13 +80,13 @@ public class SigleWheelDialog extends Dialog implements View.OnClickListener {
 
 			@Override
 			public void onScrollingStarted(WheelView wheel) {
-				// TODO Auto-generated method stub
+
 
 			}
 
 			@Override
 			public void onScrollingFinished(WheelView wheel) {
-				// TODO Auto-generated method stub
+
 				String currentText = (String) mAdapter.getItemText(wheel.getCurrentItem());
 				strText = currentText;
 				setTextviewSize(currentText, mAdapter);
@@ -148,7 +148,7 @@ public class SigleWheelDialog extends Dialog implements View.OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		if (v == btnSure) {
 			if (onTextListener != null) {
 				onTextListener.onClick(strText);

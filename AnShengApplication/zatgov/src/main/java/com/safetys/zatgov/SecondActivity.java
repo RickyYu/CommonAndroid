@@ -1,11 +1,11 @@
 package com.safetys.zatgov;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.entity.MessageEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -26,16 +26,18 @@ public class SecondActivity extends AppCompatActivity {
     TextView tvDes;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        btnSkip.setText("发送事件");
         ButterKnife.bind(this);
+        btnSkip.setText("发送事件");
+
     }
 
     @OnClick(R.id.btn_skip)
     public void onViewClicked() {
-        EventBus.getDefault().post(new MessageEvent("来自Second"));
-        finish();
+        ToastUtils.showMessage(getApplicationContext(),"发送");
+       EventBus.getDefault().post(new MessageEvent("来自Second"));
+    this.finish();
     }
 }

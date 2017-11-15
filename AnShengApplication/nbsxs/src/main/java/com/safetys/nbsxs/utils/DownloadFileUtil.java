@@ -60,7 +60,6 @@ public class DownloadFileUtil {
 			mDownloadManager.startDownload(mInfo.getUrl(),mInfo.getLabel(),mInfo.getFileSavePath(), 
 					mInfo.isAutoResume(), mInfo.isAutoRename(),new MyDownloadViewHolder(context,null,mInfo,true));
 		} catch (DbException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

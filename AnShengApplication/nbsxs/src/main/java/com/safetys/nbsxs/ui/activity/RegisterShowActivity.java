@@ -55,7 +55,6 @@ public class RegisterShowActivity extends BaseActivity implements OnClickListene
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
 		initView();
@@ -115,7 +114,7 @@ public class RegisterShowActivity extends BaseActivity implements OnClickListene
 						
 						@Override
 						public void onClick(String mText) {
-							// TODO Auto-generated method stub
+
 							mTv_idType.setText(mText);
 						}
 					});
@@ -164,7 +163,6 @@ public class RegisterShowActivity extends BaseActivity implements OnClickListene
 	
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 	}
 	

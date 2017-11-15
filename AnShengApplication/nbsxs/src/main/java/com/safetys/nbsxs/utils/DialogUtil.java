@@ -212,7 +212,7 @@ public class DialogUtil {
 						
 						@Override
 						public void onClick(View v) {
-							// TODO Auto-generated method stub
+
 							mActivity.finish();
 						}
 					});
@@ -241,7 +241,7 @@ public class DialogUtil {
 					
 					@Override
 					public void onClick(View v) {
-						// TODO Auto-generated method stub
+
 						mActivity.finish();
 					}
 				});

@@ -52,7 +52,6 @@ public class SellListActivity extends BaseActivity implements
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_company_list);
 		init();
@@ -141,7 +140,6 @@ public class SellListActivity extends BaseActivity implements
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		if(requestCode==100&&resultCode==RESULT_OK&&data!=null){
 			boolean isDelete = data.getBooleanExtra("isDelete", false);
@@ -163,7 +161,6 @@ public class SellListActivity extends BaseActivity implements
 	
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 //		if(((AppApplication)getApplication()).isNeedFefresh()){
 //			//暂时全部刷新

@@ -1,9 +1,9 @@
 package com.safetys.nbsxs.utils;
 
-import java.util.List;
-
 import org.xutils.DbManager;
 import org.xutils.ex.DbException;
+
+import java.util.List;
 
 public class DbUtils {
 
@@ -16,7 +16,6 @@ public class DbUtils {
 		try {
 			db.dropTable(mClass);
 		} catch (DbException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	}
@@ -32,7 +31,6 @@ public class DbUtils {
 		try {
 			count = (int) db.selector(mClass).count();
 		} catch (DbException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return count;
@@ -47,7 +45,6 @@ public class DbUtils {
 		try {
 			db.save(mObject);
 		} catch (DbException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 			return false;
 		}

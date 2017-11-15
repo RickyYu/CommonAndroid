@@ -57,4 +57,17 @@ public class AppUtils {
         }
         return null;
     }
+    /**
+     * 获取本机版本序号
+     */
+    public static int getVerCode(Context context,String packageName) {
+        int verCode = -1;
+        try {
+            verCode = context.getPackageManager().getPackageInfo(packageName,
+                    0).versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return verCode;
+    }
 }

@@ -52,7 +52,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,on
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
 		initView();
@@ -107,14 +107,14 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,on
 			
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				// TODO Auto-generated method stub
+
 				
 			}
 			
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
-				// TODO Auto-generated method stub
+
 				
 			}
 			
@@ -137,7 +137,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener,on
 	
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 	}
 	

@@ -8,4 +8,79 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="FullHeightDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="ButtonBar">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">3dip</item>
+    </style>
+    <style name="ButtonBarImgBtn">
+        <item name="android:layout_height">42dip</item>
+        <item name="android:layout_width">42dip</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    <style name="thin_line_x">
+        <item name="android:layout_height">1.5px</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginRight">5dip</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:background">@color/devide_line</item>
+    </style>
+
+    <style name="wide_line_x">
+        <item name="android:layout_height">6dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginRight">5dip</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:background">@color/devide_line</item>
+    </style>
+    <style name="setting_small_img_style">
+        <item name="android:layout_height">30dip</item>
+        <item name="android:layout_width">30dip</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">15dip</item>
+        <item name="android:layout_marginRight">6dip</item>
+    </style>
+    <style name="setting_left_text_style">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="setting_right_text_style">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">15dip</item>
+    </style>
+    <style name="list_item_left_img_style">
+        <item name="android:layout_height">40dip</item>
+        <item name="android:layout_width">40dip</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginLeft">10dip</item>
+        <item name="android:layout_marginRight">5dip</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="list_item_dot_img_style">
+        <item name="android:layout_height">10dip</item>
+        <item name="android:layout_width">10dip</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginLeft">10dip</item>
+        <item name="android:layout_marginRight">3dip</item>
+        <item name="android:src">@drawable/dot_orange</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
 </resources>

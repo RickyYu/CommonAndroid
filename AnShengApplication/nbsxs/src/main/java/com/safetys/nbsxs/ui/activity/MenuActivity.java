@@ -41,7 +41,6 @@ public class MenuActivity extends BaseActivity implements OnClickListener,onNetC
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu);
 		init();
@@ -73,7 +72,6 @@ public class MenuActivity extends BaseActivity implements OnClickListener,onNetC
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 		//第一次登录的时候，默认先跳转到企业信息界面
 		boolean isFirst = (boolean) SPUtils.getData(PrefKeys.PREF_NOT_IS_FIRST_LOGIN, false);
@@ -113,14 +111,12 @@ public class MenuActivity extends BaseActivity implements OnClickListener,onNetC
 	
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
 	}
 
 
 	@Override
 	public void onError(String errorMsg) {
-		// TODO Auto-generated method stub
 		//不做处理
 	}
 

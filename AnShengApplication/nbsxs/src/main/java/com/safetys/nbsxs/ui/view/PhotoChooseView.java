@@ -123,14 +123,11 @@ public class PhotoChooseView extends RelativeLayout{
 			
 			@Override
 			public void onAnimationStart(Animator animation) {
-				// TODO Auto-generated method stub
 				
 			}
 			
 			@Override
 			public void onAnimationRepeat(Animator animation) {
-				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override

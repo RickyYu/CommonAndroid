@@ -6,8 +6,6 @@ import android.database.DataSetObserver;
 import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.HeaderViewListAdapter;
 
 import java.util.List;
@@ -96,19 +94,16 @@ public class BaseListAdapter<T> extends HeaderViewListAdapter {
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
 	public boolean isEnabled(int position) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 }
