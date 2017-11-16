@@ -157,8 +157,7 @@ public class LawEnforcementFragment extends Fragment implements ViewPager.OnPage
                 break;
             case 1:
                 //监督检查
-                Intent mIntent = new Intent();
-                mIntent.setClass(getActivity(),
+                Intent mIntent = new Intent(getActivity(),
                         EnterpriseListActivity.class);
                 mIntent.putExtra("skipType", EnterpriseListActivity.SKIP_SUPERVISE_CHECKT);
                 mIntent.putExtra("source", "checkTable");

@@ -131,6 +131,7 @@ public class MainActivity extends FragmentActivity {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
                 && event.getAction() == KeyEvent.ACTION_DOWN
                 && event.getRepeatCount() == 0) {
+            mLoading.dismiss();
             // 具体的操作代码
             new AlertDialog.Builder(this)
 

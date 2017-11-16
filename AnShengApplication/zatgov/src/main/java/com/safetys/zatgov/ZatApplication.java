@@ -6,6 +6,7 @@ import android.content.Intent;
 import com.safetys.widget.common.SPUtils;
 import com.safetys.zatgov.config.AppConfig;
 import com.safetys.zatgov.service.UpgradeService;
+import com.safetys.zatgov.utils.LoadingDialogUtil;
 import com.umeng.analytics.MobclickAgent;
 
 import org.xutils.DbManager;
@@ -18,6 +19,7 @@ import org.xutils.x;
 public class ZatApplication extends Application {
     public static final  String SP_DATA_NAME = AppConfig.BASE_PACKAGE;
     private DbManager.DaoConfig mDaoConfig;
+    protected LoadingDialogUtil mLoading;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -51,6 +53,8 @@ public class ZatApplication extends Application {
 		startService(mIntent);*/
 
     }
+
+
 /*
     *//**
      * 返回应用主配置

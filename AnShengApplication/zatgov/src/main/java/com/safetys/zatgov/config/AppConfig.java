@@ -71,6 +71,40 @@ public class AppConfig {
     public static String URI_GET_PUNISHMENT_INFO = "/appPunishment/nosecuritycheck/loadPunishment.xhtml";
     /* 企业信息 */
     public static String URI_GET_COMPANY_DETAIL_INFO = "/appCheckRecord/nosecuritycheck/loadCompanyGrid.xhtml";
+    /* 获取首页资讯政府 */
+    public static String URI_GET_GOV_INFO = "/appDanger/nosecuritycheck/loadCountGov.xhtml";
+    /* 获取首页资讯企业 */
+    public static String URI_GET_COM_INFO = "/appDanger/nosecuritycheck/loadCountCom.xhtml";
+    /* 修改企业基本信息 */
+    public static String URI_COMPANY_CHANGE_INFO = "/appCompany/nosecuritycheck/updateCompany.xhtml";
+    /* 获取企业坐标 */
+    public static String URI_COMPANY_LOCATION_INFO = "/appCompany/nosecuritycheck/getPoint.xhtml";
+    /* 发送企业坐标 */
+    public static String URI_SET_COMPANY_LOCATION_INFO = "/appCompany/nosecuritycheck/savePoint.xhtml";
+    /* 企业未整改隐患列表 */
+    public static String URI_SUBMIT_COMPANY_YH_LIST_INFO = "/appDanger/nosecuritycheck/loadVDangers.xhtml";
+    /* 一般隐患信息查询 */
+    public static String URI_GET_COMPANY_GENERAL_ITEM_INFO = "/appNomalDanger/nosecuritycheck/loadNomalDanger.xhtml";
+    /* 一般隐患修改 */
+    public static String URI_SUBMIT_GENERALCHECK_INFO = "/appNomalDanger/nosecuritycheck/updateNomalDanger.xhtml";
+    /* 新增检查记录 */
+    public static String URI_SUBMIT_CHECK_INFO = "/appCheckRecord/nosecuritycheck/createCheckRecord.xhtml";
+    /* 删除一般隐患 */
+    public static String DELETE_GENERAL_ID = "/appCheckRecord/nosecuritycheck/deleteHiddenTrouble.xhtml";
+    /* 删除重大隐患 */
+    public static String DELETE_MAJOR_ID = "/appDanger/nosecuritycheck/deleteDanger.xhtml";
+    /* 检查记录隐患列表 */
+    public static String URI_SUBMIT_CHECK_YH_LIST_INFO = "/appDanger/nosecuritycheck/loadProDangers.xhtml";
+    /* 检查记录新接口 */
+    public static String URI_GET_GOV_COMPANY_CHECK_LIST_INFO = "/appCheckRecord/nosecuritycheck/loadGovCheckRecordList.xhtml";
+    /* 删除检查记录 */
+    public static String URI_DELETE_CHECK_INFO = "/appCheckRecord/nosecuritycheck/deleteCheckRecord.xhtml";
+    /* 检查记录详情 */
+    public static String URI_GET_COMPANY_CHECK_DETAIL_INFO = "/appCheckRecord/nosecuritycheck/loadCheckRecord.xhtml";
+    /* 重大隐患提交 */
+    public static String URI_SUBMIT_MAJOR_INFO = "/appDanger/nosecuritycheck/createDanger.xhtml";
+
+
 
 
 

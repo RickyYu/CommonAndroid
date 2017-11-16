@@ -52,6 +52,9 @@
         android:theme="@style/AppTheme">
 
        <!-- 百度Key：Ylw6uiHGV0ThNvqmgc5t8QiawvYVPVs4-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="Ylw6uiHGV0ThNvqmgc5t8QiawvYVPVs4" />
         <!-- 欢迎界面 -->
         <activity
             android:name=".ui.activity.WelcomeActivity"
@@ -178,7 +181,60 @@
         <activity
             android:name=".ui.activity.ZfReviewCompanyHiddenListActivity"
             android:screenOrientation="portrait" />
-
+        <!-- 地图导航 -->
+        <activity
+            android:name=".ui.activity.BNDemoMainActivity"
+            android:screenOrientation="portrait" />
+        <!-- 企业信息列表 -->
+        <activity
+            android:name=".ui.activity.CompanyLocationActivity"
+            android:screenOrientation="portrait" />
+        <!-- 地图导航 -->
+        <activity
+            android:name=".ui.activity.BNDemoGuideActivity"
+            android:screenOrientation="portrait" />
+        <!-- 地图导航 -->
+        <activity
+            android:name=".ui.activity.LocationActivity"
+            android:screenOrientation="portrait" />
+        <!-- 企业选择列表 -->
+        <activity
+            android:name=".ui.activity.EnterpriseChooseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.HistoryTroubleModifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.NewZfCheckAddActivityWgy"
+            android:screenOrientation="portrait" />
+        <!-- 检查记录 隐患列表 -->
+        <activity
+            android:name=".ui.activity.NewZfYhLrActivity"
+            android:screenOrientation="portrait" />
+        <!-- 隐患录入 -->
+        <activity
+            android:name=".ui.activity.TroubleRegisterActivity"
+            android:screenOrientation="portrait" />
+        <!-- 新检查记录页面 -->
+        <activity
+            android:name=".ui.activity.ZfCheckRecordListActivity"
+            android:screenOrientation="portrait" />
+        <!-- new检查记录详情 -->
+        <activity
+            android:name=".ui.activity.NewZfCheckItemActivity"
+            android:screenOrientation="portrait" />
+        <!-- 检查记录Expandable页面 -->
+        <activity
+            android:name=".ui.activity.ZfCheckRecordExpandListActivity"
+            android:screenOrientation="portrait" />
+        <!-- 企业隐患列表模块 -->
+        <activity
+            android:name=".ui.activity.ZfCompanyHiddenListActivity"
+            android:screenOrientation="portrait" />
+        <!-- 一般隐患详情 -->
+        <activity
+            android:name=".ui.activity.NoTroubleModifyActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

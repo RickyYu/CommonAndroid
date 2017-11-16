@@ -113,7 +113,6 @@ public class ZfReviewCompanyHiddenActivity extends BaseActivity implements onNet
     private Bitmap smallBit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.zf_activity_review_company_hidden);
         ButterKnife.bind(this);

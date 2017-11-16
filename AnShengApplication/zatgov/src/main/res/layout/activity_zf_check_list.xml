@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <!-- 标题 -->
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/common_title_bar" />
+    <!-- tabhost效果 -->
+
+    <TextView
+        android:id="@+id/tv_company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_bar"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/button_bar_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_company_name"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/btn_trouble_review"
+            style="@style/ButtonBar"
+            android:background="@drawable/ei_tabhost_btn_selector" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="未处罚"
+                android:textColor="@drawable/bar_text_color" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_trouble_reviewed"
+            style="@style/ButtonBar"
+            android:background="@drawable/ei_tabhost_btn_selector" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="已处罚"
+                android:textColor="@drawable/bar_text_color" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lly_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/button_bar_group"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <Spinner
+            android:id="@+id/sp_choice"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+             />
+
+        <cn.safetys.ywngovernment.view.SearchBar
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_below="@id/button_bar_group" />
+    </LinearLayout>
+
+    <cn.safetys.ywngovernment.view.PullToRefresh
+        android:id="@+id/list_troubles_a"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/lly_search_bar" >
+    </cn.safetys.ywngovernment.view.PullToRefresh>
+
+    <cn.safetys.ywngovernment.view.PullToRefresh
+        android:id="@+id/list_troubles_b"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/lly_search_bar" >
+    </cn.safetys.ywngovernment.view.PullToRefresh>
+
+</RelativeLayout>

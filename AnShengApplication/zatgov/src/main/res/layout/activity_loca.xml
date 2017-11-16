@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="16dp"
+    >
+
+   <!-- fixme-->
+   <!-- tools:context=".BNDemoMainActivity"-->
+
+
+
+    <Button
+        android:id="@+id/mDb06llNaviBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="检查坐标" />
+
+</LinearLayout>

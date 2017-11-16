@@ -1,0 +1,135 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <!-- 标题 -->
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/common_title_bar" />
+    <!-- tabhost效果 -->
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_below="@id/title_bar"
+        android:orientation="vertical"
+        android:weightSum="1" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:background="#46AEE9" >
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1.5px"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:background="#65BCED" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="1.5px"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:visibility="gone"
+                android:background="#65BCED" />
+
+            <RelativeLayout
+                android:id="@+id/btn_add"
+                android:background="@drawable/tab_blue_select"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@id/line"
+                android:layout_toLeftOf="@id/line2"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/img_2"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/new_add" />
+
+                <TextView
+                    android:id="@+id/text_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_2"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_vertical"
+                    android:text="新增隐患"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/more_big_text_size" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/btn_look"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@id/line"
+                android:layout_toRightOf="@id/line2"
+                android:background="@drawable/tab_blue_select"
+                android:visibility="gone"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/img_look"
+                    android:layout_width="42dp"
+                    android:layout_height="45dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/new_look" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_look"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_vertical"
+                    android:text="查看企业隐患"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/more_big_text_size" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- 提交按钮 -->
+
+    <LinearLayout
+        android:id="@+id/btn_viewyb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="6" >
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/normal_button_height"
+            android:layout_weight="4"
+            android:background="@drawable/btn_normal_blue_select"
+            android:text="完成"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <cn.safetys.ywngovernment.view.PullToRefresh
+        android:id="@+id/list_yh"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/btn_viewyb"
+        android:layout_below="@id/ll" >
+    </cn.safetys.ywngovernment.view.PullToRefresh>
+
+</RelativeLayout>

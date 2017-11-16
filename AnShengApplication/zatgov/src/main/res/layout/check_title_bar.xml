@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_bar_hegiht"
+    android:layout_alignParentTop="true"
+    android:background="#46AEE9" >
+
+    <LinearLayout
+        android:id="@+id/btn_back"
+        android:layout_width="65dip"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:background="@drawable/icon_back"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+    
+     <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="检查记录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_bar_text_size" />
+  
+    
+
+    <LinearLayout
+        android:id="@+id/btn_chufa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true" >
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:gravity="center"
+              android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/chufa_select"
+            android:textSize="@dimen/more_big_text_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="处罚"
+            android:textColor="@color/white"
+            android:textSize="@dimen/more_big_text_size" />
+    </LinearLayout>
+    
+    
+     <LinearLayout
+         android:visibility="gone"
+        android:id="@+id/btn_add"
+        android:layout_toLeftOf="@id/btn_chufa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+         >
+
+        <ImageView
+            android:id="@+id/iv_right2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:gravity="center"
+             android:layout_gravity="center_vertical"
+            android:background="@drawable/add"
+            android:textSize="@dimen/more_big_text_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="新增隐患"
+            android:textColor="@color/white"
+            android:textSize="@dimen/more_big_text_size" />
+    </LinearLayout>
+    
+
+</RelativeLayout>

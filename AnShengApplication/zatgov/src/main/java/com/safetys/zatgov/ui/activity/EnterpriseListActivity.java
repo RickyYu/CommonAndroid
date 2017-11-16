@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.alibaba.fastjson.JSONArray;
+import com.safetys.widget.common.DateDistanceUtils;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
 import com.safetys.zatgov.adapter.EnterpriseListAdapter;
@@ -140,7 +141,69 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
     @OnItemClick(R.id.listview)
     public void onItemClick(AdapterView<?> parent, View view,
                             int position, long id){
-        ToastUtils.showMessage(getApplicationContext(),"position");
+         Intent intent = null;
+        boolean needFinish = false;
+        switch (skipType) {
+            case SKIP_COMPANY_INFO:
+                intent = new Intent(EnterpriseListActivity.this,
+                        EnterpriseChooseActivity.class);
+                break;
+            case SKIP_SUPERVISE_CHECKT:
+                CompanyVo companys = mdatas.get(position);
+                if (DateDistanceUtils.isEndDay(companys.getCreateTime())) {
+                    // 新增隐患检查
+                    intent = new Intent(EnterpriseListActivity.this,
+                            NewZfCheckAddActivityWgy.class);
+                    boolean isReview;
+                    if (companys.getGridDangerNum().equals("0")) {
+                        isReview = false;
+                    } else {
+                        isReview = true;
+                    }
+                    intent.putExtra("num", isReview);
+                    intent.putExtra("checkId", checkId);
+
+                } else {
+                    // 修改隐患
+                    intent = new Intent(EnterpriseListActivity.this,
+                            ZfReviewCompanyHiddenListActivity.class);
+                    intent.putExtra("companyId", mdatas.get(position)
+                            .getId());
+                    intent.putExtra("source", "check");
+                }
+                break;
+            case SKIP_CHECK_RECORD_LIST_TO_REVIEW:
+                //// FIXME: 2017/11/16
+        /*        intent = new Intent(EnterpriseListActivity.this,
+                        CheckListActivity.class);
+                intent.putExtra(SKIP_TYPR, skipType);
+                needFinish = true;*/
+                break;
+            case SKIP_CHECK_RECORD_LIST:
+                intent = new Intent(EnterpriseListActivity.this,
+                        ZfCheckRecordListActivity.class);
+                intent.putExtra("companyName", mdatas.get(position)
+                        .getCompanyName());
+                break;
+            case SKIP_CHECK_RECORD_LIST_EXPANDABLE:
+                intent = new Intent(EnterpriseListActivity.this,
+                        ZfCheckRecordExpandListActivity.class);
+                intent.putExtra("companyName", mdatas.get(position)
+                        .getCompanyName());
+
+                break;
+            case SKIP_COMPANY_HIDDEN_INFO:
+                intent = new Intent(EnterpriseListActivity.this,
+                        ZfCompanyHiddenListActivity.class);
+                break;
+            default:
+                break;
+        }
+
+        intent.putExtra("id", mdatas.get(position).getId());// 企业id
+        intent.putExtra("searchData", searchBar.getSearchData());
+        startActivityForResult(intent, REQUEST_SEARCHDATA_CODE);
+
     }
 
 
