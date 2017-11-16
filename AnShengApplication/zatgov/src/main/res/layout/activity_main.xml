@@ -69,7 +69,7 @@
 
         <fragment
             android:id="@+id/fragment_scf"
-            android:name="com.safetys.zatgov.ui.fragment.InfomationFragment"
+            android:name="com.safetys.zatgov.ui.fragment.LawEnforcementFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         

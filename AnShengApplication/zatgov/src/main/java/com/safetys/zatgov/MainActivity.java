@@ -16,6 +16,7 @@ import com.safetys.widget.common.SPUtils;
 import com.safetys.zatgov.config.AppConfig;
 import com.safetys.zatgov.config.PrefKeys;
 import com.safetys.zatgov.ui.fragment.InfomationFragment;
+import com.safetys.zatgov.ui.fragment.LawEnforcementFragment;
 import com.safetys.zatgov.ui.fragment.SettingFragment;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 import com.safetys.zatgov.utils.XmlParseUtil;
@@ -26,7 +27,7 @@ import butterknife.OnClick;
 
 
 public class MainActivity extends FragmentActivity {
-    InfomationFragment fragmentScf;
+    LawEnforcementFragment fragmentScf;
     InfomationFragment fragmentInfo;
     SettingFragment fragmentSetting;
     @BindView(R.id.button_law)
@@ -49,7 +50,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void initView() {
-        fragmentScf = (InfomationFragment) getSupportFragmentManager()
+        fragmentScf = (LawEnforcementFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.fragment_scf);// 行政执法
         fragmentInfo = (InfomationFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.fragment_info);// 信息查询

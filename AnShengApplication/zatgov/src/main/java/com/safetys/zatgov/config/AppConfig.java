@@ -23,16 +23,54 @@ public class AppConfig {
     public static String URI_GET_COMPANY_DEETAIL_INFO = "/appArticle/nosecuritycheck/loadArticle.xhtml";
     /* MSDS库 */
     public static String URI_GET_COMPANY_MSDS_INFO = "/appDangerousChemicals/nosecuritycheck/loadDangerousChemicals.xhtml";
-
-
-
-
-
-
-
-
-
-
+    /* 网格员检查表查询 */
+    public static String URI_GET_WGY_CHECKLIST = "/apphztemplatechecktable/nosecuritycheck/list.xhtml";
+    /* 删除检查表 */
+    public static String URI_DELETE_WGY_CHECKLIST = "/apphztemplatechecktable/nosecuritycheck/delete.xhtml";
+    /* 网格员检查表详情 */
+    public static String URI_GET_WGY_CHECKLIST_ITEM = "/apphztemplatechecktable/nosecuritycheck/input.xhtml";
+    /* 新增修改检查表 */
+    public static String URI_SUBMIT_WGY_CHECKLIST = "/apphztemplatechecktable/nosecuritycheck/save.xhtml";
+    /* 网格员检查表新增以及列表 */
+    public static String URI_GET_WGY_CHECKLIST_ONE = "/apphztemplatecheckcitytable/nosecuritycheck/list.xhtml";
+    /* 网格员检查表新增二级检查项 */
+    public static String URI_GET_WGY_CHECKLIST_TWO = "/apphztemplatecheckcitytable/nosecuritycheck/secondaryMenu.xhtml";
+    /* 企业列表 */
+    public static String URI_GET_COMPANY_LIST_INFO = "/appCompany/nosecuritycheck/loadCompanys.xhtml";
+    /* 获取行业类型表 */
+    public static String URI_GET_TRADE_TYPES = "/appCompany/nosecuritycheck/getTradeTypes.xhtml";
+    /* 获取复查列表 */
+    public static String URI_GET_REVIEW_LIST = "/appProduceLocaleNote/nosecuritycheck/loadProduceCallBacks.xhtml";
+    /* 获取隐患描述列表 */
+    public static String URI_GET_HIDDEN_DES_LIST = "/appProduceLocaleNote/nosecuritycheck/loadHzHiddenTroubles.xhtml";
+    /* 新增复查信息 */
+    public static String URI_ADD_REVIEW_INFO = "/appProduceLocaleNote/nosecuritycheck/createProduceCallBack.xhtml";
+    /* 重大隐患详细信息查询 */
+    public static String URI_GET_COMPANY_MAJOR_DETAIL_INFO = "/appDanger/nosecuritycheck/loadDanger.xhtml";
+    /* 政府一般隐患信息获取 */
+    public static String URI_GET_MAINCHEAK_INFO_NOW = "/appCheckRecord/nosecuritycheck/loadNomalDanger.xhtml";
+    /* 获取复查详细信息 */
+    public static String URI_GET_REVIEW_INFO = "/appProduceLocaleNote/nosecuritycheck/loadProduceCallBack.xhtml";
+    /* 一般隐患提交22222 */
+    public static String URI_SUBMIT_GENERALCHEAK_INFO_NOW = "/appCheckRecord/nosecuritycheck/createHiddenTrouble.xhtml";
+    /* 重大隐患历史纪录修改 */
+    public static String URI_SUBMIT_MAJOR_HIS_INFO = "/appDanger/nosecuritycheck/updateDanger.xhtml";
+    /* 获取未处罚列表 */
+    public static String URI_GET_UNPUNISHMENT_LIST = "/appPunishment/nosecuritycheck/loadNotPunishmentList.xhtml";
+    /* 获取处罚列表 */
+    public static String URI_GET_PUNISHMENT_LIST = "/appPunishment/nosecuritycheck/loadPunishmentList.xhtml";
+    /* 获取企业基本信息 */
+    public static String URI_GET_COMPANY_INFO = "/appCompany/nosecuritycheck/loadCompanyInfo.xhtml";
+    /* 新增处罚 */
+    public static String URI_SUBMIT_PUNISHMENT_INFO = "/appPunishment/nosecuritycheck/createPunishment.xhtml";
+    /* 获取历史复查记录 */
+    public static String URI_GET_REVIEW_HISTORY_LIST = "/appProduceLocaleNote/nosecuritycheck/loadHistoryProduceCallBacks.xhtml";
+    /* 初查记录 */
+    public static String URI_GET_PRE_IVS_RECORD = "/appCheckRecord/nosecuritycheck/loadCheckRecord.xhtml";
+    /* 获取处罚信息 */
+    public static String URI_GET_PUNISHMENT_INFO = "/appPunishment/nosecuritycheck/loadPunishment.xhtml";
+    /* 企业信息 */
+    public static String URI_GET_COMPANY_DETAIL_INFO = "/appCheckRecord/nosecuritycheck/loadCompanyGrid.xhtml";
 
 
 

@@ -50,6 +50,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+       <!-- 百度Key：Ylw6uiHGV0ThNvqmgc5t8QiawvYVPVs4-->
         <!-- 欢迎界面 -->
         <activity
             android:name=".ui.activity.WelcomeActivity"
@@ -103,7 +105,80 @@
         <activity
             android:name=".ui.activity.ViewPhotosActivity"
             android:screenOrientation="portrait" />
+        <!-- 网格员检查表 -->
+        <activity
+            android:name=".ui.activity.WgyCheckListActivity"
+            android:screenOrientation="portrait" />
+        <!-- 网格员制作检查表 -->
+        <activity
+            android:name=".ui.activity.WgyMakeCheckListActivity"
+            android:screenOrientation="portrait" />
+        <!-- 网格员公司查找条件界面 -->
+        <activity
+            android:name=".ui.activity.WgySearchCompanysActivity"
+            android:screenOrientation="portrait" />
+        <!-- 企业信息列表 -->
+        <activity
+            android:name=".ui.activity.EnterpriseListActivity"
+            android:screenOrientation="portrait" />
+        <!-- 政府复查列表 -->
+        <activity
+            android:name=".ui.activity.ZfReviewCompanyListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.HistoryMajorChangeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.HistoryTroubleChangeActivity"
+            android:screenOrientation="portrait" />
+        <!-- 地图导航 -->
+        <activity
+            android:name=".ui.activity.MapActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 新增行政处罚 -->
+        <activity
+            android:name=".ui.activity.NewPunishmentAddActivity"
+            android:screenOrientation="portrait" />
+        <!-- 查看行政处罚 -->
+        <activity
+            android:name=".ui.activity.NewPunishmentShowActivity"
+            android:screenOrientation="portrait" />
+        <!-- 隐患录入 -->
+        <activity
+            android:name=".ui.activity.NewZfCheckAddActivity"
+            android:screenOrientation="portrait" />
+        <!-- new行政处罚列表 -->
+        <activity
+            android:name=".ui.activity.NewZfPunListActivity"
+            android:screenOrientation="portrait" />
+        <!-- 重大隐患详情 -->
+        <activity
+            android:name=".ui.activity.NoMajorChangeActivity"
+            android:screenOrientation="portrait" />
+        <!-- 复查详情 -->
+        <activity
+            android:name=".ui.activity.ReviewShowActivity"
+            android:screenOrientation="portrait" />
         <service android:name=".service.UpgradeService" />
+
+        <!-- 查看图片 -->
+        <activity
+            android:name=".ui.activity.ViewPhotoActivity"
+            android:screenOrientation="portrait" />
+        <!--多图浏览-->
+        <activity
+            android:name=".ui.activity.ViewPhotosActivity"
+            android:screenOrientation="portrait" />
+        <!-- 政府隐患复查 -->
+        <activity
+            android:name=".ui.activity.ZfReviewCompanyHiddenActivity"
+            android:screenOrientation="portrait" />
+        <!-- 政府复查隐患列表 -->
+        <activity
+            android:name=".ui.activity.ZfReviewCompanyHiddenListActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

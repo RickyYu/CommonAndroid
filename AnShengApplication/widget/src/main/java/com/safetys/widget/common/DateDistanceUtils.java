@@ -3,6 +3,7 @@ package com.safetys.widget.common;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -10,8 +11,23 @@ import java.util.Date;
  * @author ricky
  * @time  2017-10-24
  */
-public class DateDistanceUtils {  
-    
+public class DateDistanceUtils {
+
+    /**
+     * 如果是大于等于0的，则true，可新增隐患，否则false 只能查询，修改隐患
+     * @param time 目标时间
+     * @return
+     */
+    public static boolean isEndDay(long time) {
+        if(System.currentTimeMillis() - time > 24*60*60*1000){
+            return true;
+        }
+        int currentDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);// 系统日期
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(time);
+        int purposeDay = calendar.get(Calendar.DAY_OF_MONTH);
+        return Math.abs(currentDay - purposeDay) > 0;
+    }
     /** 
      * 两个时间之间相差距离多少天 
      * @param one 时间参数 1： 

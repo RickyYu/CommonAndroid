@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <!-- 标题 -->
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/common_title_bar" />
+    <LinearLayout
+        android:id="@+id/lly_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/title_bar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <Spinner
+            android:id="@+id/sp_choice"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+             />
+
+        <com.safetys.zatgov.ui.view.SearchBar
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_below="@id/title_bar" />
+    </LinearLayout>
+
+    <com.safetys.zatgov.ui.view.PullToRefresh
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/lly_search_bar" >
+    </com.safetys.zatgov.ui.view.PullToRefresh>
+
+</RelativeLayout>
