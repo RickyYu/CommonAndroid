@@ -409,12 +409,12 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <cn.safetys.ywngovernment.view.PullToRefresh
+                <com.safetys.zatgov.ui.view.PullToRefresh
                     android:id="@+id/list_checkcontent"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
                     android:layout_below="@id/ll" >
-                </cn.safetys.ywngovernment.view.PullToRefresh>
+                </com.safetys.zatgov.ui.view.PullToRefresh>
             </RelativeLayout>
 
             <View style="@style/wide_line_x" />

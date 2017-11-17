@@ -1,0 +1,434 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- 标题 -->
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/common_title_bar" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/title_bar"
+        android:orientation="vertical"
+        android:weightSum="24" >
+        
+          <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="11"
+            android:background="@color/normal_blue"
+            android:numColumns="4" >
+        </GridView>
+
+        <!-- 第一排四个 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:visibility="gone"
+            android:background="#46AEE9"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="8" >
+
+            <!-- 我要检查 -->
+
+            <RelativeLayout
+                android:id="@+id/rll_check"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/check_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_check"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="我要检查"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text_size" />
+            </RelativeLayout>
+            <!-- 我要复查 -->
+
+            <RelativeLayout
+                android:id="@+id/rll_checkagain"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_checkagain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/checkagain_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_checkagain"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="我要复查"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text_size" />
+            </RelativeLayout>
+            <!-- 检查记录 -->
+
+            <RelativeLayout
+                android:id="@+id/rll_checklist"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_checklist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/checklist_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_checklist"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="检查记录"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text_size" />
+            </RelativeLayout>
+            <!-- 企业管理 -->
+
+            <RelativeLayout
+                android:id="@+id/rll_compangy"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_compangy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/checkcompany_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_compangy"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="企业管理"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text_size" />
+            </RelativeLayout>
+        </LinearLayout>
+         
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6" >
+
+            <!-- 待办工作 -->
+
+            <include layout="@layout/wgy_work" />
+
+            <include
+                android:id="@+id/in_check"
+                layout="@layout/wgy_check"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <View
+            style="@style/wide_line_x"
+            android:background="@color/new_thin_y" />
+
+        <!-- 信息资讯 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <View style="@style/thin_blue_line" >
+            </View>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:text="信息资讯"
+                android:textColor="@color/little_grey"
+                android:textSize="@dimen/more_big_text_size" />
+        </LinearLayout>
+
+        <View style="@style/thin_line_x" >
+        </View>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="7"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="8" >
+
+            <!-- 法律法规 -->
+
+            <LinearLayout
+                android:id="@+id/lly_laws"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_laws"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/wgy_laws_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="法律法规"
+                    android:textColor="@color/little_grey"
+                    android:textSize="@dimen/normal_text_size" />
+            </LinearLayout>
+            <!-- 技术标准 -->
+
+            <LinearLayout
+                android:id="@+id/lly_technology"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_technology"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/wgy_tec_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="技术标准"
+                    android:textColor="@color/little_grey"
+                    android:textSize="@dimen/normal_text_size" />
+            </LinearLayout>
+            <!-- Msds -->
+
+            <LinearLayout
+                android:id="@+id/lly_msds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_msds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/wgy_msds_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="MSDS查询"
+                    android:textColor="@color/little_grey"
+                    android:textSize="@dimen/normal_text_size" />
+            </LinearLayout>
+            <!-- 安监要闻 -->
+
+            <LinearLayout
+                 android:id="@+id/lly_news"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/wgy_news_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="安监要闻"
+                    android:textColor="@color/little_grey"
+                    android:textSize="@dimen/normal_text_size" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/wide_line_x"
+            android:background="@color/new_thin_y" />
+
+        <!-- 上月隐患存在较多的企业 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <View style="@style/thin_blue_line" >
+            </View>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:text="上月隐患存在较多的企业"
+                android:textColor="@color/little_grey"
+                android:textSize="@dimen/more_big_text_size" />
+        </LinearLayout>
+
+        <View style="@style/thin_line_x" >
+        </View>
+
+        <LinearLayout
+            android:id="@+id/ll_company"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="6"
+            android:visibility="gone"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/ll_company1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/num1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@mipmap/wgy_orange"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/title_bar_text_size" />
+
+                <TextView
+                    android:id="@+id/companyname1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:text="（个）"
+                    android:textColor="@color/des_grey"
+                    android:textSize="@dimen/normal_text_size" />
+            </LinearLayout>
+
+            <View style="@style/thin_line_y" />
+
+            <LinearLayout
+                android:id="@+id/ll_company2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/num2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@mipmap/wgy_orange"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/title_bar_text_size" />
+
+                <TextView
+                    android:id="@+id/companyname2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:text="（个）"
+                    android:textColor="@color/des_grey"
+                    android:textSize="@dimen/normal_text_size" />
+            </LinearLayout>
+
+            <View style="@style/thin_line_y" />
+
+            <LinearLayout
+                android:id="@+id/ll_company3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/num3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@mipmap/wgy_orange"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/title_bar_text_size" />
+
+                <TextView
+                    android:id="@+id/companyname3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:text="（个）"
+                    android:textColor="@color/des_grey"
+                    android:textSize="@dimen/normal_text_size" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

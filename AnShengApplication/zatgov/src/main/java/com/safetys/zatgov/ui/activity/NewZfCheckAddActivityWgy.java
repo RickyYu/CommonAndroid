@@ -160,7 +160,7 @@ public class NewZfCheckAddActivityWgy extends BaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_add_wgy);
-     //   initView();
+       initView();
     }
 
     private void initView() {
@@ -757,7 +757,7 @@ public class NewZfCheckAddActivityWgy extends BaseActivity implements
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        // TODO
+
         if (requestCode == ADD_HIDDEN_WITH_TABLE_CODE) {
 
             if (data != null) {
@@ -922,7 +922,7 @@ public class NewZfCheckAddActivityWgy extends BaseActivity implements
                 @Override
                 public void onClick(final View v) {
 
-                    // TODO
+
                     Intent intent = new Intent(NewZfCheckAddActivityWgy.this,
                             TroubleRegisterActivity.class);
                     intent.putExtra("source", "table");

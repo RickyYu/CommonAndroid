@@ -583,7 +583,7 @@ public class NewZfCheckAddActivity extends BaseActivity implements
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
+
         super.onActivityResult(requestCode, resultCode, data);
         // 拍照，照片删除
         if (requestCode == mTakePictureRequestCode
@@ -692,7 +692,7 @@ public class NewZfCheckAddActivity extends BaseActivity implements
 
             }
             mHodler = (TroubleViewHodler) convertView.getTag();
-            mHodler.iv_now.setImageResource(R.drawable.wgy_pic);
+            mHodler.iv_now.setImageResource(R.mipmap.wgy_pic);
 
             mHodler.mTextView1.setText(mDatas.get(position).getDes());
             mPosition = position;
@@ -748,7 +748,7 @@ public class NewZfCheckAddActivity extends BaseActivity implements
         mLoading.dismiss();
         switch (requestCode) {
             case Const.HAVE_PROBLEM:
-                // TODO
+
                 if (mJsonResult.getEntity() != null) {
 
                     DialogUtil.showMsgDialog2(this,
@@ -800,7 +800,7 @@ public class NewZfCheckAddActivity extends BaseActivity implements
                     } else {
                         tv_null.setVisibility(View.GONE);
                         lv_checkcontent.setVisibility(View.VISIBLE);
-                        //TODO
+
                         mPicScrollView.setVisibility(View.VISIBLE);
                         myUserIds = JSONArray.parseArray(
                                 (String) mJsonResult.getJson(), UserIds.class);

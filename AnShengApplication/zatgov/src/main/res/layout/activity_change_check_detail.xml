@@ -483,7 +483,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dip"
                         android:layout_marginRight="5dip"
-                        android:src="@drawable/icon_btn_scene_photo_bg" />
+                        android:src="@mipmap/icon_btn_scene_photo_bg" />
                 </RelativeLayout>
 
                 <HorizontalScrollView
@@ -582,7 +582,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:visibility="gone"
-                    android:background="@drawable/delete" >
+                    android:background="@mipmap/delete">
                 </ImageButton>
             </RelativeLayout>
         </LinearLayout>

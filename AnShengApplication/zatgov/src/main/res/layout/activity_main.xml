@@ -10,7 +10,7 @@
         android:layout_alignParentBottom="true"
         android:gravity="center_vertical"
         android:orientation="horizontal" 
-        android:background="@drawable/icon_main_tabhost_background">
+        android:background="@mipmap/icon_main_tabhost_background">
 
         <RelativeLayout style="@style/ButtonBar" 
             android:id="@+id/button_law">

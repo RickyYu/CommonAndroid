@@ -41,7 +41,6 @@ import java.util.List;
  */
 public class NoTroubleListFragment extends Fragment implements
         onNetCallback, SearchBar.onSearchListener {
-
 	public static final String ACTION_UPDATE_LIST_YH = "cn.saftys.NoTroubleListActivity.updat.list";
 	private PullToRefresh mListView;
 	private MyListAdapter mAdapter;
@@ -64,7 +63,6 @@ public class NoTroubleListFragment extends Fragment implements
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View mView = inflater.inflate(R.layout.fragment_list_yh, null);
-		
 		mLoading = new LoadingDialogUtil(getActivity(),"请稍后...");
 		initView(mView);
 		return mView;
@@ -134,12 +132,8 @@ public class NoTroubleListFragment extends Fragment implements
 		mAdapter = new MyListAdapter(getActivity(), mDatas);
 		mListView.setAdapter(mAdapter);
 
-
-
 		mListView.setOnItemClickListener(new OnItemClickListener() {
-
 			private Intent intent;
-
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
@@ -158,11 +152,7 @@ public class NoTroubleListFragment extends Fragment implements
 			}
 		});
 
-		
-
 	}
-
-	
 	private void loadingDatas() {
 		mLoading.show();
 		HttpRequestHelper.getInstance().getNoProblemList(
@@ -170,7 +160,6 @@ public class NoTroubleListFragment extends Fragment implements
 				mCurrentPage, totalCount, mSearchBar.getSearchData(),
 				Const.HAVE_PROBLEM, NoTroubleListFragment.this);
 	}
-
 
 	private class MyListAdapter extends BaseAdapter {
 		private Context mContext; 

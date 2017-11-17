@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:state_focused="true" android:drawable="@drawable/bluestart"/>
-    <item android:state_pressed="true" android:drawable="@drawable/bluestart"/>
-    <item android:drawable="@drawable/startnomal"/>
+    <item android:state_focused="true" android:drawable="@mipmap/bluestart"/>
+    <item android:state_pressed="true" android:drawable="@mipmap/bluestart"/>
+    <item android:drawable="@mipmap/startnomal"/>
 
 </selector>

@@ -58,7 +58,7 @@ public class BNDemoMainActivity  extends BaseActivity{
     private Float endY;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+
         super.onCreate(savedInstanceState);
 
         activityList.add(this);
@@ -176,7 +176,7 @@ public class BNDemoMainActivity  extends BaseActivity{
     }
 
     private boolean hasBasePhoneAuth() {
-        // TODO Auto-generated method stub
+
 
         PackageManager pm = this.getPackageManager();
         for (String auth : authBaseArr) {
@@ -188,7 +188,7 @@ public class BNDemoMainActivity  extends BaseActivity{
     }
 
     private boolean hasCompletePhoneAuth() {
-        // TODO Auto-generated method stub
+
 
         PackageManager pm = this.getPackageManager();
         for (String auth : authComArr) {
@@ -328,7 +328,7 @@ public class BNDemoMainActivity  extends BaseActivity{
 
         @Override
         public void onRoutePlanFailed() {
-            // TODO Auto-generated method stub
+      
             Toast.makeText(BNDemoMainActivity.this, "算路失败", Toast.LENGTH_SHORT).show();
         }
     }
@@ -346,25 +346,25 @@ public class BNDemoMainActivity  extends BaseActivity{
 
         @Override
         public void stopTTS() {
-            // TODO Auto-generated method stub
+      
             Log.e("test_TTS", "stopTTS");
         }
 
         @Override
         public void resumeTTS() {
-            // TODO Auto-generated method stub
+      
             Log.e("test_TTS", "resumeTTS");
         }
 
         @Override
         public void releaseTTSPlayer() {
-            // TODO Auto-generated method stub
+      
             Log.e("test_TTS", "releaseTTSPlayer");
         }
 
         @Override
         public int playTTSText(String speech, int bPreempt) {
-            // TODO Auto-generated method stub
+      
             Log.e("test_TTS", "playTTSText" + "_" + speech + "_" + bPreempt);
 
             return 1;
@@ -372,31 +372,31 @@ public class BNDemoMainActivity  extends BaseActivity{
 
         @Override
         public void phoneHangUp() {
-            // TODO Auto-generated method stub
+      
             Log.e("test_TTS", "phoneHangUp");
         }
 
         @Override
         public void phoneCalling() {
-            // TODO Auto-generated method stub
+      
             Log.e("test_TTS", "phoneCalling");
         }
 
         @Override
         public void pauseTTS() {
-            // TODO Auto-generated method stub
+      
             Log.e("test_TTS", "pauseTTS");
         }
 
         @Override
         public void initTTSPlayer() {
-            // TODO Auto-generated method stub
+      
             Log.e("test_TTS", "initTTSPlayer");
         }
 
         @Override
         public int getTTSState() {
-            // TODO Auto-generated method stub
+      
             Log.e("test_TTS", "getTTSState");
             return 1;
         }
@@ -407,7 +407,7 @@ public class BNDemoMainActivity  extends BaseActivity{
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        // TODO Auto-generated method stub
+  
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == authBaseRequestCode) {
             for (int ret : grantResults) {

@@ -464,8 +464,7 @@
                     </LinearLayout>
                 </RelativeLayout>
 
-
-                <com.safety.zatgov.ui.view.CustomExpandableListView
+                <com.safetys.zatgov.ui.view.CustomExpandableListView
                     android:id="@+id/expandable_list_view"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"

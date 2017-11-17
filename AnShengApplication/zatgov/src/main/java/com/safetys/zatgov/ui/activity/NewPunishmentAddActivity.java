@@ -104,7 +104,7 @@ public class NewPunishmentAddActivity extends BaseActivity implements
     private LoadingDialogUtil mLoading;
     private View yh;
     private String checkId = "";// 检查表id 新增时使用
-    // TODO
+
     private ArrayList<HiddenDesInfoVo> hiddenDatas;// 隐患描述
     private ArrayList<ReviewHistoryInfo> reviewHistoryDates;// 复查历史记录
     private HiddenListAdapter hiddenAdapter;// 隐患描述列表数据适配
@@ -116,7 +116,7 @@ public class NewPunishmentAddActivity extends BaseActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chufa);
         initView();
@@ -185,7 +185,7 @@ public class NewPunishmentAddActivity extends BaseActivity implements
         arrow2 = (ImageView) findViewById(R.id.arrow2);
         arrow3 = (ImageView) findViewById(R.id.arrow3);
 
-        // TODO
+
         hiddenDatas = new ArrayList<HiddenDesInfoVo>();
         reviewHistoryDates = new ArrayList<ReviewHistoryInfo>();// 复查历史记录
         hiddenAdapter = new HiddenListAdapter(getApplicationContext(),
@@ -263,12 +263,12 @@ public class NewPunishmentAddActivity extends BaseActivity implements
                 if (!isYh) {
                     isYh = true;
                     pr_hidden.setVisibility(View.VISIBLE);
-                    arrow3.setImageResource(R.drawable.arrow_down);
+                    arrow3.setImageResource(R.mipmap.arrow_down);
                     loadingHiddenDesListDatas();
                 } else {
                     isYh = false;
                     pr_hidden.setVisibility(View.GONE);
-                    arrow3.setImageResource(R.drawable.arrow_up);
+                    arrow3.setImageResource(R.mipmap.arrow_up);
                     hiddenDatas.clear();
                     hiddenAdapter.notifyDataSetChanged();
                 }
@@ -278,12 +278,12 @@ public class NewPunishmentAddActivity extends BaseActivity implements
                 if (!isCheck) {
                     isCheck = true;
                     ll_check.setVisibility(View.VISIBLE);
-                    arrow.setImageResource(R.drawable.arrow_down);
+                    arrow.setImageResource(R.mipmap.arrow_down);
                     loadingPreIvsRecordData();
                 } else {
                     isCheck = false;
                     ll_check.setVisibility(View.GONE);
-                    arrow.setImageResource(R.drawable.arrow_up);
+                    arrow.setImageResource(R.mipmap.arrow_up);
                 }
 
                 break;
@@ -291,12 +291,12 @@ public class NewPunishmentAddActivity extends BaseActivity implements
                 if (!isHis) {
                     isHis = true;
                     pr_review.setVisibility(View.VISIBLE);
-                    arrow2.setImageResource(R.drawable.arrow_down);
+                    arrow2.setImageResource(R.mipmap.arrow_down);
                     loadingReviewHsitoryDatas();
                 } else {
                     isHis = false;
                     pr_review.setVisibility(View.GONE);
-                    arrow2.setImageResource(R.drawable.arrow_up);
+                    arrow2.setImageResource(R.mipmap.arrow_up);
                     reviewHistoryDates.clear();
                     rvHisListAdapter.notifyDataSetChanged();
                 }
@@ -447,7 +447,7 @@ public class NewPunishmentAddActivity extends BaseActivity implements
                         && !mJsonResult.getEntity().equals("{}")) {
                     CheckItemInfo checkItemInfo = JSON.parseObject(
                             mJsonResult.getEntity(), CheckItemInfo.class);
-                    // TODO
+
                     tv_name.setText(checkItemInfo.getCompanyName());
                     tv_address.setText(checkItemInfo.getAddress());
                     tv_lxr.setText(checkItemInfo.getFdDelegate());// 联系人
@@ -483,7 +483,7 @@ public class NewPunishmentAddActivity extends BaseActivity implements
                             picture.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    // TODO Auto-generated method stub
+
                                     showPicture(v.getTag().toString());
                                 }
                             });

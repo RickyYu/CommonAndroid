@@ -58,7 +58,7 @@ public class ZfReviewCompanyListActivity extends BaseActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+ 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zf_trouble_review_list);
         ButterKnife.bind(this);
@@ -177,7 +177,7 @@ public class ZfReviewCompanyListActivity extends BaseActivity implements
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            // TODO Auto-generated method stub
+     
             if (intent.getAction().equals(ACTION_UPDATE_LIST_REVIEW)) {
                 LogUtil.i("now is star reloading list datas for ZfTroubleReviewListActivity");
                 searchBar.clearData();

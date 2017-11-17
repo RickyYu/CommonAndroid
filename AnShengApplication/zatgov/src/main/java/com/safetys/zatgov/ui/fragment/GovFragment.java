@@ -67,7 +67,7 @@ public class GovFragment extends Fragment implements View.OnClickListener, onNet
     }
 
     public void update() {
-        mloading.show();
+       // mloading.show();
         HttpRequestHelper.getInstance().getGovCount(getActivity(),
                 Const.NET_GET_GOV_CODE, this);
     }

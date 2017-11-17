@@ -11,7 +11,7 @@
         android:layout_height="130dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="@drawable/bg_edit"
+        android:background="@mipmap/bg_edit"
         android:layout_marginTop="10dp" />
 
     <ImageButton
@@ -20,6 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="100dp"
-        android:background="@drawable/delete" />
+        android:background="@mipmap/delete" />
 
 </RelativeLayout>

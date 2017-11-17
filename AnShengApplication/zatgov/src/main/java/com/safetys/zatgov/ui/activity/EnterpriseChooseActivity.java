@@ -20,19 +20,14 @@ import com.safetys.zatgov.ui.fragment.NoTroubleListFragment;
  */
 public class EnterpriseChooseActivity extends FragmentActivity implements
         View.OnClickListener {
-
     private View mBtn_back;
     private View btn_item;
     private View btn_list;
     private View currentButton;
-
     private EnterpriseItemFragment enterFragment;// 企业详情
     private NoTroubleListFragment listFragment;// 查看企业隐患
     private String id2;
-
     private LinearLayout llMenu;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -105,6 +105,10 @@ public class AppConfig {
     public static String URI_SUBMIT_MAJOR_INFO = "/appDanger/nosecuritycheck/createDanger.xhtml";
 
 
+    /******************************** 接口地址----网格员 ********************************************/
+    /* 网格员主页 */
+    public static String URI_GET_WGY = "/appDanger/nosecuritycheck/loadCountGovWgy.xhtml";
+
 
 
 

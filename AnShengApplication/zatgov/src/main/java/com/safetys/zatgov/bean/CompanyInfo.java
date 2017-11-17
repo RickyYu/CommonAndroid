@@ -320,7 +320,7 @@ public class CompanyInfo{
                     return mTradeType.getTypeName();
                 }
             } catch (DbException e) {
-                // TODO Auto-generated catch block
+
                 e.printStackTrace();
             }
             return "";
@@ -342,7 +342,7 @@ public class CompanyInfo{
                     return mTradeType.getTypeCode();
                 }
             } catch (DbException e) {
-                // TODO Auto-generated catch block
+
                 e.printStackTrace();
             }
             return "";

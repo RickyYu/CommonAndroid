@@ -142,7 +142,7 @@ public class HistoryCheckRecordExpandAdapter extends BaseExpandableListAdapter {
 		} else {
 			holder = (ChildHolder) view.getTag();
 		}
-		holder.iv_now.setImageResource(R.drawable.wgy_pic);
+		holder.iv_now.setImageResource(R.mipmap.wgy_pic);
 		WgyHiddenItemInfo itemInfo = childDatas.get(groupPosition).get(
 				childPosition);
 		holder.mTextView1.setText(itemInfo.getDescription());
@@ -217,7 +217,7 @@ public class HistoryCheckRecordExpandAdapter extends BaseExpandableListAdapter {
 
 				// loadingCheckDatas(safetyCheckDatas.get(position).getId());
 
-				// TODO
+
 
 			}
 		});

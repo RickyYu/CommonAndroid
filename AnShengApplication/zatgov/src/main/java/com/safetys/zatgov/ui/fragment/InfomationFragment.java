@@ -53,10 +53,10 @@ public class InfomationFragment extends Fragment {
         title.setText("信息查询");
         btnBack.setVisibility(View.GONE);
         ArrayList<InformationDataVo> mdatas = new ArrayList<InformationDataVo>();
-        mdatas.add(new InformationDataVo("法律法规",R.drawable.icon_infomation_flfg));
-        mdatas.add(new InformationDataVo("技术标准",R.drawable.icon_infomation_jsbz));
-        mdatas.add(new InformationDataVo("MSDS查询",R.drawable.icon_infomation_msds));
-        mdatas.add(new InformationDataVo("安监要闻",R.drawable.icon_infomation_ajyw));
+        mdatas.add(new InformationDataVo("法律法规",R.mipmap.icon_infomation_flfg));
+        mdatas.add(new InformationDataVo("技术标准",R.mipmap.icon_infomation_jsbz));
+        mdatas.add(new InformationDataVo("MSDS查询",R.mipmap.icon_infomation_msds));
+        mdatas.add(new InformationDataVo("安监要闻",R.mipmap.icon_infomation_ajyw));
         mAdapter = new InfomationListAdapter(getActivity(), mdatas);
         listview.setAdapter(mAdapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

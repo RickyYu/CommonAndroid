@@ -119,7 +119,7 @@
                 android:layout_marginLeft="2dip"
                 android:layout_marginRight="2dip"
                 android:layout_weight="1.0"
-                android:background="@drawable/pre_"
+                android:background="@mipmap/pre_"
                 android:onClick="nodeClick" />
 
             <Button
@@ -129,7 +129,7 @@
                 android:layout_marginLeft="2dip"
                 android:layout_marginRight="2dip"
                 android:layout_weight="1.0"
-                android:background="@drawable/next_"
+                android:background="@mipmap/next_"
                 android:onClick="nodeClick" />
         </LinearLayout>
     </RelativeLayout>

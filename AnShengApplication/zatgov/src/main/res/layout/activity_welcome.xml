@@ -30,28 +30,28 @@
                 android:layout_width="10dip"
                 android:layout_height="10dip"
                 android:layout_weight="1.0"
-                android:src="@drawable/dot_w1" 
+                android:src="@mipmap/dot_w1"
                 android:scaleType="centerInside"/>
 
             <ImageView
                 android:layout_width="10dip"
                 android:layout_height="10dip"
                 android:layout_weight="1.0"
-                android:src="@drawable/dot_w1" 
+                android:src="@mipmap/dot_w1"
                 android:scaleType="centerInside"/>
 
             <ImageView
                 android:layout_width="10dip"
                 android:layout_height="10dip"
                 android:layout_weight="1.0"
-                android:src="@drawable/dot_w1" 
+                android:src="@mipmap/dot_w1"
                 android:scaleType="centerInside"/>
 
             <ImageView
                 android:layout_width="10dip"
                 android:layout_height="10dip"
                 android:layout_weight="1.0"
-                android:src="@drawable/dot_w1" 
+                android:src="@mipmap/dot_w1"
                 android:scaleType="centerInside"/>
 
  
@@ -61,7 +61,7 @@
             android:id="@+id/iv_cur_dot"
             android:layout_width="10dip"
             android:layout_height="10dip"
-            android:src="@drawable/dot_w2" 
+            android:src="@mipmap/dot_w2"
             android:scaleType="centerInside"/>
     </FrameLayout>
 

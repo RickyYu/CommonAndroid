@@ -23,7 +23,7 @@
 	    android:layout_height="18dip"
 	    android:layout_alignParentTop="true"
 	    android:layout_alignParentRight="true"
-	    android:background="@drawable/icon_hint_gg"
+	    android:background="@mipmap/icon_hint_gg"
 	    android:gravity="center">
 	    <TextView android:id="@+id/text_unread"
 	    	android:layout_width="wrap_content"

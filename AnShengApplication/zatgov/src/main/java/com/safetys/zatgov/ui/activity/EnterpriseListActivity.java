@@ -105,7 +105,7 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
             isHistory = true;
         }
         setHeadTitle("企业信息列表");
-        ivRight.setBackgroundResource(R.drawable.icon_search_img);
+        ivRight.setBackgroundResource(R.mipmap.icon_search_img);
         ivRight.setVisibility(View.VISIBLE);
         mLoading = new LoadingDialogUtil(this);
         searchBar.setOnSearchListener(new SearchBar.onSearchListener() {
@@ -317,7 +317,7 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            // TODO Auto-generated method stub
+     
             if (intent.getAction().equals(ACTION_UPDATE_LIST_YH)) {
                 reLoadListDatas();
             }
@@ -326,7 +326,7 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
+ 
         super.onActivityResult(requestCode, resultCode, data);
         switch (resultCode) {
             case SEARCH_COMPANY_CODE:

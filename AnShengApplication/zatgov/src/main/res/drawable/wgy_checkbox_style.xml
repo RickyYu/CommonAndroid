@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/wgy_checkboxdown" android:state_checked="true"/>
-    <item android:drawable="@drawable/wgy_checkbox" android:state_checked="false"/>
-    <item android:drawable="@drawable/wgy_checkbox"/>
+    <item android:drawable="@mipmap/wgy_checkboxdown" android:state_checked="true"/>
+    <item android:drawable="@mipmap/wgy_checkbox" android:state_checked="false"/>
+    <item android:drawable="@mipmap/wgy_checkbox"/>
 
 </selector>

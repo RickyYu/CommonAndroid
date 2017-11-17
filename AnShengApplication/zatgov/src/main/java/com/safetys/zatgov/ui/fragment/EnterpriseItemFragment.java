@@ -143,7 +143,7 @@ public class EnterpriseItemFragment extends Fragment implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 		
 		
@@ -211,7 +211,7 @@ public class EnterpriseItemFragment extends Fragment implements
 				
 				@Override
 				public void onClick(String mText,String pcode,String ccode, String dcode) {
-					// TODO Auto-generated method stub
+
 					tv_qy.setText(mText);
 					oneCode= pcode;
 					twoCode= ccode;

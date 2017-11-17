@@ -67,7 +67,7 @@ public class ComFragment extends Fragment implements View.OnClickListener, onNet
     }
 
     public void update() {
-        mloading.show();
+      //  mloading.show();
         HttpRequestHelper.getInstance().getComCount(getActivity(),
                 Const.NET_GET_COM_CODE, this);
     }

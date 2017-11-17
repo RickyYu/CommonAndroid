@@ -180,7 +180,6 @@ public class BNDemoGuideActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
-        // TODO Auto-generated method stub
         if(useCommonInterface) {
             if(mBaiduNaviCommonModule != null) {
                 mBaiduNaviCommonModule.onStart();
@@ -194,7 +193,7 @@ public class BNDemoGuideActivity extends Activity {
         BNRouteGuideManager.CustomizedLayerItem item1 = null;
         if (mBNRoutePlanNode != null) {
             item1 = new BNRouteGuideManager.CustomizedLayerItem(mBNRoutePlanNode.getLongitude(), mBNRoutePlanNode.getLatitude(),
-                    mBNRoutePlanNode.getCoordinateType(), getResources().getDrawable(R.drawable.dw),
+                    mBNRoutePlanNode.getCoordinateType(), getResources().getDrawable(R.mipmap.dw),
                     BNRouteGuideManager.CustomizedLayerItem.ALIGN_CENTER);
             items.add(item1);
 

@@ -58,7 +58,7 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="45dp"
         android:layout_toLeftOf="@id/btn_delete"
-        android:src="@drawable/wgy_pic" />
+        android:src="@mipmap/wgy_pic" />
 
 
 

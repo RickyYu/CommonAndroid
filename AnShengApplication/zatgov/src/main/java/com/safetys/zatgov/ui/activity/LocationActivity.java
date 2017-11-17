@@ -231,7 +231,7 @@ public class LocationActivity extends BaseActivity implements
 					.newMapStatus(builder.build()));
 			mBaiduMap.setMyLocationData(locData);
 			mCurrentMarker = BitmapDescriptorFactory
-					.fromResource(R.drawable.baidumap_ico_poi_on);
+					.fromResource(R.mipmap.baidumap_ico_poi_on);
 			mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(
 					mCurrentMode, true, mCurrentMarker,
 					accuracyCircleFillColor, accuracyCircleStrokeColor));
@@ -256,7 +256,7 @@ public class LocationActivity extends BaseActivity implements
 					.newMapStatus(builder.build()));
 			mBaiduMap.setMyLocationData(locData);
 			mCurrentMarker = BitmapDescriptorFactory
-					.fromResource(R.drawable.baidumap_ico_poi_on);
+					.fromResource(R.mipmap.baidumap_ico_poi_on);
 			mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(
 					mCurrentMode, true, mCurrentMarker,
 					accuracyCircleFillColor, accuracyCircleStrokeColor));
@@ -273,7 +273,7 @@ public class LocationActivity extends BaseActivity implements
 					.latitude(loactionY).longitude(loactionX).build();
 			mBaiduMap.setMyLocationData(locData);
 			mCurrentMarker = BitmapDescriptorFactory
-					.fromResource(R.drawable.baidumap_ico_poi_on);
+					.fromResource(R.mipmap.baidumap_ico_poi_on);
 			mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(
 					mCurrentMode, true, mCurrentMarker,
 					accuracyCircleFillColor, accuracyCircleStrokeColor));
@@ -436,7 +436,7 @@ public class LocationActivity extends BaseActivity implements
 		 * try { if (poiInfos.size() > 0) {
 		 * searchPois.setVisibility(View.VISIBLE); }
 		 * searchPois.setAdapter(poiSearchAdapter); } catch (Exception e) { //
-		 * TODO: handle exception }
+		 *  handle exception }
 		 * 
 		 * set(poiResult);
 		 * 

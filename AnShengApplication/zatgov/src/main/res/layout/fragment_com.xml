@@ -61,7 +61,7 @@
             <ImageView
                 android:layout_width="56dip"
                 android:layout_height="56dip"
-                android:background="@drawable/icon_main_jidu"
+                android:background="@mipmap/icon_main_jidu"
                 android:scaleType="fitCenter" />
         </LinearLayout>
 

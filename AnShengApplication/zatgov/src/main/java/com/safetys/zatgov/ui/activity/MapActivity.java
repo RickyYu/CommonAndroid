@@ -104,7 +104,7 @@ public class MapActivity  extends BaseActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+
         super.onCreate(savedInstanceState);
         // 在使用SDK各组件之前初始化context信息，传入ApplicationContext
         // 注意该方法要再setContentView方法之前实现
@@ -324,7 +324,7 @@ public class MapActivity  extends BaseActivity implements
         mBaidumap.setMapStatus(MapStatusUpdateFactory.newLatLng(nodeLocation));
         // show popup
         popupText = new TextView(MapActivity.this);
-        popupText.setBackgroundResource(R.drawable.popup);
+        popupText.setBackgroundResource(R.mipmap.popup);
         popupText.setTextColor(0xFF000000);
         popupText.setText(nodeTitle);
         mBaidumap.showInfoWindow(new InfoWindow(popupText, nodeLocation, 0));
@@ -536,7 +536,7 @@ public class MapActivity  extends BaseActivity implements
         @Override
         public BitmapDescriptor getStartMarker() {
             if (useDefaultIcon) {
-                return BitmapDescriptorFactory.fromResource(R.drawable.icon_st);
+                return BitmapDescriptorFactory.fromResource(R.mipmap.icon_st);
             }
             return null;
         }
@@ -544,7 +544,7 @@ public class MapActivity  extends BaseActivity implements
         @Override
         public BitmapDescriptor getTerminalMarker() {
             if (useDefaultIcon) {
-                return BitmapDescriptorFactory.fromResource(R.drawable.icon_en);
+                return BitmapDescriptorFactory.fromResource(R.mipmap.icon_en);
             }
             return null;
         }
@@ -559,7 +559,7 @@ public class MapActivity  extends BaseActivity implements
         @Override
         public BitmapDescriptor getStartMarker() {
             if (useDefaultIcon) {
-                return BitmapDescriptorFactory.fromResource(R.drawable.icon_st);
+                return BitmapDescriptorFactory.fromResource(R.mipmap.icon_st);
             }
             return null;
         }
@@ -567,7 +567,7 @@ public class MapActivity  extends BaseActivity implements
         @Override
         public BitmapDescriptor getTerminalMarker() {
             if (useDefaultIcon) {
-                return BitmapDescriptorFactory.fromResource(R.drawable.icon_en);
+                return BitmapDescriptorFactory.fromResource(R.mipmap.icon_en);
             }
             return null;
         }
@@ -582,7 +582,7 @@ public class MapActivity  extends BaseActivity implements
         @Override
         public BitmapDescriptor getStartMarker() {
             if (useDefaultIcon) {
-                return BitmapDescriptorFactory.fromResource(R.drawable.icon_st);
+                return BitmapDescriptorFactory.fromResource(R.mipmap.icon_st);
             }
             return null;
         }
@@ -590,7 +590,7 @@ public class MapActivity  extends BaseActivity implements
         @Override
         public BitmapDescriptor getTerminalMarker() {
             if (useDefaultIcon) {
-                return BitmapDescriptorFactory.fromResource(R.drawable.icon_en);
+                return BitmapDescriptorFactory.fromResource(R.mipmap.icon_en);
             }
             return null;
         }
@@ -604,7 +604,7 @@ public class MapActivity  extends BaseActivity implements
         @Override
         public BitmapDescriptor getStartMarker() {
             if (useDefaultIcon) {
-                return BitmapDescriptorFactory.fromResource(R.drawable.icon_st);
+                return BitmapDescriptorFactory.fromResource(R.mipmap.icon_st);
             }
             return null;
         }
@@ -612,7 +612,7 @@ public class MapActivity  extends BaseActivity implements
         @Override
         public BitmapDescriptor getTerminalMarker() {
             if (useDefaultIcon) {
-                return BitmapDescriptorFactory.fromResource(R.drawable.icon_en);
+                return BitmapDescriptorFactory.fromResource(R.mipmap.icon_en);
             }
             return null;
         }
@@ -749,7 +749,7 @@ public class MapActivity  extends BaseActivity implements
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
+
         if (requestCode == 4444) {
             if (resultCode == 4444) {
                 jd = data.getStringExtra("x");

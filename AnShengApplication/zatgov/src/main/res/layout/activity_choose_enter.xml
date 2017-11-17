@@ -57,7 +57,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/new_item" />
+                    android:background="@mipmap/new_item" />
 
                 <TextView
                     android:id="@+id/text_3"
@@ -84,7 +84,7 @@
                     android:layout_width="42dp"
                     android:layout_height="45dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/new_list" />
+                    android:background="@mipmap/new_list" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -109,13 +109,15 @@
             android:id="@+id/fragment_en"
             android:name="com.safetys.zatgov.ui.fragment.EnterpriseItemFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:layout="@layout/activity_enterprise_detail" />
 
         <fragment
             android:id="@+id/fragment_list"
             android:name="com.safetys.zatgov.ui.fragment.NoTroubleListFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_list_yh" />
     </FrameLayout>
 
 </RelativeLayout>

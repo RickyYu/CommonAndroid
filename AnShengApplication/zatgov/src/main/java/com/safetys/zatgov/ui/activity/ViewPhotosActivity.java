@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,8 +43,8 @@ public class ViewPhotosActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_photos);
         ButterKnife.bind(this);
-        getWindow().setFeatureDrawableResource(Window.FEATURE_LEFT_ICON,
-                android.R.drawable.ic_dialog_info);
+      /*  getWindow().setFeatureDrawableResource(Window.FEATURE_LEFT_ICON,
+                android.R.drawable.ic_dialog_info);*/
         init();
     }
 

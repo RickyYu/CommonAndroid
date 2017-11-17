@@ -413,7 +413,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_margin="2dip"
                     android:scaleType="center"
-                    android:src="@drawable/icon_arrow_right" />
+                    android:src="@mipmap/icon_arrow_right" />
                 <TextView
                     android:id="@+id/tv_type"
                     style="@style/list_item_dot_left_text_style"
@@ -501,12 +501,12 @@
 
             <View style="@style/wide_line_x_blue" />
 
-            <cn.safetys.ywngovernment.view.PullToRefresh
+            <com.safetys.zatgov.ui.view.PullToRefresh
                 android:id="@+id/list_yh"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                  >
-            </cn.safetys.ywngovernment.view.PullToRefresh>
+            </com.safetys.zatgov.ui.view.PullToRefresh>
             
         </LinearLayout>
     </ScrollView>

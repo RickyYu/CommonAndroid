@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:state_pressed="true" android:drawable="@drawable/icon_jcb_click_gov"/>
-    <item android:drawable="@drawable/icon_jcb_gov"/>
+    <item android:state_pressed="true" android:drawable="@mipmap/icon_jcb_click_gov"/>
+    <item android:drawable="@mipmap/icon_jcb_gov"/>
 
 </selector>

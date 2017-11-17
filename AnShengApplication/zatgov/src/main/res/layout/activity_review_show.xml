@@ -151,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:gravity="right|center_vertical"
-                    android:phoneNumber="true"
+
                     android:textSize="@dimen/normal_text_size" />
             </LinearLayout>
 
@@ -208,12 +208,12 @@
             <View style="@style/thin_line_x" />
             <!-- 隐患描述整改 -->
 
-            <cn.safetys.ywngovernment.view.PullToRefresh
+            <com.safetys.zatgov.ui.view.PullToRefresh
                 android:id="@+id/list_zg"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:visibility="gone" >
-            </cn.safetys.ywngovernment.view.PullToRefresh>
+            </com.safetys.zatgov.ui.view.PullToRefresh>
 
             <View style="@style/thin_line_x" />
             <!-- 隐患整改情况 -->
@@ -264,7 +264,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="2dip"
                         android:scaleType="center"
-                        android:src="@drawable/arrow_up" />
+                        android:src="@mipmap/arrow_up" />
                 </LinearLayout>
 
                 <ImageView
@@ -277,7 +277,6 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/dot"
                     android:ellipsize="end"
-                    android:singleLine="true"
                     android:text="初查记录"
                     android:textColor="#46AEE9"
                     android:textSize="@dimen/title_bar_text_size" />
@@ -417,7 +416,6 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:imeOptions="actionNext"
-                        android:singleLine="true"
                         android:textSize="@dimen/normal_text_size" />
                 </LinearLayout>
 
@@ -445,8 +443,7 @@
                         android:imeOptions="actionNext"
                         android:inputType="phone|number"
                         android:maxLength="13"
-                        android:phoneNumber="true"
-                        android:singleLine="true"
+
                         android:textSize="@dimen/normal_text_size" />
                 </LinearLayout>
 
@@ -471,7 +468,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:imeOptions="actionNext"
-                        android:singleLine="true"
+
                         android:textSize="@dimen/normal_text_size" />
                 </LinearLayout>
 
@@ -580,7 +577,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_marginLeft="10dip"
                             android:layout_marginRight="5dip"
-                            android:src="@drawable/icon_btn_scene_photo_bg" />
+                            android:src="@mipmap/icon_btn_scene_photo_bg" />
                     </RelativeLayout>
 
                     <HorizontalScrollView
@@ -626,7 +623,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="2dip"
                         android:scaleType="center"
-                        android:src="@drawable/arrow_up" />
+                        android:src="@mipmap/arrow_up" />
                 </LinearLayout>
 
                 <ImageView
@@ -647,12 +644,12 @@
 
           <!--   <View style="@style/wide_line_x_blue" /> -->
 
-            <cn.safetys.ywngovernment.view.PullToRefresh
+            <com.safetys.zatgov.ui.view.PullToRefresh
                 android:id="@+id/list_fc"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:visibility="gone" >
-            </cn.safetys.ywngovernment.view.PullToRefresh>
+            </com.safetys.zatgov.ui.view.PullToRefresh>
         </LinearLayout>
     </ScrollView>
 

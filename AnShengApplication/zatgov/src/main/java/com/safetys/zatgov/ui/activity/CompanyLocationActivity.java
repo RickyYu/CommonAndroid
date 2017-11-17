@@ -46,7 +46,7 @@ public class CompanyLocationActivity  extends BaseActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+  
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enterprise_list);
         initView();
@@ -155,19 +155,19 @@ public class CompanyLocationActivity  extends BaseActivity implements
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
+      
             return mdatas.size();
         }
 
         @Override
         public Object getItem(int position) {
-            // TODO Auto-generated method stub
+      
             return mdatas.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            // TODO Auto-generated method stub
+      
             return position;
         }
 

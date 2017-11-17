@@ -15,7 +15,7 @@
         <ImageView android:id="@+id/img_fdj"
             android:layout_width="@dimen/search_bar_left_img_size"
             android:layout_height="@dimen/search_bar_left_img_size"
-            android:background="@drawable/icon_search_img"
+            android:background="@mipmap/icon_search_img"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"/>
         <EditText android:id="@+id/et_search_text"

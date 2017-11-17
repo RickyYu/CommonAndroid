@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/login_background"
+    android:background="@mipmap/login_background"
     android:windowSoftInputMode="adjustPan" >
 
     <RelativeLayout
@@ -25,7 +25,7 @@
                 android:id="@+id/iv_logo"
                 android:layout_width="120dip"
                 android:layout_height="120dip"
-                android:background="@drawable/logo"
+                android:background="@mipmap/logo"
                 android:scaleType="centerInside" />
             <!-- logo 2 -->
 
@@ -33,7 +33,7 @@
                 android:layout_width="148.7dip"
                 android:layout_height="38dip"
                 android:layout_marginTop="15dip"
-                android:background="@drawable/logo_title"
+                android:background="@mipmap/logo_title"
                 android:scaleType="centerInside" />
         </LinearLayout>
         <!-- 登录密码和登录账号输入框 、登录按钮 -->
@@ -67,7 +67,7 @@
                     <ImageView
                         android:layout_width="@dimen/normal_input_left_img_size"
                         android:layout_height="@dimen/normal_input_left_img_size"
-                        android:background="@drawable/icon_login_account" />
+                        android:background="@mipmap/icon_login_account" />
 
                     <ImageView
                         android:layout_width="1px"
@@ -110,7 +110,7 @@
                     <ImageView
                         android:layout_width="@dimen/normal_input_left_img_size"
                         android:layout_height="@dimen/normal_input_left_img_size"
-                        android:background="@drawable/icon_login_password" />
+                        android:background="@mipmap/icon_login_password" />
 
                     <ImageView
                         android:layout_width="1px"

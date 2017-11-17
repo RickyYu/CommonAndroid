@@ -465,8 +465,6 @@ public class HttpRequestHelper {
         String key = (String)SPUtils.getData(PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
         Map<String, Object> mDatas = new HashMap<String, Object>();
 
-        long id2 = (long) SPUtils.getData(PrefKeys.PREF_COMPANY_ID_KEY,
-                0l);
 
         mDatas.put("danger.id", id);
         HttpUtil.sendRequestWithCookie(AppConfig.HOST_ADDRESS_YH
@@ -791,7 +789,7 @@ public class HttpRequestHelper {
         String key = (String)SPUtils.getData(PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
         Map<String, Object> mDatas = new HashMap<String, Object>();
         mDatas.put("produceLocaleNote.id", id);
-        // TODO
+
         // mDatas.put("typeId", 0);
         HttpUtil.sendRequestWithCookie(AppConfig.HOST_ADDRESS_YH
                         + AppConfig.URI_GET_PRE_IVS_RECORD, key, false, mDatas,
@@ -1181,7 +1179,7 @@ public class HttpRequestHelper {
         mDatas.put("pagination.itemCount", pageIndex);
         mDatas.put("pagination.totalCount", totalCount);
         mDatas.put("produceLocaleNote.hzCompany.id", id);
-        // TODO
+
         mDatas.put("typeId", 0);
         if (selectWord != null) {
             mDatas.put("produceLocaleNote.content", selectWord);
@@ -1229,7 +1227,7 @@ public class HttpRequestHelper {
         String key = (String)SPUtils.getData(PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
         Map<String, Object> mDatas = new HashMap<String, Object>();
         mDatas.put("produceLocaleNote.id", id);
-        // TODO
+
         // mDatas.put("typeId", 0);
         HttpUtil.sendRequestWithCookie(AppConfig.HOST_ADDRESS_YH
                         + AppConfig.URI_GET_COMPANY_CHECK_DETAIL_INFO, key, false,
@@ -1354,7 +1352,6 @@ public class HttpRequestHelper {
                                    String fillDate, String fillMan, List<File> listpic,
                                    String checkid, int requestCode, onNetCallback mCallback) {
         String key = (String)SPUtils.getData(PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
-
         long id = (long)SPUtils.getData(PrefKeys.PREF_COMPANY_ID_KEY,
                 0l);
         Map<String, Object> mDatas = new HashMap<String, Object>();
@@ -1391,5 +1388,20 @@ public class HttpRequestHelper {
                 + AppConfig.URI_SUBMIT_MAJOR_INFO, key, listpic != null
                 && listpic.size() > 0, mDatas, requestCode, mCallback);
 
+    }
+
+    /**
+     * 网格员首页数据查询
+     *
+     * @param mCallback
+     *            回调接口
+     */
+    public void getWgy(Context mContext, int requestCode,
+                       onNetCallback mCallback) {
+        String key = (String)SPUtils.getData(PrefKeys.PREF_LOGIN_IDENTITY_KEY, "");
+        Map<String, Object> mDatas = new HashMap<String, Object>();
+        HttpUtil.sendRequestWithCookie(AppConfig.HOST_ADDRESS_YH
+                        + AppConfig.URI_GET_WGY, key, false, mDatas, requestCode,
+                mCallback);
     }
 }

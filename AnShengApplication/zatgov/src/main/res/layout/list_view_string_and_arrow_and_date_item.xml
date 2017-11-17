@@ -23,7 +23,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="2dip"
                 android:scaleType="center"
-                android:src="@drawable/icon_arrow_right" />
+                android:src="@mipmap/icon_arrow_right" />
         </LinearLayout>
 
         <LinearLayout
@@ -39,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="2dip"
                 android:scaleType="center"
-                android:src="@drawable/icon_read" />
+                android:src="@mipmap/icon_read" />
         </LinearLayout>
 
         <RelativeLayout

@@ -244,19 +244,19 @@ public class NewZfYhLrActivity extends BaseActivity implements View.OnClickListe
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
+     
             return mDatas.size();
         }
 
         @Override
         public Object getItem(int position) {
-            // TODO Auto-generated method stub
+     
             return mDatas.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            // TODO Auto-generated method stub
+     
             return position;
         }
 
@@ -351,7 +351,7 @@ public class NewZfYhLrActivity extends BaseActivity implements View.OnClickListe
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            // TODO Auto-generated method stub
+     
             if (intent.getAction().equals(ACTION_UPDATE_LIST_YH)) {
                 reLoadListDatas();
             }
@@ -361,7 +361,7 @@ public class NewZfYhLrActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     protected void onDestroy() {
-        // TODO Auto-generated method stub
+ 
         super.onDestroy();
         if (mReceiver != null) {
             unregisterReceiver(mReceiver);
@@ -381,7 +381,7 @@ public class NewZfYhLrActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void onSearchButtonClick(String searchStr) {
-        // TODO Auto-generated method stub
+ 
 
     }
 }

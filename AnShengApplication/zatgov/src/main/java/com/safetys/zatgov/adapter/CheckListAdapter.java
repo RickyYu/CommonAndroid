@@ -30,19 +30,19 @@ public class CheckListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        // TODO Auto-generated method stub
+
         return mdatas.size();
     }
 
     @Override
     public Object getItem(int position) {
-        // TODO Auto-generated method stub
+
         return mdatas.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        // TODO Auto-generated method stub
+
         return position;
     }
 

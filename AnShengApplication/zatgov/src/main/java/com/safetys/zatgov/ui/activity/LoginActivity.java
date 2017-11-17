@@ -20,7 +20,6 @@ import com.safetys.widget.common.SPUtils;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.MainActivity;
 import com.safetys.zatgov.R;
-import com.safetys.zatgov.SecondActivity;
 import com.safetys.zatgov.bean.UserInfo;
 import com.safetys.zatgov.config.AppConfig;
 import com.safetys.zatgov.config.PrefKeys;
@@ -198,7 +197,7 @@ public class LoginActivity extends BaseActivity implements onNetCallback {
         }
         Intent mIntent;
         if (isGridPerson) {
-            mIntent = new Intent(LoginActivity.this, SecondActivity.class);
+            mIntent = new Intent(LoginActivity.this, MainWanggyActivity.class);
 
         } else {
             mIntent = new Intent(LoginActivity.this, MainActivity.class);

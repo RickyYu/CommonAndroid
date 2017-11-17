@@ -59,7 +59,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/new_add" />
+                    android:background="@mipmap/new_add" />
 
                 <TextView
                     android:id="@+id/text_3"
@@ -87,7 +87,7 @@
                     android:layout_width="42dp"
                     android:layout_height="45dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/new_look" />
+                    android:background="@mipmap/new_look" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -124,12 +124,12 @@
             android:textColor="@color/white" />
     </LinearLayout>
 
-    <cn.safetys.ywngovernment.view.PullToRefresh
+    <com.safetys.zatgov.ui.view.PullToRefresh
         android:id="@+id/list_yh"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_above="@id/btn_viewyb"
         android:layout_below="@id/ll" >
-    </cn.safetys.ywngovernment.view.PullToRefresh>
+    </com.safetys.zatgov.ui.view.PullToRefresh>
 
 </RelativeLayout>

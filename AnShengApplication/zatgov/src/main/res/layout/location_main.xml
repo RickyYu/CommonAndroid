@@ -31,7 +31,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_gravity="center"
-                   android:src="@drawable/dw_now"
+                   android:src="@mipmap/dw_now"
                    
                    />
                <TextView 
@@ -53,7 +53,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_gravity="center"
-                   android:src="@drawable/dw_change"
+                   android:src="@mipmap/dw_change"
                    
                    />
                <TextView 
@@ -75,7 +75,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_gravity="center"
-                   android:src="@drawable/dw_change"
+                   android:src="@mipmap/dw_change"
                    
                    />
                <TextView 
@@ -131,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/dw_qizi"
+                    android:src="@mipmap/dw_qizi"
                     android:visibility="gone" />
             </RelativeLayout>
         </RelativeLayout>

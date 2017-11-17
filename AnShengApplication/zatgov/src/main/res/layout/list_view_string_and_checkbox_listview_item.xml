@@ -34,7 +34,7 @@
         <ImageView
             android:id="@+id/dot_img"
             style="@style/list_item_dot_img_style"
-            android:src="@drawable/wgy_blue" />
+            android:src="@mipmap/wgy_blue" />
 
         <TextView
             android:id="@+id/text1"
@@ -53,7 +53,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@id/text1"
-            android:src="@drawable/wgy_sigh"
+            android:src="@mipmap/wgy_sigh"
              />
     </RelativeLayout>
 

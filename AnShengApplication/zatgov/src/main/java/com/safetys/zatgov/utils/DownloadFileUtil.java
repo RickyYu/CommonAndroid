@@ -116,7 +116,7 @@ public class DownloadFileUtil {
             notification.tickerText = "下载文件:"+name;
             PendingIntent pi = PendingIntent.getActivity(mContext.getApplicationContext(),
                     0, setIntent(downloadInfo.getFileSavePath()), 0);
-            notification.icon = R.drawable.img_download;
+            notification.icon = R.mipmap.img_download;
             notification.contentIntent = pi;
             notificationManager.notify(NotificationID, notification);
         }

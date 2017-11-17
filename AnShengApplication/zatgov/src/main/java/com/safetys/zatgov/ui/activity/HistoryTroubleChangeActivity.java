@@ -107,7 +107,7 @@ public class HistoryTroubleChangeActivity extends BaseActivity implements
     private RelativeLayout rllRecord;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_trouble_change);
         initData();

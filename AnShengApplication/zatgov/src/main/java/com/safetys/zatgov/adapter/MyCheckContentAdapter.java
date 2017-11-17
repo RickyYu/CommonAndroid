@@ -93,7 +93,7 @@ public class MyCheckContentAdapter extends BaseAdapter {
                                     .getInfoId()));
                         }
                         if (isChecked) {
-                            // TODO
+
                             if (!listInfoId.contains(new Integer(chooseSafetyMatter.getInfoId()))) {
                                 mdatas.add(chooseSafetyMatter);
                                 chooseSafetyMatter.setCheckTag(true);

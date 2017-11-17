@@ -68,7 +68,7 @@ public class ZfCheckRecordListActivity extends BaseActivity implements
     private boolean isReview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+ 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zf_check_list);
         initView();
@@ -317,19 +317,19 @@ public class ZfCheckRecordListActivity extends BaseActivity implements
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
+     
             return mDatas.size();
         }
 
         @Override
         public Object getItem(int position) {
-            // TODO Auto-generated method stub
+     
             return mDatas.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            // TODO Auto-generated method stub
+     
             return position;
         }
 
@@ -408,7 +408,7 @@ public class ZfCheckRecordListActivity extends BaseActivity implements
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            // TODO Auto-generated method stub
+     
             if (intent.getAction().equals(ACTION_UPDATE_LIST_CHECK_NEW)) {
                 updata();
             }
@@ -416,7 +416,7 @@ public class ZfCheckRecordListActivity extends BaseActivity implements
     }
     @Override
     protected void onDestroy() {
-        // TODO Auto-generated method stub
+ 
         super.onDestroy();
         if(mReceiver!=null){
             unregisterReceiver(mReceiver);

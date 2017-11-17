@@ -572,7 +572,7 @@ public class HistoryMajorChangeActivity extends BaseActivity implements
 
                                 @Override
                                 public void onClick(View v) {
-                                    // TODO Auto-generated method stub
+
                                     showPicture(v.getTag().toString());
                                 }
                             });

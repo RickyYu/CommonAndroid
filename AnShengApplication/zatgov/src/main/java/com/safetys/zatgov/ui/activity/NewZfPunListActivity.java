@@ -48,7 +48,6 @@ public class NewZfPunListActivity extends BaseActivity implements
     private PullToRefresh mList_Troubles_dfc;// 未处罚
     private PullToRefresh mList_Troubles_yfc;// 已处罚
     private SearchBar mSearchBar;
-
     private static final int PAGE_SIZE = 10;// 页大小
     private int mCurrentPage = 0;// 当前页
     private int totalCount = 0;// 总数
@@ -69,7 +68,6 @@ public class NewZfPunListActivity extends BaseActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zf_punlish_list);
         initView();
@@ -79,8 +77,6 @@ public class NewZfPunListActivity extends BaseActivity implements
         mReceiver = new MyBroadcastReceiver();
         IntentFilter mFilter = new IntentFilter(ACTION_UPDATE_LIST);
         registerReceiver(mReceiver, mFilter);
-
-//		 updata();
     }
 
     private void initView() {
@@ -365,7 +361,7 @@ public class NewZfPunListActivity extends BaseActivity implements
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
+ 
         super.onActivityResult(requestCode, resultCode, data);
         switch (resultCode) {
             case 1:
@@ -403,7 +399,7 @@ public class NewZfPunListActivity extends BaseActivity implements
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            // TODO Auto-generated method stub
+     
             if (intent.getAction().equals(ACTION_UPDATE_LIST)) {
                 updata();
 
@@ -426,19 +422,19 @@ public class NewZfPunListActivity extends BaseActivity implements
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
+     
             return mDatas.size();
         }
 
         @Override
         public Object getItem(int position) {
-            // TODO Auto-generated method stub
+     
             return mDatas.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            // TODO Auto-generated method stub
+     
             return position;
         }
 
@@ -478,7 +474,7 @@ public class NewZfPunListActivity extends BaseActivity implements
     }
     @Override
     protected void onDestroy() {
-        // TODO Auto-generated method stub
+ 
         super.onDestroy();
         if(mReceiver!=null){
             unregisterReceiver(mReceiver);

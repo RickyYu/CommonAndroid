@@ -1,0 +1,157 @@
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+     >
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <View
+                style="@style/thin_blue_line" >
+            </View>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:text="本月待办工作"
+                android:textColor="@color/little_grey"
+                android:textSize="@dimen/more_big_text_size" />
+        </LinearLayout>
+
+        <View
+            style="@style/thin_line_x"
+            >
+        </View>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/lly_uncheck_cpy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/num_checkCompany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/num_blue"
+                    android:textSize="@dimen/title_bar_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:text="未检查企业（家）"
+                    android:textColor="@color/des_grey"
+                    android:textSize="@dimen/normal_text_size" />
+            </LinearLayout>
+
+            <View style="@style/thin_line_y" />
+
+            <LinearLayout
+                android:id="@+id/lly_unreview_cpy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/num_checkagain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/num_blue"
+                    android:textSize="@dimen/title_bar_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="待复查 "
+                    android:textColor="@color/des_grey"
+                    android:textSize="@dimen/normal_text_size" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="（家）"
+                    android:textColor="@color/des_grey"
+                    android:textSize="@dimen/normal_text_size" />
+            </LinearLayout>
+
+            <View style="@style/thin_line_y" />
+
+            <LinearLayout
+                android:id="@+id/lly_uncheck_hidden"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+       
+                android:visibility="gone"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/num_zg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/num_blue"
+                    android:textSize="@dimen/title_bar_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:text="未上报隐患企业（家）"
+                    android:textColor="@color/des_grey"
+                    android:textSize="@dimen/normal_text_size" />
+            </LinearLayout>
+
+            <View style="@style/thin_line_y" />
+
+            <LinearLayout
+                android:id="@+id/lly_unreported"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/num_sb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/num_blue"
+                    android:textSize="@dimen/title_bar_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:text="隐患到期未整改（家）"
+                    android:textColor="@color/des_grey"
+                    android:textSize="@dimen/normal_text_size" />
+            </LinearLayout>
+        </LinearLayout>
+</LinearLayout>

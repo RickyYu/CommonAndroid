@@ -221,11 +221,11 @@ public class GeneralHazardFragment extends Fragment implements OnClickListener,
 			if (isVis) {
 				isVis = false;
 				list_cb.setVisibility(View.VISIBLE);
-				iv_arrow.setImageResource(R.drawable.arrow_down);
+				iv_arrow.setImageResource(R.mipmap.arrow_down);
 			} else {
 				isVis = true;
 				list_cb.setVisibility(View.GONE);
-				iv_arrow.setImageResource(R.drawable.arrow_up);
+				iv_arrow.setImageResource(R.mipmap.arrow_up);
 			}
 
 			break;
@@ -518,7 +518,7 @@ public class GeneralHazardFragment extends Fragment implements OnClickListener,
 
 	@Override
 	public void returnDate(String date) {
-		// TODO Auto-generated method stub
+
 		text_jhzgsj.setText(date);
 	}
 

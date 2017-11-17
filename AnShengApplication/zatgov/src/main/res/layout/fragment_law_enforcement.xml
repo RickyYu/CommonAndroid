@@ -38,7 +38,7 @@
             android:layout_height="0dip"
             android:layout_gravity="center_vertical"
             android:layout_weight="13"
-            android:background="@drawable/icon_law_grid_bg"
+            android:background="@mipmap/icon_law_grid_bg"
             android:numColumns="4" >
         </GridView>
 

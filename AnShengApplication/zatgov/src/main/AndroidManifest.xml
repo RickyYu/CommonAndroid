@@ -235,6 +235,15 @@
         <activity
             android:name=".ui.activity.NoTroubleModifyActivity"
             android:screenOrientation="portrait" />
+
+        <!-- 网格员设置 -->
+        <activity
+            android:name=".ui.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <!-- 网格员主界面 -->
+        <activity
+            android:name=".ui.activity.MainWanggyActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

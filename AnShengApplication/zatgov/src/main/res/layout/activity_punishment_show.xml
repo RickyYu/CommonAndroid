@@ -306,7 +306,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="2dip"
                             android:scaleType="center"
-                            android:src="@drawable/arrow_up" />
+                            android:src="@mipmap/arrow_up" />
                     </LinearLayout>
 
                     <ImageView
@@ -622,7 +622,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_marginLeft="10dip"
                                 android:layout_marginRight="5dip"
-                                android:src="@drawable/icon_btn_scene_photo_bg" />
+                                android:src="@mipmap/icon_btn_scene_photo_bg" />
                         </RelativeLayout>
 
                         <HorizontalScrollView
@@ -669,7 +669,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="2dip"
                             android:scaleType="center"
-                            android:src="@drawable/arrow_up" />
+                            android:src="@mipmap/arrow_up" />
                     </LinearLayout>
 
                     <ImageView
@@ -690,12 +690,12 @@
 
                 <View style="@style/wide_line_x_blue" />
 
-                <cn.safetys.ywngovernment.view.PullToRefresh
+                <com.safetys.zatgov.ui.view.PullToRefresh
                     android:id="@+id/list_yh"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:visibility="gone" >
-                </cn.safetys.ywngovernment.view.PullToRefresh>
+                </com.safetys.zatgov.ui.view.PullToRefresh>
                 <!-- 历史复查记录 -->
 
                 <RelativeLayout
@@ -718,7 +718,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="2dip"
                             android:scaleType="center"
-                            android:src="@drawable/arrow_up" />
+                            android:src="@mipmap/arrow_up" />
                     </LinearLayout>
 
                     <ImageView
@@ -739,12 +739,12 @@
 
                 <View style="@style/wide_line_x_blue" />
 
-                <cn.safetys.ywngovernment.view.PullToRefresh
+                <com.safetys.zatgov.ui.view.PullToRefresh
                     android:id="@+id/list_fc"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:visibility="gone" >
-                </cn.safetys.ywngovernment.view.PullToRefresh>
+                </com.safetys.zatgov.ui.view.PullToRefresh>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

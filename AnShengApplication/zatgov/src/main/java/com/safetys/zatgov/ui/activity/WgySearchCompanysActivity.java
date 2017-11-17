@@ -50,7 +50,7 @@ public class WgySearchCompanysActivity extends BaseActivity {
         ButterKnife.bind(this);
         setHeadTitle("请选择查询条件");
         mLoading = new LoadingDialogUtil(this);
-        ivRight.setBackgroundResource(R.drawable.icon_search_img);
+        ivRight.setBackgroundResource(R.mipmap.icon_search_img);
         ivRight.setVisibility(View.VISIBLE);
         loadingDatas();
     }

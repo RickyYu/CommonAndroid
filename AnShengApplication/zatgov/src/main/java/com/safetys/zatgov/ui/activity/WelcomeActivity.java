@@ -28,9 +28,9 @@ import butterknife.ButterKnife;
  */
 public class WelcomeActivity extends BaseActivity {
     // 首次使用程序的显示的欢迎图片
-    private int[] ids = { R.drawable.welcome_frist_image,
-            R.drawable.welcome_two_image, R.drawable.welcome_three_image,
-            R.drawable.welcome_four_image };
+    private int[] ids = { R.mipmap.welcome_frist_image,
+            R.mipmap.welcome_two_image, R.mipmap.welcome_three_image,
+            R.mipmap.welcome_four_image };
     @BindView(R.id.vp_show_page)
     ViewPager vpShowPage;
     @BindView(R.id.lly_dot_ws)

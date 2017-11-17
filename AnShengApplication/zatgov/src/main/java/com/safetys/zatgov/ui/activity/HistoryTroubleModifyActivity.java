@@ -102,7 +102,7 @@ public class HistoryTroubleModifyActivity extends BaseActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_history_trouble_modify);
 		initView();
@@ -457,21 +457,6 @@ public class HistoryTroubleModifyActivity extends BaseActivity implements
 							(TextView) findViewById(R.id.tv_hidden_image));
 				}
 
-	/*		} else {
-				rlcheck.setVisibility(View.GONE);
-				first.setVisibility(View.GONE);
-				String fileUrl = mGeneralcheckInfo.getFileRealPath();
-				final String url = AppConfig.HOST_ADDRESS_YH + fileUrl;
-				Uri imageUrl = Uri.parse(url);
-
-				if (fileUrl != null && !fileUrl.isEmpty()
-						&& !fileUrl.equals("")) {
-					pic2.setVisibility(View.VISIBLE);
-					// delete2.setVisibility(View.VISIBLE);
-					Glide.with(this).load(imageUrl).into(iv2);
-				}
-			}*/
-
 			break;
 		case 0:
 			DialogUtil.showMsgDialog(this, "提交整改成功。", true, null);
@@ -569,8 +554,8 @@ public class HistoryTroubleModifyActivity extends BaseActivity implements
 				picture.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						DialogUtil
-								.showDefaultProgressDialog(HistoryTroubleModifyActivity.this);
+					/*	DialogUtil
+								.showDefaultProgressDialog(HistoryTroubleModifyActivity.this);*/
 						// 弹出传递照片地址
 						showPictures(paths);
 					}

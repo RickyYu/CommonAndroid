@@ -291,7 +291,7 @@ public class ZfCheckRecordExpandListActivity extends BaseActivity implements
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            // TODO Auto-generated method stub
+     
             if (intent.getAction().equals(ACTION_UPDATE_LIST_CHECK_NEW)) {
                 updata();
             }
@@ -300,7 +300,7 @@ public class ZfCheckRecordExpandListActivity extends BaseActivity implements
 
     @Override
     protected void onDestroy() {
-        // TODO Auto-generated method stub
+ 
         super.onDestroy();
         if (mReceiver != null) {
             unregisterReceiver(mReceiver);

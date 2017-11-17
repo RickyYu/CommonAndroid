@@ -73,7 +73,7 @@ public class WgyMakeCheckListActivity extends BaseActivity implements onNetCallb
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wgy_make_check_list);
         ButterKnife.bind(this);

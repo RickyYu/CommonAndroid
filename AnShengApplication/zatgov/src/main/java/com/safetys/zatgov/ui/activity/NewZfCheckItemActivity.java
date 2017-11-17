@@ -82,7 +82,7 @@ public class NewZfCheckItemActivity extends BaseActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_detail_new);
         initView();
@@ -299,19 +299,19 @@ public class NewZfCheckItemActivity extends BaseActivity implements
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
+     
             return mDatas.size();
         }
 
         @Override
         public Object getItem(int position) {
-            // TODO Auto-generated method stub
+     
             return mDatas.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            // TODO Auto-generated method stub
+     
             return position;
         }
 
@@ -461,7 +461,7 @@ public class NewZfCheckItemActivity extends BaseActivity implements
 
                                 @Override
                                 public void onClick(View v) {
-                                    // TODO Auto-generated method stub
+                             
                                     showPicture(v.getTag().toString());
                                 }
                             });
@@ -525,7 +525,7 @@ public class NewZfCheckItemActivity extends BaseActivity implements
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            // TODO Auto-generated method stub
+     
             if (intent.getAction().equals(ACTION_UPDATE_LIST_YH_ITEM)) {
                 reLoadListDatas();
 
@@ -536,7 +536,7 @@ public class NewZfCheckItemActivity extends BaseActivity implements
 
     @Override
     protected void onDestroy() {
-        // TODO Auto-generated method stub
+ 
         super.onDestroy();
         if (mReceiver != null) {
             unregisterReceiver(mReceiver);

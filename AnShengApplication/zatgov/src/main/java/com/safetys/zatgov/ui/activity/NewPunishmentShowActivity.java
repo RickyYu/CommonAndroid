@@ -69,7 +69,7 @@ public class NewPunishmentShowActivity extends BaseActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+ 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_punishment_show);
         initView();
@@ -148,11 +148,11 @@ public class NewPunishmentShowActivity extends BaseActivity implements
                 if (!isYh) {
                     isYh = true;
                     list_yh.setVisibility(View.VISIBLE);
-                    arrow3.setImageResource(R.drawable.arrow_down);
+                    arrow3.setImageResource(R.mipmap.arrow_down);
                 } else {
                     isYh = false;
                     list_yh.setVisibility(View.GONE);
-                    arrow3.setImageResource(R.drawable.arrow_up);
+                    arrow3.setImageResource(R.mipmap.arrow_up);
                 }
 
                 break;
@@ -160,11 +160,11 @@ public class NewPunishmentShowActivity extends BaseActivity implements
                 if (!isCheck) {
                     isCheck = true;
                     ll_check.setVisibility(View.VISIBLE);
-                    arrow.setImageResource(R.drawable.arrow_down);
+                    arrow.setImageResource(R.mipmap.arrow_down);
                 } else {
                     isCheck = false;
                     ll_check.setVisibility(View.GONE);
-                    arrow.setImageResource(R.drawable.arrow_up);
+                    arrow.setImageResource(R.mipmap.arrow_up);
                 }
 
                 break;
@@ -172,11 +172,11 @@ public class NewPunishmentShowActivity extends BaseActivity implements
                 if (!isHis) {
                     isHis = true;
                     mListView.setVisibility(View.VISIBLE);
-                    arrow2.setImageResource(R.drawable.arrow_down);
+                    arrow2.setImageResource(R.mipmap.arrow_down);
                 } else {
                     isHis = false;
                     mListView.setVisibility(View.GONE);
-                    arrow2.setImageResource(R.drawable.arrow_up);
+                    arrow2.setImageResource(R.mipmap.arrow_up);
                 }
                 break;
             default:
@@ -246,19 +246,19 @@ public class NewPunishmentShowActivity extends BaseActivity implements
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
+     
             return mDatas.size();
         }
 
         @Override
         public Object getItem(int position) {
-            // TODO Auto-generated method stub
+     
             return mdatas.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            // TODO Auto-generated method stub
+     
             return position;
         }
 

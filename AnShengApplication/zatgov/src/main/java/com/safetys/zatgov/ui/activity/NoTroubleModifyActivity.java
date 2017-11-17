@@ -87,7 +87,7 @@ public class NoTroubleModifyActivity extends BaseActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+ 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_look_trouble_modify);
         initView();
@@ -264,7 +264,7 @@ public class NoTroubleModifyActivity extends BaseActivity implements
 
                                 @Override
                                 public void onClick(View v) {
-                                    // TODO Auto-generated method stub
+                             
                                     showPicture(v.getTag().toString());
                                 }
                             });

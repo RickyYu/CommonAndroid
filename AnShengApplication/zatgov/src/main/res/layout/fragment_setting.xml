@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:layout_weight="2"
-                android:background="@drawable/icon_title_setting" />
+                android:background="@mipmap/icon_title_setting" />
         </LinearLayout>
         <!-- 标题 -->
 
@@ -53,7 +53,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dip"
                 android:layout_marginRight="10dip"
-                android:background="@drawable/icon_photo_default" />
+                android:background="@mipmap/icon_photo_default" />
 
             <TextView
                 android:id="@+id/text_user_title"
@@ -114,7 +114,7 @@
                 <ImageView
                     android:layout_width="14dip"
                     android:layout_height="14dip"
-                    android:background="@drawable/icon_setting_change" />
+                    android:background="@mipmap/icon_setting_change" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -147,7 +147,7 @@
                 <ImageView
                     android:id="@+id/img_password"
                     style="@style/setting_small_img_style"
-                    android:background="@drawable/icon_setting_password" />
+                    android:background="@mipmap/icon_setting_password" />
 
                 <TextView
                     style="@style/setting_left_text_style"
@@ -178,7 +178,7 @@
                 <ImageView
                     android:id="@+id/img_version"
                     style="@style/setting_small_img_style"
-                    android:background="@drawable/icon_setting_version" />
+                    android:background="@mipmap/icon_setting_version" />
 
                 <TextView
                     style="@style/setting_left_text_style"
@@ -197,7 +197,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@id/text_version"
                     android:scaleType="centerInside"
-                    android:src="@drawable/icon_setting_new" />
+                    android:src="@mipmap/icon_setting_new" />
 
                 <Button
                     android:id="@+id/btn_upload"
@@ -224,7 +224,7 @@
                 <ImageView
                     android:id="@+id/img_support"
                     style="@style/setting_small_img_style"
-                    android:background="@drawable/icon_setting_support" />
+                    android:background="@mipmap/icon_setting_support" />
 
                 <TextView
                     style="@style/setting_left_text_style"
@@ -243,7 +243,7 @@
                 <ImageView
                     android:id="@+id/img_phone"
                     style="@style/setting_small_img_style"
-                    android:background="@drawable/icon_setting_employer" />
+                    android:background="@mipmap/icon_setting_employer" />
 
                 <TextView
                     style="@style/setting_left_text_style"

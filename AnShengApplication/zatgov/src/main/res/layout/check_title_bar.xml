@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="30dip"
             android:layout_height="30dip"
-            android:background="@drawable/icon_back"
+            android:background="@mipmap/icon_back"
             android:scaleType="fitCenter" />
     </LinearLayout>
 
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
              android:gravity="center"
              android:layout_gravity="center_vertical"
-            android:background="@drawable/add"
+            android:background="@mipmap/add"
             android:textSize="@dimen/more_big_text_size" />
 
         <TextView

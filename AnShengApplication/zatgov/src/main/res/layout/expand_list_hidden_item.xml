@@ -29,7 +29,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:visibility="gone"
-        android:src="@drawable/wgy_pic"
+        android:src="@mipmap/wgy_pic"
         />
 
          <TextView

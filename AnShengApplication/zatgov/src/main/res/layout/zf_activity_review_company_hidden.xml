@@ -247,7 +247,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dip"
                         android:layout_marginRight="5dip"
-                        android:src="@drawable/icon_btn_scene_photo_bg" />
+                        android:src="@mipmap/icon_btn_scene_photo_bg" />
                 </RelativeLayout>
 
                 <HorizontalScrollView
@@ -420,7 +420,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="10dip"
                     android:layout_marginRight="5dip"
-                    android:src="@drawable/icon_arrow_right" />
+                    android:src="@mipmap/icon_arrow_right" />
             </RelativeLayout>
 
             <View style="@style/wide_line_x" />
@@ -448,7 +448,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="10dip"
                     android:layout_marginRight="5dip"
-                    android:src="@drawable/icon_arrow_right" />
+                    android:src="@mipmap/icon_arrow_right" />
             </RelativeLayout>
 
             <View style="@style/wide_line_x" />

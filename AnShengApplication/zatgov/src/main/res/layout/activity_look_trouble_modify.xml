@@ -114,7 +114,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="10dip"
                         android:layout_marginRight="5dip"
-                        android:src="@drawable/icon_btn_scene_photo_bg" />
+                        android:src="@mipmap/icon_btn_scene_photo_bg" />
                 </RelativeLayout>
 
                 <HorizontalScrollView

@@ -73,7 +73,7 @@
             android:visibility="gone"
              />
 
-        <cn.safetys.ywngovernment.view.SearchBar
+        <com.safetys.zatgov.ui.view.SearchBar
             android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -81,18 +81,18 @@
             android:layout_below="@id/button_bar_group" />
     </LinearLayout>
 
-    <cn.safetys.ywngovernment.view.PullToRefresh
+    <com.safetys.zatgov.ui.view.PullToRefresh
         android:id="@+id/list_troubles_a"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/lly_search_bar" >
-    </cn.safetys.ywngovernment.view.PullToRefresh>
+    </com.safetys.zatgov.ui.view.PullToRefresh>
 
-    <cn.safetys.ywngovernment.view.PullToRefresh
+    <com.safetys.zatgov.ui.view.PullToRefresh
         android:id="@+id/list_troubles_b"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/lly_search_bar" >
-    </cn.safetys.ywngovernment.view.PullToRefresh>
+    </com.safetys.zatgov.ui.view.PullToRefresh>
 
 </RelativeLayout>

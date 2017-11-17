@@ -57,7 +57,7 @@ public class PoiAdapter extends BaseAdapter {
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(32, 32);
             imageView.setLayoutParams(params);
             imageView.setBackgroundColor(Color.TRANSPARENT);
-            imageView.setImageResource(R.drawable.baidumap_ico_poi_on);
+            imageView.setImageResource(R.mipmap.baidumap_ico_poi_on);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             linearLayout.addView(imageView, 0, params);
             holder.locationpoi_name.setTextColor(Color.parseColor("#FF5722"));
