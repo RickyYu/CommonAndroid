@@ -27,7 +27,7 @@ public class HttpUtil {
      * @param requestCode 请求的code，用户返回时区分
      * @param mListener 监听
      */
-    public static void sendRequestWithCookie(String uri, String key, boolean hasFile, Map<String , Object> mDatas, final int requestCode, final onNetCallback mListener){
+    public static void sendRequestWithCookie(final String uri, String key, boolean hasFile, Map<String , Object> mDatas, final int requestCode, final onNetCallback mListener){
         RequestParams mParams = new RequestParams(uri);
         LogUtil.i("URI:"+uri);
 		/*在Cookie中加入登录返回的key*/
@@ -61,6 +61,7 @@ public class HttpUtil {
             public void onError(Throwable arg0, boolean arg1) {
                 //返回通用错误提示
                 mListener.onError(x.app().getString(R.string.network_error));
+                LogUtil.i("onError");
             }
 
             @Override
@@ -72,7 +73,7 @@ public class HttpUtil {
             public void onSuccess(String jsonStr) {
                 //解析一次，看返回的消息是否为正确信息
                 JsonResult mJsonResult = JSON.parseObject(jsonStr, JsonResult.class);
-                LogUtil.i("jsonStr："+mJsonResult.toString());
+                LogUtil.i(uri+"====onSuccess==="+mJsonResult.toString());
                 if(mJsonResult.isSuccess()){
                     mListener.onSuccess(requestCode,mJsonResult);
                 }else{

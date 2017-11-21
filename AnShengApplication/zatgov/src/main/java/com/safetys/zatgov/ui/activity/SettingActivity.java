@@ -24,7 +24,6 @@ public class SettingActivity extends FragmentActivity implements
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            // TODO Auto-generated method stub
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:

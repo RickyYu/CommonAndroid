@@ -54,22 +54,18 @@ public class EnterpriseChooseActivity extends FragmentActivity implements
         btn_list = findViewById(R.id.btn_list);
         btn_item.setOnClickListener(this);
         btn_list.setOnClickListener(this);
-
         enterFragment = (EnterpriseItemFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.fragment_en);// 企业详情
         listFragment = (NoTroubleListFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.fragment_list);
-
         getSupportFragmentManager().beginTransaction().hide(listFragment)
                 .show(enterFragment).commit();
         setButton(btn_item);
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
             case R.id.btn_back:
                 finish();
                 break;
@@ -78,17 +74,13 @@ public class EnterpriseChooseActivity extends FragmentActivity implements
                 getSupportFragmentManager().beginTransaction().hide(listFragment)
                         .show(enterFragment).commit();
                 setButton(v);
-
                 break;
             // 重大隐患
             case R.id.btn_list:
                 getSupportFragmentManager().beginTransaction().hide(enterFragment)
                         .show(listFragment).commit();
                 setButton(v);
-
-
                 break;
-
             case R.id.iv_right:
                 Intent intent =new Intent(EnterpriseChooseActivity.this,LocationActivity.class);
                 intent.putExtra("id", id2);

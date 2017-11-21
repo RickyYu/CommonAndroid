@@ -304,9 +304,9 @@ public class HistoryMajorChangeActivity extends BaseActivity implements
 
             case R.id.btn_yh_qy:
                 //// FIXME: 2017/11/15
-      /*          new cn.safetys.ywngovernment.view.StreetSelectDialog(
+                new com.safetys.zatgov.ui.view.StreetSelectDialog(
                         this,
-                        new cn.safetys.ywngovernment.view.StreetSelectDialog.OnTextCListener() {
+                        new com.safetys.zatgov.ui.view.StreetSelectDialog.OnTextCListener() {
 
                             @Override
                             public void onClick(String mText, String pcode,
@@ -319,7 +319,7 @@ public class HistoryMajorChangeActivity extends BaseActivity implements
                             }
                         }).show();
 
-                break;*/
+                break;
             case R.id.btn_submit:
                 submit();
                 break;
@@ -586,9 +586,8 @@ public class HistoryMajorChangeActivity extends BaseActivity implements
             case 0:
                 DialogUtil.showMsgDialog(this, "修改成功", true, null);
                 sendBroadcast(new Intent(ZfReviewCompanyHiddenListActivity.ACTION_UPDATE_REVIEW_HIDDEN_LIST));
-                //// FIXME: 2017/11/15
-               /* sendBroadcast(new Intent(NewZfYhLrActivity.ACTION_UPDATE_LIST_YH));
-                sendBroadcast(new Intent(NewZfCheckItemActivity.ACTION_UPDATE_LIST_YH_ITEM));*/
+                sendBroadcast(new Intent(NewZfYhLrActivity.ACTION_UPDATE_LIST_YH));
+                sendBroadcast(new Intent(NewZfCheckItemActivity.ACTION_UPDATE_LIST_YH_ITEM));
                 break;
 
             case 1:

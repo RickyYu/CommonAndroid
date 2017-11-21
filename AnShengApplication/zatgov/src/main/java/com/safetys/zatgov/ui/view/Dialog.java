@@ -37,8 +37,8 @@ public class Dialog extends android.app.Dialog{
 		this.message = message;
 		this.title = title;
 	}
-	
-	public void addCancelButton(String buttonCancelText){
+
+    public void addCancelButton(String buttonCancelText){
 		this.buttonCancelText = buttonCancelText;
 	}
 	

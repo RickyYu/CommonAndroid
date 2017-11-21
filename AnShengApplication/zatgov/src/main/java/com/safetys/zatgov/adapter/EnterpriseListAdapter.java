@@ -18,7 +18,7 @@ import com.safetys.zatgov.config.SecondTypeEnum;
 import com.safetys.zatgov.config.ThirdTypeEnum;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.List;
 
 import static com.safetys.zatgov.ui.activity.EnterpriseListActivity.SKIP_CHECK_RECORD_LIST;
 import static com.safetys.zatgov.ui.activity.EnterpriseListActivity.SKIP_SUPERVISE_CHECKT;
@@ -30,10 +30,10 @@ import static com.safetys.zatgov.ui.activity.EnterpriseListActivity.SKIP_SUPERVI
 public class EnterpriseListAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
-    private ArrayList<CompanyVo> mdatas;
+    private List<CompanyVo> mdatas;
     private int skipType;
 
-    public EnterpriseListAdapter(Context context, ArrayList<CompanyVo> mdatas,int skipType) {
+    public EnterpriseListAdapter(Context context, List<CompanyVo> mdatas, int skipType) {
         this.mContext = context;
         this.mInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);

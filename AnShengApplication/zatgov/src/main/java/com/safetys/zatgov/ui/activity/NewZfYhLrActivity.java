@@ -195,8 +195,8 @@ public class NewZfYhLrActivity extends BaseActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_look:
-                //// FIXME: 2017/11/16 
-          /*      intent = new Intent(this, NoTroubleListActivity.class);
+         /*       //// FIXME: 2017/11/16
+                intent = new Intent(this, NoTroubleListActivity.class);
                 intent.putExtra("checklist", (Serializable) checkList);
                 intent.putExtra("ishave", have);
                 intent.putExtra("isform", isform);

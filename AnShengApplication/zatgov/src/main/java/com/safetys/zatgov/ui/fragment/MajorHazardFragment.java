@@ -46,6 +46,7 @@ import com.safetys.zatgov.ui.activity.NewZfYhLrActivity;
 import com.safetys.zatgov.ui.activity.ViewPhotoActivity;
 import com.safetys.zatgov.ui.activity.ZfCheckRecordListActivity;
 import com.safetys.zatgov.ui.view.PullToRefresh;
+import com.safetys.zatgov.ui.view.StreetSelectDialog;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.EditTextUtils;
 import com.safetys.zatgov.utils.FileUtil;
@@ -324,9 +325,7 @@ public class MajorHazardFragment extends Fragment implements OnClickListener,
 			break;
 
 		case R.id.btn_yh_qy:
-			//// FIXME: 2017/11/16 
-	/*		new StreetSelectDialog(getActivity(), new OnTextCListener() {
-
+			new StreetSelectDialog(getActivity(), new StreetSelectDialog.OnTextCListener() {
 				@Override
 				public void onClick(String mText, String pcode, String ccode,
 						String dcode) {
@@ -335,7 +334,7 @@ public class MajorHazardFragment extends Fragment implements OnClickListener,
 					yh_qy_z_code = ccode;
 					yh_qy_j_code = dcode;
 				}
-			}).show();*/
+			}).show();
 			break;
 
 		case R.id.iv_now:

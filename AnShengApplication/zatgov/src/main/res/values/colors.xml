@@ -139,6 +139,7 @@
         <color name="cyan">#00FFFF</color><!--青色 -->
         <color name="springgreen">#00FF7F</color><!--春绿色 -->
         <color name="lime">#00FF00</color><!--酸橙色 -->
+        <color name="green">#73d507</color><!--绿色 -->
         <color name="mediumspringgreen">#00FA9A</color><!--中春绿色 -->
         <color name="darkturquoise">#00CED1</color><!--暗宝石绿 -->
         <color name="deepskyblue">#00BFFF</color><!--深天蓝色 -->

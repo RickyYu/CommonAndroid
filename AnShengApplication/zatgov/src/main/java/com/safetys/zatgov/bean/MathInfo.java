@@ -7,6 +7,7 @@ import java.util.List;
  * Description:
  */
 public class MathInfo {
+    private Long id;
     /**
      * 检查企业数量
      */
@@ -27,17 +28,26 @@ public class MathInfo {
      */
     private String rectifyRateNum;
 
-    /**
-     *
-     */
     private List<MonthCounts> monthCounts;
 
-    public List<MonthCounts> getMonthCounts() {
-        return monthCounts;
+    public MathInfo() {
     }
 
-    public void setMonthCounts(List<MonthCounts> monthCounts) {
+    public MathInfo(Long id, String checkNum, String callbackNum, String dangerNum, String rectifyRateNum, List<MonthCounts> monthCounts) {
+        this.id = id;
+        this.checkNum = checkNum;
+        this.callbackNum = callbackNum;
+        this.dangerNum = dangerNum;
+        this.rectifyRateNum = rectifyRateNum;
         this.monthCounts = monthCounts;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCheckNum() {
@@ -70,5 +80,13 @@ public class MathInfo {
 
     public void setRectifyRateNum(String rectifyRateNum) {
         this.rectifyRateNum = rectifyRateNum;
+    }
+
+    public List<MonthCounts> getMonthCounts() {
+        return monthCounts;
+    }
+
+    public void setMonthCounts(List<MonthCounts> monthCounts) {
+        this.monthCounts = monthCounts;
     }
 }

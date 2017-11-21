@@ -41,6 +41,7 @@ import com.safetys.zatgov.entity.JsonResult;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.PullToRefresh;
+import com.safetys.zatgov.ui.view.wheel.SigleWheelDialog;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.FileUtil;
 import com.safetys.zatgov.utils.ImageUtil;
@@ -52,6 +53,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.UUID;
@@ -221,20 +223,20 @@ public class HistoryTroubleChangeActivity extends BaseActivity implements
                 showDialog(DATE_DIALOG);
                 break;
             case R.id.btn_yh_type:
-                //FIXME
-        /*        ArrayList<String> mDatas = new ArrayList<String>();
+
+                ArrayList<String> mDatas = new ArrayList<String>();
                 Collections.addAll(mDatas, TroubleTypeEnum.typedata);
                 SigleWheelDialog mChangeAddressDialog = new SigleWheelDialog(
                         HistoryTroubleChangeActivity.this, mDatas);
                 mChangeAddressDialog.setText(text_yh_type.getText().toString());
                 mChangeAddressDialog.show();
-                mChangeAddressDialog.setAddresskListener(new OnTextCListener() {
+                mChangeAddressDialog.setAddresskListener(new SigleWheelDialog.OnTextCListener() {
 
                     @Override
                     public void onClick(String mText) {
                         text_yh_type.setText(mText);
                     }
-                });*/
+                });
                 break;
 
             case R.id.iv_now2:
@@ -459,11 +461,10 @@ public class HistoryTroubleChangeActivity extends BaseActivity implements
 
             case Const.SUB_NOMARL_CHECK:
                 DialogUtil.showMsgDialog(this, "修改隐患成功。", true, null);
-                //FIXME
-         /*       this.sendBroadcast(new Intent(NewZfYhLrActivity.ACTION_UPDATE_LIST_YH));
+                this.sendBroadcast(new Intent(NewZfYhLrActivity.ACTION_UPDATE_LIST_YH));
                 this.sendBroadcast(new Intent(NewZfCheckItemActivity.ACTION_UPDATE_LIST_YH_ITEM));
                 this.sendBroadcast(new Intent(ZfCheckRecordListActivity.ACTION_UPDATE_LIST_CHECK_NEW));
-                this.sendBroadcast(new Intent(ZfReviewCompanyHiddenListActivity.ACTION_UPDATE_REVIEW_HIDDEN_LIST));*/
+                this.sendBroadcast(new Intent(ZfReviewCompanyHiddenListActivity.ACTION_UPDATE_REVIEW_HIDDEN_LIST));
                 break;
 
             default:

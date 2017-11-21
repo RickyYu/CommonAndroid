@@ -45,7 +45,7 @@
     <application
         android:name=".ZatApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -55,6 +55,15 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="Ylw6uiHGV0ThNvqmgc5t8QiawvYVPVs4" />
+
+        5a123007f29d986a7f00029c
+        <!-- 友盟SDK -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5a123007f29d986a7f00029c" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="PersonalID" />
         <!-- 欢迎界面 -->
         <activity
             android:name=".ui.activity.WelcomeActivity"
@@ -72,6 +81,13 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".MainTestActivity"
+            android:screenOrientation="portrait">
+
+
+        </activity>
         <!-- 主界面 -->
         <activity
             android:name=".SecondActivity"

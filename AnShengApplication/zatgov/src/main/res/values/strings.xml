@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">智安通</string>
+    <string name="app_name">智安通gradle</string>
     <string name="network_error">抱歉，网络异常或后台未响应。</string>
     <string name="upgrade_request">移动APP检测到新版本，是否立即下载？</string>
     <string name="upgrade_is_the_latest_version">您已经是最新版！</string>

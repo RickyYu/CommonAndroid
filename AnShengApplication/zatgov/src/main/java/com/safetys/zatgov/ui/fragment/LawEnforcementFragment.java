@@ -65,13 +65,17 @@ public class LawEnforcementFragment extends Fragment implements ViewPager.OnPage
     ImageView ivChecknext;
     Unbinder unbinder;
     private LoadingDialogUtil mloading;
-
     private int curPos = 0;
-    //private AllFragment allFragment;
     private ComFragment comFragment;
     private GovFragment govFragment;
     private LayoutInflater layoutInflater;
     private List<Fragment> list = new ArrayList<Fragment>();
+    private String textViewArray[] = { "", ""};
+    private Class fragmentArray[] = { GovFragment.class, ComFragment.class};
+    private int imageViewArray[] = { R.drawable.cir_orange_select,
+            R.drawable.cir_orange_select, R.drawable.cir_orange_select };
+    private MyGridAdapter mAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -82,11 +86,6 @@ public class LawEnforcementFragment extends Fragment implements ViewPager.OnPage
         return mView;
 
     }
-    private String textViewArray[] = { "", ""};
-    private Class fragmentArray[] = { GovFragment.class, ComFragment.class};
-    private int imageViewArray[] = { R.drawable.cir_orange_select,
-            R.drawable.cir_orange_select, R.drawable.cir_orange_select };
-    private MyGridAdapter mAdapter;
 
     private void initView(View mView) {
         title.setText("行政执法");
@@ -133,7 +132,6 @@ public class LawEnforcementFragment extends Fragment implements ViewPager.OnPage
         ImageView mImageView = (ImageView) view
                 .findViewById(R.id.tab_imageview);
         TextView mTextView = (TextView) view.findViewById(R.id.tab_textview);
-        // mImageView.setBackgroundResource(imageViewArray[i]);
         mImageView.setImageResource(imageViewArray[i]);
         mTextView.setText(textViewArray[i]);
         return view;

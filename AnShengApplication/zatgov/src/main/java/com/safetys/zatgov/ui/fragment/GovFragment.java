@@ -1,7 +1,6 @@
 package com.safetys.zatgov.ui.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,7 +66,7 @@ public class GovFragment extends Fragment implements View.OnClickListener, onNet
     }
 
     public void update() {
-       // mloading.show();
+        mloading.show();
         HttpRequestHelper.getInstance().getGovCount(getActivity(),
                 Const.NET_GET_GOV_CODE, this);
     }
@@ -78,7 +77,6 @@ public class GovFragment extends Fragment implements View.OnClickListener, onNet
         t2 = (TextView) mRootView.findViewById(R.id.text_num_2);
         t3 = (TextView) mRootView.findViewById(R.id.text_num_3);
         t4 = (TextView) mRootView.findViewById(R.id.text_num_4);
-
 
         chart = (BarChart) mRootView.findViewById(R.id.chart);
 
@@ -123,7 +121,6 @@ public class GovFragment extends Fragment implements View.OnClickListener, onNet
                 f5 = monthCounts.get(4).getByGov();
                 f6 = monthCounts.get(5).getByGov();
 
-
                 //整改数
                 f12 = monthCounts.get(0).getRepairedNum();
                 f22 = monthCounts.get(1).getRepairedNum();
@@ -138,16 +135,18 @@ public class GovFragment extends Fragment implements View.OnClickListener, onNet
                 m4 = monthCounts.get(3).getDateMonth().substring(3);
                 m5 = monthCounts.get(4).getDateMonth().substring(3);
                 m6 = monthCounts.get(5).getDateMonth().substring(3);
-                new Handler().postDelayed(new Runnable() {
+
+                mBarChart3s = new BarChartQy2s(chart);
+                BarData data = new BarData(mBarChart3s.getXAxisValues(m1,m2,m3,m4,m5,m6),
+                        mBarChart3s.getDataSet(f1,f2,f3,f4,f5,f6,
+                                f12,f22,f32,f42,f52,f62));
+                // 设置数据
+                chart.setData(data);
+           /*     new Handler().postDelayed(new Runnable() {
                     public void run() {
-                        mBarChart3s = new BarChartQy2s(chart);
-                        BarData data = new BarData(mBarChart3s.getXAxisValues(m1,m2,m3,m4,m5,m6),
-                                mBarChart3s.getDataSet(f1,f2,f3,f4,f5,f6,
-                                        f12,f22,f32,f42,f52,f62));
-                        // 设置数据
-                        chart.setData(data);
+
                     }
-                }, 1000); // 2秒
+                }, 1); // 2秒*/
 
 
                 break;

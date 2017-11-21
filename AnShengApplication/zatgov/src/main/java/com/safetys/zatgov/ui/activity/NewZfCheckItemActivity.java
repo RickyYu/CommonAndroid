@@ -189,9 +189,9 @@ public class NewZfCheckItemActivity extends BaseActivity implements
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 if (mDatas.get(position).getIsBig().equals("0")) {
-                    //// FIXME: 2017/11/16 
-                   /* intent = new Intent(NewZfCheckItemActivity.this,
-                            NoTroubleModifyActivity.class);*/
+
+                    intent = new Intent(NewZfCheckItemActivity.this,
+                            NoTroubleModifyActivity.class);
 
                 } else {
                     intent = new Intent(NewZfCheckItemActivity.this,
@@ -227,8 +227,8 @@ public class NewZfCheckItemActivity extends BaseActivity implements
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_check_type:
-                //// FIXME: 2017/11/16 
-              /*  Intent intent = new Intent(this, NewZfCheckItemHyActivity.class);
+           /*     //// FIXME: 2017/11/16
+                Intent intent = new Intent(this, NewZfCheckItemHyActivity.class);
                 intent.putExtra("id", id2);
                 intent.putExtra("name", type);
                 startActivity(intent);*/

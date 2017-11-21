@@ -5,7 +5,9 @@ import android.content.Intent;
 
 import com.safetys.widget.common.SPUtils;
 import com.safetys.zatgov.config.AppConfig;
+import com.safetys.zatgov.config.PrefKeys;
 import com.safetys.zatgov.service.UpgradeService;
+import com.safetys.zatgov.utils.GreenDaoUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 import com.umeng.analytics.MobclickAgent;
 
@@ -28,25 +30,19 @@ public class ZatApplication extends Application {
         MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
         //SharedPreferences 初始化
         SPUtils.getInstance(getApplicationContext(),SP_DATA_NAME);
+        //初始化greenDao数据库
+        GreenDaoUtil.getInstance(getApplicationContext(),"recluse-db");
+
         // 初始化xutils
         x.Ext.init(this);
         // xutils 开启debug
         x.Ext.setDebug(true);
         // 数据库初始化
-      //  getDaoConfig();
+         getDaoConfig();
+        //初始化IP
+        initIp();
 
-  /*      String ip = getAppMainPreferences().getString(PrefKeys.PREF_IP_KEY, "");
-        if (ip.equals("")) {
-            AppConfig.HOST_ADDRESS_YH = "http://" + AppConfig.DEFAULT_IP
-                    + "/huzhou";
-            AppConfig.HOST_ADDRESS_DA = "http://" + AppConfig.DEFAULT_IP
-                    + "/huzhouArchives";
-        } else {
-            AppConfig.HOST_ADDRESS_YH = "http://" + ip + "/huzhou";
-            AppConfig.HOST_ADDRESS_DA = "http://" + ip + "/huzhouArchives";
-        }*/
-
-
+        //// FIXME: 2017/11/21 
         // 启动更新服务  发布时解除注释
 	/*	Intent mIntent = new Intent(getApplicationContext(),
 				UpgradeService.class);
@@ -54,19 +50,23 @@ public class ZatApplication extends Application {
 
     }
 
-
-/*
-    *//**
-     * 返回应用主配置
-     *//*
-    public SharedPreferences getAppMainPreferences() {
-        if (mAppMainPreferences == null) {
-            mAppMainPreferences = this.getSharedPreferences(
-                    AppConfig.BASE_PACKAGE, Context.MODE_PRIVATE);
+    private void initIp() {
+        String ip = (String)SPUtils.getData(PrefKeys.PREF_IP_KEY, "");
+        if (ip.equals("")) {
+            AppConfig.HOST_ADDRESS_YH =AppConfig.HEAD_IP + AppConfig.DEFAULT_IP
+                    + "/huzhou";
+            AppConfig.HOST_ADDRESS_DA = AppConfig.HEAD_IP + AppConfig.DEFAULT_IP
+                    + "/huzhouArchives";
+        } else {
+            AppConfig.HOST_ADDRESS_YH = AppConfig.HEAD_IP + ip + "/huzhou";
+            AppConfig.HOST_ADDRESS_DA =AppConfig.HEAD_IP + ip + "/huzhouArchives";
         }
-        return mAppMainPreferences;
-    }*/
+    }
 
+    /**
+     * Xutils创建的数据库
+     * @return
+     */
     public DbManager.DaoConfig getDaoConfig() {
         if (mDaoConfig == null) {
             mDaoConfig = new DbManager.DaoConfig();

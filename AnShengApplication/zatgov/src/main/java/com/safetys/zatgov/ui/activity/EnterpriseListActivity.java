@@ -26,6 +26,7 @@ import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.PullToRefresh;
 import com.safetys.zatgov.ui.view.SearchBar;
 import com.safetys.zatgov.utils.DialogUtil;
+import com.safetys.zatgov.utils.GreenDaoUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 
 import java.util.ArrayList;
@@ -74,7 +75,8 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
     private String seekType = "";// 企业状态类型
     private String tradeTypeCode = "";
     private String source;// 表示从哪跳转过来
-    private ArrayList<CompanyVo> mdatas;
+    private List<CompanyVo> mdatasByData;//本地数据库获取的数据
+    private List<CompanyVo> mdatas;//网络获取的数据
     private int skipType = SKIP_COMPANY_INFO;
     private int checkId = -1;
     private String oneCode = "";
@@ -134,8 +136,7 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
             }
         });
         mdatas = new ArrayList<CompanyVo>();
-        mAdapter = new EnterpriseListAdapter(this, mdatas,skipType);
-        listview.setAdapter(mAdapter);
+
     }
 
     @OnItemClick(R.id.listview)
@@ -237,6 +238,31 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
      */
     private void loadingDatas() {
         mLoading.show();
+        //先加载本地数据
+        if(mCurrentPage == Const.PAGE_SIZE) {//第一次加载
+            List<CompanyVo> companyVos = new ArrayList<CompanyVo>();
+       /* companyVos =  GreenDaoUtil.getDaoSession().getCompanyVoDao().queryBuilder()
+                .where(CompanyVoDao.Properties.Id.notEq(999))
+                .limit(5)
+                .build().list();*/
+            //.orderAsc(CompanyVoDao.Properties.Id)
+            try {
+                companyVos = GreenDaoUtil.getDaoSession().getCompanyVoDao().loadAll();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (companyVos.size() > 0) {
+                mLoading.dismiss();
+                mdatas = companyVos;
+
+            }
+            //再更新网络数据
+            mAdapter = new EnterpriseListAdapter(this, mdatas,skipType);
+            listview.setAdapter(mAdapter);
+            mAdapter.notifyDataSetChanged();
+        }
+
+
         HttpRequestHelper.getInstance().getCompanyListInfo(this, isHistory, tradeTypeCode,
                 seekType, bigCode, oneCode, twoCode, threeCode,
                 searchBar.getSearchData(), totalCount, mCurrentPage,
@@ -251,6 +277,7 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
         mCurrentPage = 0;
         totalCount = 0;
         mdatas.clear();
+        GreenDaoUtil.getDaoSession().getCompanyVoDao().deleteAll();
         mAdapter.notifyDataSetChanged();
         loadingDatas();
 
@@ -286,11 +313,16 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
                     if (list == null || list.size() == 0) {
 
                     } else {
-
-                        mdatas.addAll(list);
+                        if(mCurrentPage == Const.PAGE_SIZE){//第一次加载先清除
+                            mdatas.clear();
+                            GreenDaoUtil.getDaoSession().getCompanyVoDao().deleteAll();
+                        }
+                        GreenDaoUtil.getDaoSession().getCompanyVoDao().insertOrReplaceInTx(list);
+                        if(!mdatas.containsAll(list)){
+                            mdatas.addAll(list);
+                        }
                     }
                 }
-
                 mAdapter.notifyDataSetChanged();
                 listview.finishLoading(false);
                 break;

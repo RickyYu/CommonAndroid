@@ -1,10 +1,17 @@
 package com.safetys.zatgov.bean;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Generated;
+
 /**
  * Author:Created by Ricky on 2017/11/15.
  * Description:企业信息
  */
+@Entity
 public class CompanyVo {
+    @Id
+    private Long dataId;
     private String id;
     private String companyName;
     private String fdDelegate;
@@ -23,6 +30,37 @@ public class CompanyVo {
     private String companyType;
     private String companyTypeName;
     private long createTime;//企业最新隐患时间
+
+    @Generated(hash = 1457739789)
+    public CompanyVo(Long dataId, String id, String companyName, String fdDelegate,
+            String firstArea, String secondArea, String thirdArea, String x,
+            String y, String dangerNum, String gridDangerNum, String allDangerNum,
+            boolean isXiaofang, boolean isAnjian, String industry,
+            String industryName, String companyType, String companyTypeName,
+            long createTime) {
+        this.dataId = dataId;
+        this.id = id;
+        this.companyName = companyName;
+        this.fdDelegate = fdDelegate;
+        this.firstArea = firstArea;
+        this.secondArea = secondArea;
+        this.thirdArea = thirdArea;
+        this.x = x;
+        this.y = y;
+        this.dangerNum = dangerNum;
+        this.gridDangerNum = gridDangerNum;
+        this.allDangerNum = allDangerNum;
+        this.isXiaofang = isXiaofang;
+        this.isAnjian = isAnjian;
+        this.industry = industry;
+        this.industryName = industryName;
+        this.companyType = companyType;
+        this.companyTypeName = companyTypeName;
+        this.createTime = createTime;
+    }
+    @Generated(hash = 1487609990)
+    public CompanyVo() {
+    }
 
     public String getIndustry() {
         return industry;
@@ -131,5 +169,23 @@ public class CompanyVo {
     }
     public void setCreateTime(long createTime) {
         this.createTime = createTime;
+    }
+    public Long getDataId() {
+        return this.dataId;
+    }
+    public void setDataId(Long dataId) {
+        this.dataId = dataId;
+    }
+    public boolean getIsXiaofang() {
+        return this.isXiaofang;
+    }
+    public void setIsXiaofang(boolean isXiaofang) {
+        this.isXiaofang = isXiaofang;
+    }
+    public boolean getIsAnjian() {
+        return this.isAnjian;
+    }
+    public void setIsAnjian(boolean isAnjian) {
+        this.isAnjian = isAnjian;
     }
 }

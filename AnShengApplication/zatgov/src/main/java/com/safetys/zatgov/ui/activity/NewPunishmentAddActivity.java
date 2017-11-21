@@ -37,6 +37,7 @@ import com.safetys.zatgov.entity.JsonResult;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.PullToRefresh;
+import com.safetys.zatgov.ui.view.wheel.SigleWheelDialog;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 import com.safetys.zatgov.utils.StringUtil;
@@ -46,6 +47,7 @@ import org.xutils.x;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -238,20 +240,19 @@ public class NewPunishmentAddActivity extends BaseActivity implements
                 showDialog(DATE_DIALOG);
                 break;
             case R.id.btn_yh_type:
-                //// FIXME: 2017/11/15 
-        /*        ArrayList<String> mDatas = new ArrayList<String>();
+                ArrayList<String> mDatas = new ArrayList<String>();
                 Collections.addAll(mDatas, PunishmentTypeEnum.typedata);
                 SigleWheelDialog mChangeAddressDialog = new SigleWheelDialog(
                         NewPunishmentAddActivity.this, mDatas);
                 mChangeAddressDialog.setText(tv_type.getText().toString());
                 mChangeAddressDialog.show();
-                mChangeAddressDialog.setAddresskListener(new OnTextCListener() {
+                mChangeAddressDialog.setAddresskListener(new SigleWheelDialog.OnTextCListener() {
 
                     @Override
                     public void onClick(String mText) {
                         tv_type.setText(mText);
                     }
-                });*/
+                });
 
                 break;
 
@@ -374,8 +375,7 @@ public class NewPunishmentAddActivity extends BaseActivity implements
                 DialogUtil.showMsgDialog(NewPunishmentAddActivity.this, "新增成功。",
                         true, null);
                 sendBroadcast(new Intent(NewZfPunListActivity.ACTION_UPDATE_LIST));
-                //// FIXME: 2017/11/15
-               // sendBroadcast(new Intent(ZfCheckRecordListActivity.ACTION_UPDATE_LIST_CHECK_NEW));
+               sendBroadcast(new Intent(ZfCheckRecordListActivity.ACTION_UPDATE_LIST_CHECK_NEW));
                 break;
 
             case Const.NET_GET_GOV_HIDDEN_LIST_CODE:// 获取隐患描述列表

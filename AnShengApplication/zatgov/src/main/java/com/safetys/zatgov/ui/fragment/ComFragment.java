@@ -1,7 +1,6 @@
 package com.safetys.zatgov.ui.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,8 +30,6 @@ import java.util.List;
 public class ComFragment extends Fragment implements View.OnClickListener, onNetCallback {
 
     private BarChart2s mBarChart3s;
-    //	private TextView t1;
-//	private TextView t2;
     private TextView t3;
     private TextView t4;
     private LoadingDialogUtil mloading;
@@ -67,28 +64,27 @@ public class ComFragment extends Fragment implements View.OnClickListener, onNet
     }
 
     public void update() {
-      //  mloading.show();
+        mloading.show();
+/*        List<MathInfo> mathInfos = GreenDaoUtil.getDaoSession().getMathInfoDao().loadAll();
+        if(mathInfos.size() > 0){//不为空，先赋值
+            mloading.dismiss();
+            bindData(mathInfos.get(0));
+        }*/
+        //再刷新
         HttpRequestHelper.getInstance().getComCount(getActivity(),
                 Const.NET_GET_COM_CODE, this);
     }
 
     private void initView(View mRootView) {
-
-//		t1 = (TextView) mRootView.findViewById(R.id.text_num_1);
-//		t2 = (TextView) mRootView.findViewById(R.id.text_num_2);
         t3 = (TextView) mRootView.findViewById(R.id.text_num_3);
         t4 = (TextView) mRootView.findViewById(R.id.text_num_4);
-
-
         chart = (BarChart) mRootView.findViewById(R.id.chart);
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_back:
-
                 break;
             default:
                 break;
@@ -100,7 +96,6 @@ public class ComFragment extends Fragment implements View.OnClickListener, onNet
     public void onError(String errorMsg) {
         mloading.dismiss();
         DialogUtil.showMsgDialog(getActivity(), errorMsg, true, null);
-
     }
 
     @Override
@@ -108,52 +103,51 @@ public class ComFragment extends Fragment implements View.OnClickListener, onNet
         mloading.dismiss();
         switch (requestCode) {
             case Const.NET_GET_COM_CODE:
-
                 MathInfo mathInfo = JSON.parseObject(mJsonResult.getEntity(),
                         MathInfo.class);
-                t3.setText( mathInfo.getDangerNum());
-                t4.setText( mathInfo.getRectifyRateNum());
-                monthCounts = mathInfo.getMonthCounts();
-//自查数
-                f1 = monthCounts.get(0).getByCom();
-                f2 = monthCounts.get(1).getByCom();
-                f3 = monthCounts.get(2).getByCom();
-                f4 = monthCounts.get(3).getByCom();
-                f5 = monthCounts.get(4).getByCom();
-                f6 = monthCounts.get(5).getByCom();
-
-
-                //整改数
-                f12 = monthCounts.get(0).getRepairedNum();
-                f22 = monthCounts.get(1).getRepairedNum();
-                f32 = monthCounts.get(2).getRepairedNum();
-                f42 = monthCounts.get(3).getRepairedNum();
-                f52 = monthCounts.get(4).getRepairedNum();
-                f62 = monthCounts.get(5).getRepairedNum();
-
-                m1 = monthCounts.get(0).getDateMonth().substring(3);
-                m2 = monthCounts.get(1).getDateMonth().substring(3);
-                m3 = monthCounts.get(2).getDateMonth().substring(3);
-                m4 = monthCounts.get(3).getDateMonth().substring(3);
-                m5 = monthCounts.get(4).getDateMonth().substring(3);
-                m6 = monthCounts.get(5).getDateMonth().substring(3);
-                new Handler().postDelayed(new Runnable() {
-                    public void run() {
-                        mBarChart3s = new BarChart2s(chart);
-                        BarData data = new BarData(mBarChart3s.getXAxisValues(m1,m2,m3,m4,m5,m6),
-                                mBarChart3s.getDataSet(f1,f2,f3,f4,f5,f6,
-                                        f12,f22,f32,f42,f52,f62));
-                        // 设置数据
-                        chart.setData(data);
-                    }
-                }, 1000); // 2秒
-
-
+   /*             GreenDaoUtil.getDaoSession().getMathInfoDao().deleteAll();//先清理
+                GreenDaoUtil.getDaoSession().getMathInfoDao().save(mathInfo);//再存储*/
+                bindData(mathInfo);
                 break;
 
             default:
                 break;
         }
 
+    }
+
+    private void bindData(MathInfo mathInfo) {
+        t3.setText( mathInfo.getDangerNum());
+        t4.setText( mathInfo.getRectifyRateNum());
+        monthCounts = mathInfo.getMonthCounts();
+//自查数
+        f1 = monthCounts.get(0).getByCom();
+        f2 = monthCounts.get(1).getByCom();
+        f3 = monthCounts.get(2).getByCom();
+        f4 = monthCounts.get(3).getByCom();
+        f5 = monthCounts.get(4).getByCom();
+        f6 = monthCounts.get(5).getByCom();
+
+
+        //整改数
+        f12 = monthCounts.get(0).getRepairedNum();
+        f22 = monthCounts.get(1).getRepairedNum();
+        f32 = monthCounts.get(2).getRepairedNum();
+        f42 = monthCounts.get(3).getRepairedNum();
+        f52 = monthCounts.get(4).getRepairedNum();
+        f62 = monthCounts.get(5).getRepairedNum();
+
+        m1 = monthCounts.get(0).getDateMonth().substring(3);
+        m2 = monthCounts.get(1).getDateMonth().substring(3);
+        m3 = monthCounts.get(2).getDateMonth().substring(3);
+        m4 = monthCounts.get(3).getDateMonth().substring(3);
+        m5 = monthCounts.get(4).getDateMonth().substring(3);
+        m6 = monthCounts.get(5).getDateMonth().substring(3);
+        mBarChart3s = new BarChart2s(chart);
+        BarData data = new BarData(mBarChart3s.getXAxisValues(m1,m2,m3,m4,m5,m6),
+                mBarChart3s.getDataSet(f1,f2,f3,f4,f5,f6,
+                        f12,f22,f32,f42,f52,f62));
+        // 设置数据
+        chart.setData(data);
     }
 }

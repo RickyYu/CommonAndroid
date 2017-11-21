@@ -97,7 +97,7 @@ public class MainActivity extends FragmentActivity {
      * 更新数据 如行业类型
      */
     private void updateData() {
-        mLoading.show();
+       // mLoading.show();
         new Thread(new Runnable() {
 
             @Override
@@ -131,7 +131,7 @@ public class MainActivity extends FragmentActivity {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
                 && event.getAction() == KeyEvent.ACTION_DOWN
                 && event.getRepeatCount() == 0) {
-            mLoading.dismiss();
+           // mLoading.dismiss();
             // 具体的操作代码
             new AlertDialog.Builder(this)
 
@@ -165,7 +165,7 @@ public class MainActivity extends FragmentActivity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
-                    mLoading.dismiss();
+                 //   mLoading.dismiss();
                     break;
 
                 default:

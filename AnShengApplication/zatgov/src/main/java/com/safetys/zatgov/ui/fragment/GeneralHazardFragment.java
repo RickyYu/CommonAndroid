@@ -45,6 +45,7 @@ import com.safetys.zatgov.ui.activity.NewZfCheckAddActivityWgy;
 import com.safetys.zatgov.ui.activity.NewZfYhLrActivity;
 import com.safetys.zatgov.ui.activity.ViewPhotoActivity;
 import com.safetys.zatgov.ui.view.PullToRefresh;
+import com.safetys.zatgov.ui.view.wheel.SigleWheelDialog;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.FileUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
@@ -57,6 +58,7 @@ import org.xutils.x;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.UUID;
@@ -235,20 +237,19 @@ public class GeneralHazardFragment extends Fragment implements OnClickListener,
 			fragment.show(getFragmentManager(), "datePicker");
 			break;
 		case R.id.btn_yh_type:
-//// FIXME: 2017/11/16 
-		/*	ArrayList<String> mDatas = new ArrayList<String>();
+			ArrayList<String> mDatas = new ArrayList<String>();
 			Collections.addAll(mDatas, TroubleTypeEnum.typedata);
 			SigleWheelDialog mChangeAddressDialog = new SigleWheelDialog(
 					getActivity(), mDatas);
 			mChangeAddressDialog.setText(text_yh_type.getText().toString());
 			mChangeAddressDialog.show();
-			mChangeAddressDialog.setAddresskListener(new OnTextCListener() {
+			mChangeAddressDialog.setAddresskListener(new SigleWheelDialog.OnTextCListener() {
 
 				@Override
 				public void onClick(String mText) {
 					text_yh_type.setText(mText);
 				}
-			});*/
+			});
 			break;
 
 		case R.id.iv_now2:

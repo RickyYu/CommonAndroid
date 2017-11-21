@@ -53,7 +53,6 @@ public class DatePickerFragment extends DialogFragment implements
 
 	@Override
 	public void onDateSet(DatePicker view, int year, int month, int day) {
-		// TODO 日期选择完成事件，取消时不会触发
 		Calendar c = Calendar.getInstance();
 		c.set(year, month, day);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

@@ -37,6 +37,7 @@ import com.safetys.zatgov.config.TroubleTypeEnum;
 import com.safetys.zatgov.entity.JsonResult;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
+import com.safetys.zatgov.ui.view.wheel.SigleWheelDialog;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.ImageUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
@@ -47,6 +48,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -210,20 +212,19 @@ public class HistoryTroubleModifyActivity extends BaseActivity implements
 
 			break;
 		case R.id.btn_zg_type:
-			//// FIXME: 2017/11/16
-	/*		ArrayList<String> mDatas = new ArrayList<String>();
+			ArrayList<String> mDatas = new ArrayList<String>();
 			Collections.addAll(mDatas, Const.TYPE_YH_ARRAY);
 			SigleWheelDialog mChangeAddressDialog = new SigleWheelDialog(
 					HistoryTroubleModifyActivity.this, mDatas);
 			mChangeAddressDialog.setText(mTvHiddenType.getText().toString());
 			mChangeAddressDialog.show();
-			mChangeAddressDialog.setAddresskListener(new OnTextCListener() {
+			mChangeAddressDialog.setAddresskListener(new SigleWheelDialog.OnTextCListener() {
 
 				@Override
 				public void onClick(String mText) {
 					mTvHiddenType.setText(mText);
 				}
-			});*/
+			});
 			break;
 
 		case R.id.iv_now1:
