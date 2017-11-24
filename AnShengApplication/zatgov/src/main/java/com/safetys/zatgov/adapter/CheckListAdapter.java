@@ -12,6 +12,9 @@ import com.safetys.zatgov.bean.SafetyCheck;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Author:Created by Ricky on 2017/11/15.
  * Description:
@@ -49,19 +52,25 @@ public class CheckListAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView,
                         ViewGroup parent) {
+        ViewHolder mHodler;
         if (convertView == null) {
             convertView = mInflater.inflate(
                     R.layout.list_view_left_and_right_string_item, null);
-            ViewHodler mHodler = new ViewHodler();
-            mHodler.mTextView1 = (TextView) convertView
-                    .findViewById(R.id.text_left);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        ViewHodler mVH = (ViewHodler) convertView.getTag();
-        mVH.mTextView1.setText(mdatas.get(position).getTitle());
+        mHodler.textLeft.setText(mdatas.get(position).getTitle());
         return convertView;
     }
-    public class ViewHodler {
-        TextView mTextView1;
+
+    static class ViewHolder {
+        @BindView(R.id.text_left)
+        TextView textLeft;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

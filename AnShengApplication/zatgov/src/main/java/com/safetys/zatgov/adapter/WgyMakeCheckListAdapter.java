@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.safetys.zatgov.R;
@@ -14,6 +15,9 @@ import com.safetys.zatgov.ui.activity.WgyMakeCheckListActivity;
 import com.safetys.zatgov.utils.DialogUtil;
 
 import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Author:Created by Ricky on 2017/11/15.
@@ -25,7 +29,7 @@ public class WgyMakeCheckListAdapter extends BaseAdapter {
     private ArrayList<SafetyMatter> mdatas;
 
     public WgyMakeCheckListAdapter(WgyMakeCheckListActivity context,
-                              ArrayList<SafetyMatter> mdatas) {
+                                   ArrayList<SafetyMatter> mdatas) {
         this.mContext = context;
         this.mInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -53,21 +57,18 @@ public class WgyMakeCheckListAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView,
                         ViewGroup parent) {
+        ViewHolder mHodler;
         if (convertView == null) {
             convertView = mInflater.inflate(
                     R.layout.list_view_string_and_remark_item, null);
-            ChecklistViewHodler mHodler = new ChecklistViewHodler();
-            mHodler.mTextView1 = (TextView) convertView
-                    .findViewById(R.id.text1);
-            mHodler.iv_remark = (ImageView) convertView
-                    .findViewById(R.id.iv_remark);
-            mHodler.btn_delete = convertView.findViewById(R.id.btn_delete);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        ChecklistViewHodler mVH = (ChecklistViewHodler) convertView
-                .getTag();
-        mVH.mTextView1.setText(mdatas.get(position).getContent());
-        mVH.iv_remark.setOnClickListener(new View.OnClickListener() {
+
+        mHodler.text1.setText(mdatas.get(position).getContent());
+        mHodler.ivRemark.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -78,7 +79,7 @@ public class WgyMakeCheckListAdapter extends BaseAdapter {
             }
         });
 
-        mVH.btn_delete.setOnClickListener(new View.OnClickListener() {
+        mHodler.btnDelete.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -88,9 +89,17 @@ public class WgyMakeCheckListAdapter extends BaseAdapter {
         });
         return convertView;
     }
-    private class ChecklistViewHodler {
-        TextView mTextView1;
-        ImageView iv_remark;
-        View btn_delete;
+
+    static class ViewHolder {
+        @BindView(R.id.btn_delete)
+        LinearLayout btnDelete;
+        @BindView(R.id.text1)
+        TextView text1;
+        @BindView(R.id.iv_remark)
+        ImageView ivRemark;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

@@ -1,9 +1,7 @@
 package com.safetys.zatgov.ui.activity;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,12 +30,16 @@ import com.safetys.zatgov.config.AppConfig;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.config.PrefKeys;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.PullToRefresh;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.xutils.x;
 
 import java.util.ArrayList;
@@ -50,7 +52,7 @@ import java.util.List;
  */
 public class NewZfCheckItemActivity extends BaseActivity implements
         View.OnClickListener, onNetCallback {
-    public static final String ACTION_UPDATE_LIST_YH_ITEM = "cn.saftys.NewZfCheckItemActivity.updateYH";
+    public static final String ACTION_UPDATE = "cn.saftys.NewZfCheckItemActivity.updateYH";
     private String id2;
     private TextView tv_name;
     private TextView tv_checktime;
@@ -78,7 +80,7 @@ public class NewZfCheckItemActivity extends BaseActivity implements
     private ArrayList<HyCheckItemInfo> mDatas;// 隐患描述
     private int mCurrentPage = 0;// 当前显示页数量
     private int totalCount = 0;// 总数
-    private MyBroadcastReceiver mReceiver;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,10 +88,7 @@ public class NewZfCheckItemActivity extends BaseActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_detail_new);
         initView();
-        // 注册通知刷新界面的广播
-        mReceiver = new MyBroadcastReceiver();
-        IntentFilter mFilter = new IntentFilter(ACTION_UPDATE_LIST_YH_ITEM);
-        registerReceiver(mReceiver, mFilter);
+        EventBus.getDefault().register(this);
     }
 
     private void initView() {
@@ -518,29 +517,19 @@ public class NewZfCheckItemActivity extends BaseActivity implements
         startActivity(intent);
     }
 
-    /**
-     * @author sjw 刷新界面广播
-     */
-    private class MyBroadcastReceiver extends BroadcastReceiver {
 
-        @Override
-        public void onReceive(Context context, Intent intent) {
-     
-            if (intent.getAction().equals(ACTION_UPDATE_LIST_YH_ITEM)) {
-                reLoadListDatas();
-
-            }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent messageEvent) {
+        if(messageEvent.getMessage().equals(ACTION_UPDATE)){
+            reLoadListDatas();
         }
-
     }
 
     @Override
     protected void onDestroy() {
- 
         super.onDestroy();
-        if (mReceiver != null) {
-            unregisterReceiver(mReceiver);
-        }
+        //取消注册事件
+        EventBus.getDefault().unregister(this);
     }
 
     private void reLoadListDatas() {

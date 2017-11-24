@@ -45,6 +45,7 @@ import com.safetys.zatgov.bean.WgyHiddenItemInfo;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.config.PrefKeys;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.CustomExpandableListView;
@@ -53,6 +54,7 @@ import com.safetys.zatgov.ui.view.SearchBar;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 
+import org.greenrobot.eventbus.EventBus;
 import org.xutils.x;
 
 import java.io.File;
@@ -179,6 +181,7 @@ public class NewZfCheckAddActivityWgy extends BaseActivity implements
         rl_checkcontent = findViewById(R.id.rl_checkcontent);
         listExpandSafetyMatteys = new ArrayList<SafetyMatter>();
         listExpandHiddens = new ArrayList<List<WgyHiddenItemInfo>>();
+
         myExpandableAdapter = new MyExpandableAdapter(getApplicationContext(),
                 listExpandSafetyMatteys, listExpandHiddens);
         expandable_list_view.setAdapter(myExpandableAdapter);
@@ -348,26 +351,14 @@ public class NewZfCheckAddActivityWgy extends BaseActivity implements
                     showCheckTable();
 
                 }
-                // showPun(isHaveTable, isHaveHidden);
+
             }
         });
 
 
     }
 
-	/*	*//**
-     * 根据是否有隐患和检查表检查来判断是否显示处罚界面
-     *
-     * @param isHaveTable
-     * @param isHaveHidden
-     */
-	/*
-	 * private void showPun(boolean isHaveTable, boolean isHaveHidden) {
-	 *
-	 * if (isHaveTable || isHaveHidden) {
-	 * llIsPunView.setVisibility(View.VISIBLE); } else {
-	 * llIsPunView.setVisibility(View.GONE); } }
-	 */
+
     /**
      * 检查表Dialog
      */
@@ -681,26 +672,6 @@ public class NewZfCheckAddActivityWgy extends BaseActivity implements
         startActivity(intent);
     }
 
-	/*
-	 * // 弹出查看照片 protected void showPictures(List<File> files) { Intent intent =
-	 * new Intent(this, ViewPhotosActivity.class); ArrayList<String> picPaths =
-	 * new ArrayList<String>(); for(int i = 0;i<files.size();i++){
-	 * picPaths.add(files.get(i).getAbsolutePath()); }
-	 * intent.putStringArrayListExtra("picPaths", picPaths);
-	 * startActivity(intent); }
-	 */
-
-	/*
-	 * private ImageOptions getImageOptions() { if (mImageOptions == null) {
-	 * mImageOptions = new ImageOptions.Builder()
-	 * .setSize(DensityUtil.dip2px(300), DensityUtil.dip2px(397))
-	 * .setRadius(DensityUtil.dip2px(5)) // 如果ImageView的大小不是定义为wrap_content,
-	 * 不要crop. .setCrop(false) // 很多时候设置了合适的scaleType也不需要它. //
-	 * 加载中或错误图片的ScaleType //
-	 * .setPlaceholderScaleType(ImageView.ScaleType.MATRIX)
-	 * .setImageScaleType(ImageView.ScaleType.CENTER_CROP).build(); } return
-	 * mImageOptions; }
-	 */
 
     @Override
     public void onError(String errorMsg) {
@@ -777,17 +748,7 @@ public class NewZfCheckAddActivityWgy extends BaseActivity implements
             }
 
         }
-		/*
-		 * // 拍照，照片删除 if (requestCode == TAKE_PICTURE_REQUEST_CODE && resultCode
-		 * == Activity.RESULT_OK && tempFile != null && tempFile.length() > 0) {
-		 * try { tempFile = FileUtil.getCompressFile(tempFile); if (pics.size()
-		 * < Const.MAX_PICTURE_SIZE) { pics.add(tempFile);
-		 * listExpandHiddens.get(outGroupPosition)
-		 * .get(outChildPosition).setImageFiles(pics);
-		 * listFiles.set(outGroupPosition, pics);
-		 * myExpandableAdapter.notifyDataSetChanged(); } } catch (Exception e) {
-		 * LogUtil.i("error:" + e.getMessage()); } }
-		 */
+
     }
 
     private File tempFile;// 拍摄缓存照片文件
@@ -1106,8 +1067,7 @@ public class NewZfCheckAddActivityWgy extends BaseActivity implements
                 if (mJsonResult.getEntity() != null) {
                     HyCheckItemInfo mCheckItemInfo = JSON.parseObject(
                             mJsonResult.getEntity(), HyCheckItemInfo.class);
-                    this.sendBroadcast(new Intent(
-                            ZfCheckRecordListActivity.ACTION_UPDATE_LIST_CHECK_NEW));
+                    EventBus.getDefault().post(new MessageEvent(ZfCheckRecordListActivity.ACTION_UPDATE));
 
                             com.safetys.zatgov.ui.view.Dialog mDialog = new com.safetys.zatgov.ui.view.Dialog(this,
                             "提示", "新增成功");
@@ -1115,8 +1075,7 @@ public class NewZfCheckAddActivityWgy extends BaseActivity implements
 
                         @Override
                         public void onClick(View v) {
-                            sendBroadcast(new Intent(
-                                    EnterpriseListActivity.ACTION_UPDATE_LIST_YH));
+                            EventBus.getDefault().post(new MessageEvent(EnterpriseListActivity.ACTION_UPDATE_DATA));
                             finish();
                         }
                     });

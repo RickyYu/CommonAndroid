@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.safetys.zatgov.R;
@@ -13,6 +14,9 @@ import com.safetys.zatgov.entity.GridBtnData;
 import com.safetys.zatgov.ui.activity.MainWanggyActivity;
 
 import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Author:Created by Ricky on 2017/11/15.
@@ -49,43 +53,46 @@ public class MyGridAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder mHodler;
         if (convertView == null) {
             convertView = mInflater.inflate(
                     R.layout.grid_viwe_law_enforcement_item, null);
-            ViewHodler mHodler = new ViewHodler();
-            mHodler.mImageView = (ImageView) convertView
-                    .findViewById(R.id.imageview);
-            mHodler.mImageUnread = convertView
-                    .findViewById(R.id.img_unread);
-            mHodler.mTextView = (TextView) convertView
-                    .findViewById(R.id.text_describe);
-            mHodler.mUnread = (TextView) convertView
-                    .findViewById(R.id.text_unread);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        ViewHodler mVH = (ViewHodler) convertView.getTag();
-        mVH.mImageView.setImageResource(mDatas.get(position).resourceId);
-        mVH.mTextView.setText(mDatas.get(position).btnString);
 
-        if(mContext.getClass().equals(new MainWanggyActivity().getClass())){
-            mVH.mTextView.setTextColor(mContext.getResources().getColor(R.color.white));
+        mHodler.imageview.setImageResource(mDatas.get(position).resourceId);
+        mHodler.textDescribe.setText(mDatas.get(position).btnString);
+
+        if (mContext.getClass().equals(new MainWanggyActivity().getClass())) {
+            mHodler.textDescribe.setTextColor(mContext.getResources().getColor(R.color.white));
 
         }
 
         if (mDatas.get(position).unReadNum > 0) {
-            mVH.mUnread.setText("" + mDatas.get(position).unReadNum);
-            mVH.mImageUnread.setVisibility(View.VISIBLE);
+            mHodler.textUnread.setText("" + mDatas.get(position).unReadNum);
+            mHodler.imgUnread.setVisibility(View.VISIBLE);
         } else {
-            mVH.mUnread.setText("");
-            mVH.mImageUnread.setVisibility(View.GONE);
+            mHodler.textUnread.setText("");
+            mHodler.imgUnread.setVisibility(View.GONE);
         }
         return convertView;
     }
 
-    private class ViewHodler {
-        ImageView mImageView;
-        View mImageUnread;
-        TextView mTextView;
-        TextView mUnread;
+    static class ViewHolder {
+        @BindView(R.id.imageview)
+        ImageView imageview;
+        @BindView(R.id.text_describe)
+        TextView textDescribe;
+        @BindView(R.id.text_unread)
+        TextView textUnread;
+        @BindView(R.id.img_unread)
+        LinearLayout imgUnread;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

@@ -84,7 +84,6 @@ public class LawEnforcementFragment extends Fragment implements ViewPager.OnPage
         initView(mView);
         mloading = new LoadingDialogUtil(getActivity());
         return mView;
-
     }
 
     private void initView(View mView) {
@@ -121,7 +120,6 @@ public class LawEnforcementFragment extends Fragment implements ViewPager.OnPage
         mDatas.add(new GridBtnData(R.drawable.law_btn_qyxx_selector, "企业管理", 0));
         mDatas.add(new GridBtnData(R.drawable.law_btn_qyyh_selector, "企业隐患", 0));
         mDatas.add(new GridBtnData(R.drawable.law_btn_dtdh_selector, "地图导航", 0));
-
         gridview.setSelector(new ColorDrawable(Color.TRANSPARENT));
         mAdapter = new MyGridAdapter(getActivity(), mDatas);
         gridview.setAdapter(mAdapter);
@@ -192,7 +190,6 @@ public class LawEnforcementFragment extends Fragment implements ViewPager.OnPage
                 break;
             case 6:
                 // 企业隐患
-
                 Intent mIntent7 = new Intent(getActivity(),
                         EnterpriseListActivity.class);
                 mIntent7.putExtra(EnterpriseListActivity.SKIP_TYPR,

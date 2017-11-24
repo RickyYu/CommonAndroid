@@ -1,9 +1,7 @@
 package com.safetys.zatgov.ui.activity;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,12 +22,17 @@ import com.safetys.zatgov.bean.CheckListInfo;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.config.PrefKeys;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.PullToRefresh;
 import com.safetys.zatgov.ui.view.SearchBar;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 
@@ -39,7 +42,7 @@ import java.util.ArrayList;
  */
 public class ZfCheckRecordListActivity extends BaseActivity implements
         View.OnClickListener, onNetCallback, SearchBar.onSearchListener {
-    public static final String ACTION_UPDATE_LIST_CHECK_NEW = "cn.saftys.ZfCheckRecordListActivity.updateCheckList.new";
+    public static final String ACTION_UPDATE = "cn.saftys.ZfCheckRecordListActivity.updateCheckList.new";
     private String companyId;
     private LoadingDialogUtil mLoading;
     private View mBtn_back;
@@ -53,7 +56,6 @@ public class ZfCheckRecordListActivity extends BaseActivity implements
     private Intent intent;
     private MyListAdapter recordListAdapter;
     private SearchBar mSearchBar;
-    private MyBroadcastReceiver mReceiver;
     private View mBtn_Trouble_dfc;// 未处罚
     private View mBtn_Trouble_yfc;// 已处罚
     private TextView tv_company_name;
@@ -68,16 +70,13 @@ public class ZfCheckRecordListActivity extends BaseActivity implements
     private boolean isReview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
- 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zf_check_list);
+        EventBus.getDefault().register(this);
         initView();
         setListner();
         mLoading.show();
-        // 注册通知刷新界面的广播
-        mReceiver = new MyBroadcastReceiver();
-        IntentFilter mFilter = new IntentFilter(ACTION_UPDATE_LIST_CHECK_NEW);
-        registerReceiver(mReceiver, mFilter);
+
     }
 
     private void initView() {
@@ -404,23 +403,20 @@ public class ZfCheckRecordListActivity extends BaseActivity implements
         loadingCheckListInfos(strPunState, checkGround);
     }
 
-    private class MyBroadcastReceiver extends BroadcastReceiver {
 
-        @Override
-        public void onReceive(Context context, Intent intent) {
-     
-            if (intent.getAction().equals(ACTION_UPDATE_LIST_CHECK_NEW)) {
-                updata();
-            }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent messageEvent) {
+        if(messageEvent.getMessage().equals(ACTION_UPDATE)){
+            updata();
         }
     }
+
     @Override
     protected void onDestroy() {
- 
         super.onDestroy();
-        if(mReceiver!=null){
-            unregisterReceiver(mReceiver);
-        }
+        //取消注册事件
+        EventBus.getDefault().unregister(this);
     }
+
 
 }

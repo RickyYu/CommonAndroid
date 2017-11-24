@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
+import com.safetys.widget.common.SPUtils;
 import com.safetys.zatgov.R;
 import com.safetys.zatgov.bean.BarChart2s;
 import com.safetys.zatgov.bean.MathInfo;
@@ -27,7 +28,7 @@ import java.util.List;
  * Author:Created by Ricky on 2017/11/14.
  * Description:
  */
-public class ComFragment extends Fragment implements View.OnClickListener, onNetCallback {
+public class ComFragment extends Fragment implements onNetCallback {
 
     private BarChart2s mBarChart3s;
     private TextView t3;
@@ -59,18 +60,28 @@ public class ComFragment extends Fragment implements View.OnClickListener, onNet
         View mView = inflater.inflate(R.layout.fragment_com, null);
         initView(mView);
         mloading = new LoadingDialogUtil(getActivity());
-        update();
+        initData();
         return mView;
+    }
+
+    private void initData(){
+        mloading.show();
+        String result = (String)SPUtils.getData("com","success");
+        if(!result.equals("success")){
+            mloading.dismiss();
+            MathInfo mathInfo = JSON.parseObject(result,
+                    MathInfo.class);
+            bindData(mathInfo);
+        }
+        loadData();
     }
 
     public void update() {
         mloading.show();
-/*        List<MathInfo> mathInfos = GreenDaoUtil.getDaoSession().getMathInfoDao().loadAll();
-        if(mathInfos.size() > 0){//不为空，先赋值
-            mloading.dismiss();
-            bindData(mathInfos.get(0));
-        }*/
-        //再刷新
+        loadData();
+    }
+
+    private void loadData() {
         HttpRequestHelper.getInstance().getComCount(getActivity(),
                 Const.NET_GET_COM_CODE, this);
     }
@@ -80,17 +91,6 @@ public class ComFragment extends Fragment implements View.OnClickListener, onNet
         t4 = (TextView) mRootView.findViewById(R.id.text_num_4);
         chart = (BarChart) mRootView.findViewById(R.id.chart);
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_back:
-                break;
-            default:
-                break;
-        }
-    }
-
 
     @Override
     public void onError(String errorMsg) {
@@ -105,8 +105,7 @@ public class ComFragment extends Fragment implements View.OnClickListener, onNet
             case Const.NET_GET_COM_CODE:
                 MathInfo mathInfo = JSON.parseObject(mJsonResult.getEntity(),
                         MathInfo.class);
-   /*             GreenDaoUtil.getDaoSession().getMathInfoDao().deleteAll();//先清理
-                GreenDaoUtil.getDaoSession().getMathInfoDao().save(mathInfo);//再存储*/
+                SPUtils.saveData("com",mJsonResult.getEntity());
                 bindData(mathInfo);
                 break;
 
@@ -116,6 +115,10 @@ public class ComFragment extends Fragment implements View.OnClickListener, onNet
 
     }
 
+    /**
+     * 数据绑定
+     * @param mathInfo
+     */
     private void bindData(MathInfo mathInfo) {
         t3.setText( mathInfo.getDangerNum());
         t4.setText( mathInfo.getRectifyRateNum());

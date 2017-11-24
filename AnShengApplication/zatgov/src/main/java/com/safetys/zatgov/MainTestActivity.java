@@ -1,7 +1,9 @@
 package com.safetys.zatgov;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 import com.safetys.greenrobot.greendao.gen.UserInfoDao;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.bean.UserInfo;
+import com.safetys.zatgov.config.AppConfig;
 import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.utils.GreenDaoUtil;
 
@@ -19,12 +22,17 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.greenrobot.greendao.query.QueryBuilder;
+
+import java.io.File;
 import java.util.ArrayList;
+import java.util.UUID;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainTestActivity extends AppCompatActivity {
+    protected static int TAKE_PICTURE_REQUEST_CODE = 1;
     @BindView(R.id.tv_des)
     TextView tvDes;
     @BindView(R.id.btn_skip)
@@ -84,7 +92,24 @@ public class MainTestActivity extends AppCompatActivity {
 
                 break;
             case R.id.btn_delete:
-
+                File tempFile;// 拍摄缓存照片文件
+               // String mImagePath = Environment.getExternalStorageDirectory()+"/meta/";
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                tempFile = new File(AppConfig.buildPath(AppConfig.HOME_CACHE),
+                        UUID.randomUUID().toString().replace("-", "") + ".jpg");
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(tempFile));
+               // tempFile = new File(mImagePath, System.currentTimeMillis()+".jpg");
+                if (intent.resolveActivity(getPackageManager()) != null) {
+           /*         File path = new File(mImagePath);
+                    if(!path.exists()){
+                        path.mkdir();
+                    }*/
+                    try {
+                        startActivityForResult(intent, TAKE_PICTURE_REQUEST_CODE);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
 
                 break;
             case R.id.btn_query:

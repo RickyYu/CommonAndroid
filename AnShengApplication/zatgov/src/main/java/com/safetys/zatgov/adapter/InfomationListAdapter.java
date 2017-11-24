@@ -13,6 +13,9 @@ import com.safetys.zatgov.entity.InformationDataVo;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Author:Created by Ricky on 2017/11/14.
  * Description:
@@ -22,7 +25,7 @@ public class InfomationListAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private ArrayList<InformationDataVo> mDatas;
 
-    public InfomationListAdapter(Context context,ArrayList<InformationDataVo> mdatas) {
+    public InfomationListAdapter(Context context, ArrayList<InformationDataVo> mdatas) {
         this.mContext = context;
         this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mDatas = mdatas;
@@ -48,21 +51,29 @@ public class InfomationListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView==null){
-            convertView = mInflater.inflate(R.layout.list_view_img_and_string_item, null);
-            ViewHodler mHodler = new ViewHodler();
-            mHodler.mTextView1 = (TextView) convertView.findViewById(R.id.text1);
-            mHodler.mImageView = (ImageView) convertView.findViewById(R.id.left_img);
+        ViewHolder mHodler;
+        if (convertView == null) {
+            convertView = mInflater.inflate(
+                    R.layout.list_view_img_and_string_item, null);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        ViewHodler mVH = (ViewHodler) convertView.getTag();
-        mVH.mTextView1.setText(mDatas.get(position).getName());
-        mVH.mImageView.setBackgroundResource(mDatas.get(position).getImgId());
+
+        mHodler.text1.setText(mDatas.get(position).getName());
+        mHodler.leftImg.setBackgroundResource(mDatas.get(position).getImgId());
         return convertView;
     }
 
-    private class ViewHodler{
-        ImageView mImageView;
-        TextView mTextView1;
+    static class ViewHolder {
+        @BindView(R.id.left_img)
+        ImageView leftImg;
+        @BindView(R.id.text1)
+        TextView text1;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

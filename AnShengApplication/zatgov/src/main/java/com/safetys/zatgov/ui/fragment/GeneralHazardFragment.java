@@ -38,18 +38,22 @@ import com.safetys.zatgov.config.AppConfig;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.config.TroubleTypeEnum;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.activity.NewZfCheckAddActivity;
 import com.safetys.zatgov.ui.activity.NewZfCheckAddActivityWgy;
+import com.safetys.zatgov.ui.activity.NewZfCheckItemActivity;
 import com.safetys.zatgov.ui.activity.NewZfYhLrActivity;
 import com.safetys.zatgov.ui.activity.ViewPhotoActivity;
+import com.safetys.zatgov.ui.activity.ZfCheckRecordListActivity;
 import com.safetys.zatgov.ui.view.PullToRefresh;
 import com.safetys.zatgov.ui.view.wheel.SigleWheelDialog;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.FileUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 
+import org.greenrobot.eventbus.EventBus;
 import org.xutils.common.util.DensityUtil;
 import org.xutils.common.util.LogUtil;
 import org.xutils.image.ImageOptions;
@@ -260,7 +264,11 @@ public class GeneralHazardFragment extends Fragment implements OnClickListener,
 						UUID.randomUUID().toString().replace("-", "") + ".jpg");
 				intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(tempFile));
 				if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
-					startActivityForResult(intent, TAKE_PICTURE_REQUEST_CODE);
+					try {//6.0以上会报权限错误
+						startActivityForResult(intent, TAKE_PICTURE_REQUEST_CODE);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			} else {
 				DialogUtil
@@ -433,21 +441,13 @@ public class GeneralHazardFragment extends Fragment implements OnClickListener,
 
 	@Override
 	public void onSuccess(int requestCode, JsonResult mJsonResult) {
-
 		switch (requestCode) {
 		case Const.SUB_NOMARL_CHECK:
 			mLoading.dismiss();
 			ToastUtils.showMessage(getActivity(), "提交隐患成功");
-			getActivity().sendBroadcast(
-					new Intent(NewZfYhLrActivity.ACTION_UPDATE_LIST_YH));
-			//// FIXME: 2017/11/16
-			/*getActivity().sendBroadcast(
-					new Intent(
-							NewZfCheckItemActivity.ACTION_UPDATE_LIST_YH_ITEM));
-			getActivity()
-					.sendBroadcast(
-							new Intent(
-									ZfCheckRecordListActivity.ACTION_UPDATE_LIST_CHECK_NEW));*/
+			EventBus.getDefault().post(new MessageEvent(NewZfYhLrActivity.ACTION_UPDATE));
+			EventBus.getDefault().post(new MessageEvent(NewZfCheckItemActivity.ACTION_UPDATE));
+			EventBus.getDefault().post(new MessageEvent(ZfCheckRecordListActivity.ACTION_UPDATE));
 
 			setGen(true);
 			Intent mIntent = new Intent(getActivity(), NewZfYhLrActivity.class);

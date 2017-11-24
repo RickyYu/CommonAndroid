@@ -12,6 +12,9 @@ import com.safetys.zatgov.bean.MSDSinfo;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Author:Created by Ricky on 2017/11/14.
  * Description:
@@ -21,7 +24,7 @@ public class MsdsListAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private ArrayList<MSDSinfo> mDatas;
 
-    public MsdsListAdapter(Context context,ArrayList<MSDSinfo> mdatas) {
+    public MsdsListAdapter(Context context, ArrayList<MSDSinfo> mdatas) {
         this.mContext = context;
         this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mDatas = mdatas;
@@ -47,21 +50,29 @@ public class MsdsListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView==null){
-            convertView = mInflater.inflate(R.layout.list_view_string_and_arrow_item, null);
-            ViewHodler mHodler = new ViewHodler();
-            mHodler.mTextView1 = (TextView) convertView.findViewById(R.id.text1);
-            mHodler.mTextView2 = (TextView) convertView.findViewById(R.id.text2);
+        ViewHolder mHodler;
+        if (convertView == null) {
+            convertView = mInflater.inflate(
+                    R.layout.list_view_string_and_arrow_item, null);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        ViewHodler mVH = (ViewHodler) convertView.getTag();
-        mVH.mTextView1.setText(mDatas.get(position).getChineseName());
-        mVH.mTextView2.setText("英文名："+mDatas.get(position).getEnglishName()+"    CAS号："+mDatas.get(position).getCas());
+
+        mHodler.text1.setText(mDatas.get(position).getChineseName());
+        mHodler.text2.setText("英文名：" + mDatas.get(position).getEnglishName() + "    CAS号：" + mDatas.get(position).getCas());
         return convertView;
     }
 
-    private class ViewHodler{
-        TextView mTextView1;
-        TextView mTextView2;
+    static class ViewHolder {
+        @BindView(R.id.text1)
+        TextView text1;
+        @BindView(R.id.text2)
+        TextView text2;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

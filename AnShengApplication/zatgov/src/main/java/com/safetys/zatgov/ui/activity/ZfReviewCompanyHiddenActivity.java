@@ -33,6 +33,7 @@ import com.safetys.zatgov.config.AppConfig;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.config.PrefKeys;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.utils.DialogUtil;
@@ -40,6 +41,7 @@ import com.safetys.zatgov.utils.FileUtil;
 import com.safetys.zatgov.utils.ImageUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 
+import org.greenrobot.eventbus.EventBus;
 import org.xutils.common.util.LogUtil;
 import org.xutils.x;
 
@@ -198,8 +200,7 @@ public class ZfReviewCompanyHiddenActivity extends BaseActivity implements onNet
         switch (requestCode) {
             case Const.NET_ADD_REVIEW_ITEM:
                 ToastUtils.showMessage(getApplicationContext(), "复查成功！");
-                sendBroadcast(new Intent(
-                        ZfReviewCompanyHiddenListActivity.ACTION_UPDATE_REVIEW_HIDDEN_LIST));
+                EventBus.getDefault().post(new MessageEvent(ZfReviewCompanyHiddenListActivity.ACTION_UPDATE));
                 this.finish();
                 break;
 

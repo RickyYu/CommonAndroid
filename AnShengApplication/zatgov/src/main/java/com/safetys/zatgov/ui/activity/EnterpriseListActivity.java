@@ -1,9 +1,6 @@
 package com.safetys.zatgov.ui.activity;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,6 +18,7 @@ import com.safetys.zatgov.adapter.EnterpriseListAdapter;
 import com.safetys.zatgov.bean.CompanyVo;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.PullToRefresh;
@@ -28,6 +26,10 @@ import com.safetys.zatgov.ui.view.SearchBar;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.GreenDaoUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +45,7 @@ import butterknife.OnItemSelected;
  * Description:
  */
 public class EnterpriseListActivity extends BaseActivity implements onNetCallback {
-    public static final String ACTION_UPDATE_LIST_YH = "EnterpriseListActivity";
+    public static final String ACTION_UPDATE_DATA = "EnterpriseListActivity";
     public static final String SKIP_TYPR = "skipType";
     public static final int SEARCH_COMPANY_CODE = 1001;
     public static final int SKIP_COMPANY_INFO = 0;// 企业信息
@@ -64,7 +66,6 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
     SearchBar searchBar;
     @BindView(R.id.listview)
     PullToRefresh listview;
-    private MyBroadcastReceiver mReceiver;
     private int mCurrentPage = 0;// 当前页
     private int totalCount = 0;// 总数
     private static final String[] m = {"修改时间", "隐患数升序", "隐患数降序"};
@@ -75,7 +76,6 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
     private String seekType = "";// 企业状态类型
     private String tradeTypeCode = "";
     private String source;// 表示从哪跳转过来
-    private List<CompanyVo> mdatasByData;//本地数据库获取的数据
     private List<CompanyVo> mdatas;//网络获取的数据
     private int skipType = SKIP_COMPANY_INFO;
     private int checkId = -1;
@@ -91,9 +91,7 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enterprise_list);
         ButterKnife.bind(this);
-        mReceiver = new MyBroadcastReceiver();
-        IntentFilter mFilter = new IntentFilter(ACTION_UPDATE_LIST_YH);
-        registerReceiver(mReceiver, mFilter);
+        EventBus.getDefault().register(this);
         initView();
         loadingDatas();
     }
@@ -114,7 +112,6 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
             @Override
             public void onSearchButtonClick(String searchStr) {
                 reLoadListDatas();
-
             }
         });
         etSearch = (EditText) findViewById(R.id.et_search_text);
@@ -136,7 +133,8 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
             }
         });
         mdatas = new ArrayList<CompanyVo>();
-
+        mAdapter = new EnterpriseListAdapter(this, mdatas,skipType);
+        listview.setAdapter(mAdapter);
     }
 
     @OnItemClick(R.id.listview)
@@ -238,35 +236,29 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
      */
     private void loadingDatas() {
         mLoading.show();
+        getLocalData();
+        HttpRequestHelper.getInstance().getCompanyListInfo(this, isHistory, tradeTypeCode,
+                seekType, bigCode, oneCode, twoCode, threeCode,
+                searchBar.getSearchData(), totalCount, mCurrentPage,
+                orderProperty, orderType, SKIP_SUPERVISE_CHECKT, this);
+    }
+
+    private void getLocalData() {
         //先加载本地数据
-        if(mCurrentPage == Const.PAGE_SIZE) {//第一次加载
+        if(mCurrentPage == 0) {//1、第一次加载,第一页，后续页暂无需获取缓存
             List<CompanyVo> companyVos = new ArrayList<CompanyVo>();
-       /* companyVos =  GreenDaoUtil.getDaoSession().getCompanyVoDao().queryBuilder()
-                .where(CompanyVoDao.Properties.Id.notEq(999))
-                .limit(5)
-                .build().list();*/
-            //.orderAsc(CompanyVoDao.Properties.Id)
             try {
                 companyVos = GreenDaoUtil.getDaoSession().getCompanyVoDao().loadAll();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (companyVos.size() > 0) {
+            if (companyVos.size() > 0) {//2、如果本地有数据，则加载，显示，无数据则去网络中获取
                 mLoading.dismiss();
-                mdatas = companyVos;
-
+                mdatas.addAll(companyVos);
             }
             //再更新网络数据
-            mAdapter = new EnterpriseListAdapter(this, mdatas,skipType);
-            listview.setAdapter(mAdapter);
             mAdapter.notifyDataSetChanged();
         }
-
-
-        HttpRequestHelper.getInstance().getCompanyListInfo(this, isHistory, tradeTypeCode,
-                seekType, bigCode, oneCode, twoCode, threeCode,
-                searchBar.getSearchData(), totalCount, mCurrentPage,
-                orderProperty, orderType, SKIP_SUPERVISE_CHECKT, this);
     }
 
     /**
@@ -280,7 +272,6 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
         GreenDaoUtil.getDaoSession().getCompanyVoDao().deleteAll();
         mAdapter.notifyDataSetChanged();
         loadingDatas();
-
     }
 
     @Override
@@ -313,14 +304,13 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
                     if (list == null || list.size() == 0) {
 
                     } else {
-                        if(mCurrentPage == Const.PAGE_SIZE){//第一次加载先清除
+                        if(mCurrentPage == Const.PAGE_SIZE){//第一页加载则先清除
                             mdatas.clear();
                             GreenDaoUtil.getDaoSession().getCompanyVoDao().deleteAll();
                         }
                         GreenDaoUtil.getDaoSession().getCompanyVoDao().insertOrReplaceInTx(list);
-                        if(!mdatas.containsAll(list)){
-                            mdatas.addAll(list);
-                        }
+                        mdatas.addAll(list);
+
                     }
                 }
                 mAdapter.notifyDataSetChanged();
@@ -345,17 +335,6 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
         }
     }
 
-    private class MyBroadcastReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-     
-            if (intent.getAction().equals(ACTION_UPDATE_LIST_YH)) {
-                reLoadListDatas();
-            }
-        }
-
-    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
  
@@ -388,4 +367,16 @@ public class EnterpriseListActivity extends BaseActivity implements onNetCallbac
         }
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent messageEvent) {
+        if(messageEvent.getMessage().equals(EnterpriseListActivity.ACTION_UPDATE_DATA)){
+            reLoadListDatas();
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //取消注册事件
+        EventBus.getDefault().unregister(this);
+    }
 }

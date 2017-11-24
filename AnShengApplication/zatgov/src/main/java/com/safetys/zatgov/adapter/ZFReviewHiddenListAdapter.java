@@ -17,6 +17,9 @@ import com.safetys.zatgov.bean.HiddenDesInfoVo;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Author:Created by Ricky on 2017/11/15.
  * Description:企业列表Adapter
@@ -28,7 +31,7 @@ public class ZFReviewHiddenListAdapter extends BaseAdapter {
     private String source;
 
     public ZFReviewHiddenListAdapter(Context context,
-                                     ArrayList<HiddenDesInfoVo> mdatas,String source) {
+                                     ArrayList<HiddenDesInfoVo> mdatas, String source) {
         this.mContext = context;
         this.mInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -56,54 +59,46 @@ public class ZFReviewHiddenListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
+        ViewHolder mHodler;
         if (convertView == null) {
             convertView = mInflater.inflate(
                     R.layout.list_view_string_and_arrow_and_date_item, null);
-            ViewHodler mHodler = new ViewHodler();
-            mHodler.mTextView1 = (TextView) convertView
-                    .findViewById(R.id.text1);
-            mHodler.mTextView2 = (TextView) convertView
-                    .findViewById(R.id.text2);
-            mHodler.mTextView3 = (TextView) convertView
-                    .findViewById(R.id.text3);
-            mHodler.mTextView4 = (TextView) convertView
-                    .findViewById(R.id.tv_review_times);
-            mHodler.llReadView = (LinearLayout) convertView
-                    .findViewById(R.id.ll_read_view);
-            mHodler.mBgView = (RelativeLayout) convertView
-                    .findViewById(R.id.rll_bg_view);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        ViewHodler mVH = (ViewHodler) convertView.getTag();
+
         HiddenDesInfoVo desInfo = mDatas.get(position);
-        mVH.mTextView1.setText(desInfo.getContent());
+        mHodler.text1.setText(desInfo.getContent());
 
         if (desInfo.getIsBig().equals("1")) {
-            mVH.mTextView2.setText("隐患类型：重大隐患");
+            mHodler.text2.setText("隐患类型：重大隐患");
         } else {
-            mVH.mTextView2.setText("隐患类型：一般隐患");
+            mHodler.text2.setText("隐患类型：一般隐患");
         }
 
         if (desInfo.getIsRead() == 1) {
-            mVH.llReadView.setVisibility(View.VISIBLE);
+            mHodler.llReadView.setVisibility(View.VISIBLE);
         } else {
-            mVH.llReadView.setVisibility(View.GONE);
+            mHodler.llReadView.setVisibility(View.GONE);
         }
 
         String hiddenState = desInfo.getGovCheck();
         // -1：政府端新增   0：企业已整改    1：政府端未通过   2：政府端已通过
         if (hiddenState.equals("0")) {
-            mVH.mTextView4.setText("企业已整改");
-            mVH.mTextView4.setTextColor(Color.parseColor("#66CD00"));
-        } else if(hiddenState.equals("-1")) {
-            mVH.mTextView4.setText("企业未整改");
-            mVH.mTextView4.setTextColor(Color.parseColor("#FF0000"));
-        } else if(hiddenState.equals("1")) {
-            mVH.mTextView4.setText("政府未通过");
-            mVH.mTextView4.setTextColor(Color.parseColor("#FF7F00"));
-        }else if(hiddenState.equals("2")) {
-            mVH.mTextView4.setText("政府已通过");
-            mVH.mTextView4.setTextColor(Color.parseColor("#66CD00"));
+            mHodler.tvReviewTimes.setText("企业已整改");
+            mHodler.tvReviewTimes.setTextColor(Color.parseColor("#66CD00"));
+        } else if (hiddenState.equals("-1")) {
+            mHodler.tvReviewTimes.setText("企业未整改");
+            mHodler.tvReviewTimes.setTextColor(Color.parseColor("#FF0000"));
+        } else if (hiddenState.equals("1")) {
+            mHodler.tvReviewTimes.setText("政府未通过");
+            mHodler.tvReviewTimes.setTextColor(Color.parseColor("#FF7F00"));
+        } else if (hiddenState.equals("2")) {
+            mHodler.tvReviewTimes.setText("政府已通过");
+            mHodler.tvReviewTimes.setTextColor(Color.parseColor("#66CD00"));
         }
 
         try {
@@ -111,24 +106,34 @@ public class ZFReviewHiddenListAdapter extends BaseAdapter {
                     .getCreateTime())) && desInfo.getIsRead() != 1 && source.equals("check")) {
                 //如果入口是从监督检查进入则可以 修改该隐患
                 desInfo.setReview(true);
-                mVH.mBgView.setBackgroundColor(Color.parseColor("#F5F5DC"));
+                mHodler.rllBgView.setBackgroundColor(Color.parseColor("#F5F5DC"));
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        mVH.mTextView3.setText("隐患日期：" + desInfo.getCreateTime());
+        mHodler.text3.setText("隐患日期：" + desInfo.getCreateTime());
 
         return convertView;
     }
 
-    private class ViewHodler {
-        TextView mTextView1;
-        TextView mTextView2;
-        TextView mTextView3;
-        TextView mTextView4;
-        RelativeLayout mBgView;
+    static class ViewHolder {
+        @BindView(R.id.ll_read_view)
         LinearLayout llReadView;
+        @BindView(R.id.text1)
+        TextView text1;
+        @BindView(R.id.text3)
+        TextView text3;
+        @BindView(R.id.text2)
+        TextView text2;
+        @BindView(R.id.tv_review_times)
+        TextView tvReviewTimes;
+        @BindView(R.id.rll_bg_view)
+        RelativeLayout rllBgView;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

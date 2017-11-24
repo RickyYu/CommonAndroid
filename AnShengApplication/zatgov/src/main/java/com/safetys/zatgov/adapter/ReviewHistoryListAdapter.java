@@ -13,6 +13,9 @@ import com.safetys.zatgov.bean.ReviewHistoryInfo;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Author:Created by Ricky on 2017/11/15.
  * Description:
@@ -50,36 +53,35 @@ public class ReviewHistoryListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder mHodler;
         if (convertView == null) {
             convertView = mInflater.inflate(
-                    R.layout.list_view_string_three_and_arrow_and_date_item,
-                    null);
-            ViewHodler mHodler = new ViewHodler();
-            mHodler.mTextView1 = (TextView) convertView
-                    .findViewById(R.id.text1);
-            mHodler.mTextView2 = (TextView) convertView
-                    .findViewById(R.id.text2);
-            mHodler.mTextView3 = (TextView) convertView
-                    .findViewById(R.id.text3);
-            mHodler.mTextView4 = (TextView) convertView
-                    .findViewById(R.id.text4);
+                    R.layout.list_view_string_three_and_arrow_and_date_item, null);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        ViewHodler mVH = (ViewHodler) convertView.getTag();
-        mVH.mTextView1.setText("复查情况：" + mDatas.get(position).getHiddenState());
-        mVH.mTextView1.setTextColor(Color.rgb(0, 0, 0));
-        mVH.mTextView2.setText("复查日期：" + mDatas.get(position).getCallbackTime());
-        // mVH.mTextView3.setText("责令整改日期：" +
-        // mDatas.get(position).getCallbackTime());
-        mVH.mTextView4.setText("复查人：" + mDatas.get(position).getExecuter());
 
+        mHodler.text1.setText("复查情况：" + mDatas.get(position).getHiddenState());
+        mHodler.text1.setTextColor(Color.rgb(0, 0, 0));
+        mHodler.text2.setText("复查日期：" + mDatas.get(position).getCallbackTime());
+        mHodler.text4.setText("复查人：" + mDatas.get(position).getExecuter());
         return convertView;
     }
 
-    private class ViewHodler {
-        TextView mTextView1;
-        TextView mTextView2;
-        TextView mTextView3;
-        TextView mTextView4;
+    static class ViewHolder {
+        @BindView(R.id.text1)
+        TextView text1;
+        @BindView(R.id.text3)
+        TextView text3;
+        @BindView(R.id.text4)
+        TextView text4;
+        @BindView(R.id.text2)
+        TextView text2;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

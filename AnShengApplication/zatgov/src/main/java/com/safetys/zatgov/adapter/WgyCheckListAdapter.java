@@ -14,6 +14,9 @@ import com.safetys.zatgov.bean.SafetyCheck;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Author:Created by Ricky on 2017/11/15.
  * Description:
@@ -50,23 +53,20 @@ public class WgyCheckListAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView,
                         ViewGroup parent) {
+        ViewHolder mHodler;
         if (convertView == null) {
             convertView = mInflater.inflate(
                     R.layout.list_view_checkbox_and_string_item, null);
-            ViewHodler mHodler = new ViewHodler();
-            mHodler.mTextView1 = (TextView) convertView
-                    .findViewById(R.id.text_left);
-            mHodler.mTextView2 = (TextView) convertView
-                    .findViewById(R.id.text_right);
-            mHodler.checkBox = (CheckBox) convertView
-                    .findViewById(R.id.checkbox);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        ViewHodler mVH = (ViewHodler) convertView.getTag();
-        mVH.mTextView1.setText(mdatas.get(position).getTitle());
-        mVH.mTextView2.setText(mdatas.get(position).getCreateTime());
-        mVH.checkBox.setVisibility(View.GONE);
-        mVH.checkBox
+
+        mHodler.textLeft.setText(mdatas.get(position).getTitle());
+        mHodler.textRight.setText(mdatas.get(position).getCreateTime());
+        mHodler.checkbox.setVisibility(View.GONE);
+        mHodler.checkbox
                 .setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
                     @Override
@@ -89,13 +89,21 @@ public class WgyCheckListAdapter extends BaseAdapter {
                 });
         ;
 
-        mVH.checkBox.setChecked(mdatas.get(position).getCheck());
+        mHodler.checkbox.setChecked(mdatas.get(position).getCheck());
 
         return convertView;
     }
-    private class ViewHodler {
-        TextView mTextView1;
-        TextView mTextView2;
-        CheckBox checkBox;
+
+    static class ViewHolder {
+        @BindView(R.id.checkbox)
+        CheckBox checkbox;
+        @BindView(R.id.text_left)
+        TextView textLeft;
+        @BindView(R.id.text_right)
+        TextView textRight;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

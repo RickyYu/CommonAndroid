@@ -1,9 +1,6 @@
 package com.safetys.zatgov.ui.activity;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +15,7 @@ import com.safetys.zatgov.adapter.ZFReviewHiddenListAdapter;
 import com.safetys.zatgov.bean.HiddenDesInfoVo;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.PullToRefresh;
@@ -25,7 +23,9 @@ import com.safetys.zatgov.ui.view.SearchBar;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 
-import org.xutils.common.util.LogUtil;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +41,7 @@ import butterknife.OnItemClick;
  */
 public class ZfReviewCompanyHiddenListActivity extends BaseActivity implements
         onNetCallback {
-    public static final String ACTION_UPDATE_REVIEW_HIDDEN_LIST = "ZfTroubleReviewHiddenListActivity";
+    public static final String ACTION_UPDATE = "ZfTroubleReviewHiddenListActivity";
     // 检查记录ID
     String companyId;
     String source;// 判断是从哪里过来
@@ -54,7 +54,7 @@ public class ZfReviewCompanyHiddenListActivity extends BaseActivity implements
     PullToRefresh listTroublesA;
     private int mCurrentPage = 0;// 当前显示页数量
     private int totalCount = 0;// 总数
-    private MyBroadcastReceiver mReceiver;
+
     private ZFReviewHiddenListAdapter mAdapter;
     private ArrayList<HiddenDesInfoVo> mdatas;
 
@@ -64,17 +64,13 @@ public class ZfReviewCompanyHiddenListActivity extends BaseActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zf_trouble_review_list);
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
         initView();
         loadingDatas();
     }
 
     private void initView() {
         setHeadTitle("企业隐患列表");
-        // 注册通知刷新界面的广播
-        mReceiver = new MyBroadcastReceiver();
-        IntentFilter mFilter = new IntentFilter(
-                ACTION_UPDATE_REVIEW_HIDDEN_LIST);
-        registerReceiver(mReceiver, mFilter);
         companyId = getIntent().getStringExtra("companyId");
         source = getIntent().getStringExtra("source");
         if (source.equals("check")) {// 从检查过来
@@ -204,19 +200,20 @@ public class ZfReviewCompanyHiddenListActivity extends BaseActivity implements
         finish();
     }
 
-    private class MyBroadcastReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-     
-            if (intent.getAction().equals(ACTION_UPDATE_REVIEW_HIDDEN_LIST)) {
-                LogUtil.i("now is star reloading list datas for ZfTroubleReviewListActivity");
-                searchBar.clearData();
-                reLoadListDatas();
-            }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent messageEvent) {
+        if(messageEvent.getMessage().equals(ACTION_UPDATE)){
+            reLoadListDatas();
         }
-
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //取消注册事件
+        EventBus.getDefault().unregister(this);
+    }
+
     private void reLoadListDatas() {
         // 刷新列表
         mCurrentPage = 0;

@@ -127,12 +127,12 @@
         android:layout_below="@id/rl_hang"
         android:visibility="gone" />
 
-    <cn.safetys.ywngovernment.view.PullToRefresh
+    <com.safetys.zatgov.ui.view.PullToRefresh
         android:id="@+id/list_troubles"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_below="@id/xx"
         android:visibility="gone" >
-    </cn.safetys.ywngovernment.view.PullToRefresh>
+    </com.safetys.zatgov.ui.view.PullToRefresh>
 
 </RelativeLayout>

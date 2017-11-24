@@ -12,6 +12,9 @@ import com.safetys.zatgov.bean.ReadInfo;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Author:Created by Ricky on 2017/11/14.
  * Description:
@@ -21,7 +24,7 @@ public class LawRegulationListAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private ArrayList<ReadInfo> mDatas;
 
-    public LawRegulationListAdapter(Context context,ArrayList<ReadInfo> mdatas) {
+    public LawRegulationListAdapter(Context context, ArrayList<ReadInfo> mdatas) {
         this.mContext = context;
         this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mDatas = mdatas;
@@ -47,25 +50,32 @@ public class LawRegulationListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView==null){
-            convertView = mInflater.inflate(R.layout.list_view_string_and_arrow_and_date_item, null);
-            ViewHodler mHodler = new ViewHodler();
-            mHodler.mTextView1 = (TextView) convertView.findViewById(R.id.text1);
-            mHodler.mTextView2 = (TextView) convertView.findViewById(R.id.text2);
-            mHodler.mTextView3 = (TextView) convertView.findViewById(R.id.text3);
+        ViewHolder mHodler;
+        if (convertView == null) {
+            convertView = mInflater.inflate(
+                    R.layout.list_view_string_and_arrow_and_date_item, null);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        ViewHodler mVH = (ViewHodler) convertView.getTag();
-        mVH.mTextView1.setText(mDatas.get(position).getCaption());
-        mVH.mTextView2.setText(mDatas.get(position).getPublisher());
-        mVH.mTextView3.setText(mDatas.get(position).getCreatetime());
+
+        mHodler.text1.setText(mDatas.get(position).getCaption());
+        mHodler.text2.setText(mDatas.get(position).getPublisher());
+        mHodler.text3.setText(mDatas.get(position).getCreatetime());
         return convertView;
     }
 
-    private class ViewHodler{
-        TextView mTextView1;
-        TextView mTextView2;
-        TextView mTextView3;
-    }
+    static class ViewHolder {
+        @BindView(R.id.text1)
+        TextView text1;
+        @BindView(R.id.text3)
+        TextView text3;
+        @BindView(R.id.text2)
+        TextView text2;
 
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
+    }
 }

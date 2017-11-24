@@ -38,6 +38,7 @@ import com.safetys.zatgov.config.AppConfig;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.config.TroubleTypeEnum;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.PullToRefresh;
@@ -47,6 +48,7 @@ import com.safetys.zatgov.utils.FileUtil;
 import com.safetys.zatgov.utils.ImageUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 
+import org.greenrobot.eventbus.EventBus;
 import org.xutils.x;
 
 import java.io.File;
@@ -461,10 +463,11 @@ public class HistoryTroubleChangeActivity extends BaseActivity implements
 
             case Const.SUB_NOMARL_CHECK:
                 DialogUtil.showMsgDialog(this, "修改隐患成功。", true, null);
-                this.sendBroadcast(new Intent(NewZfYhLrActivity.ACTION_UPDATE_LIST_YH));
-                this.sendBroadcast(new Intent(NewZfCheckItemActivity.ACTION_UPDATE_LIST_YH_ITEM));
-                this.sendBroadcast(new Intent(ZfCheckRecordListActivity.ACTION_UPDATE_LIST_CHECK_NEW));
-                this.sendBroadcast(new Intent(ZfReviewCompanyHiddenListActivity.ACTION_UPDATE_REVIEW_HIDDEN_LIST));
+
+                EventBus.getDefault().post(new MessageEvent(NewZfYhLrActivity.ACTION_UPDATE));
+                EventBus.getDefault().post(new MessageEvent(NewZfCheckItemActivity.ACTION_UPDATE));
+                EventBus.getDefault().post(new MessageEvent(ZfCheckRecordListActivity.ACTION_UPDATE));
+                EventBus.getDefault().post(new MessageEvent(ZfReviewCompanyHiddenListActivity.ACTION_UPDATE));
                 break;
 
             default:

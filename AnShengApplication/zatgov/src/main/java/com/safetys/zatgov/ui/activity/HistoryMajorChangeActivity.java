@@ -38,6 +38,7 @@ import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.config.SecondTypeEnum;
 import com.safetys.zatgov.config.ThirdTypeEnum;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.utils.DialogUtil;
@@ -46,6 +47,7 @@ import com.safetys.zatgov.utils.FileUtil;
 import com.safetys.zatgov.utils.ImageUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 
+import org.greenrobot.eventbus.EventBus;
 import org.xutils.common.util.DensityUtil;
 import org.xutils.image.ImageOptions;
 import org.xutils.x;
@@ -585,11 +587,10 @@ public class HistoryMajorChangeActivity extends BaseActivity implements
 
             case 0:
                 DialogUtil.showMsgDialog(this, "修改成功", true, null);
-                sendBroadcast(new Intent(ZfReviewCompanyHiddenListActivity.ACTION_UPDATE_REVIEW_HIDDEN_LIST));
-                sendBroadcast(new Intent(NewZfYhLrActivity.ACTION_UPDATE_LIST_YH));
-                sendBroadcast(new Intent(NewZfCheckItemActivity.ACTION_UPDATE_LIST_YH_ITEM));
+                EventBus.getDefault().post(new MessageEvent(ZfReviewCompanyHiddenListActivity.ACTION_UPDATE));
+                EventBus.getDefault().post(new MessageEvent(NewZfYhLrActivity.ACTION_UPDATE));
+                EventBus.getDefault().post(new MessageEvent(NewZfCheckItemActivity.ACTION_UPDATE));
                 break;
-
             case 1:
                 if (mJsonResult.getJson() != null) {
 

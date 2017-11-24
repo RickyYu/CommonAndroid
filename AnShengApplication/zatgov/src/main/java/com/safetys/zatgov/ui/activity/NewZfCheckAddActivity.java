@@ -772,7 +772,7 @@ public class NewZfCheckAddActivity extends BaseActivity implements
                             mJsonResult.getEntity(), HyCheckItemInfo.class);
                     //// FIXME: 2017/11/15
               /*      this.sendBroadcast(new Intent(
-                            ZfCheckRecordListActivity.ACTION_UPDATE_LIST_CHECK_NEW));*/
+                            ZfCheckRecordListActivity.ACTION_UPDATE));*/
                     DialogUtil.showMsgDialog(this, "新增成功", true, null);
                 }
                 break;

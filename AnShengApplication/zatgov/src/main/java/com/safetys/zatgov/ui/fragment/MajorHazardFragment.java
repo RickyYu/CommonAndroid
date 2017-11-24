@@ -38,6 +38,7 @@ import com.safetys.zatgov.bean.HyCheckItemInfo;
 import com.safetys.zatgov.config.AppConfig;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.activity.EnterpriseListActivity;
@@ -52,6 +53,7 @@ import com.safetys.zatgov.utils.EditTextUtils;
 import com.safetys.zatgov.utils.FileUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 
+import org.greenrobot.eventbus.EventBus;
 import org.xutils.common.util.DensityUtil;
 import org.xutils.common.util.LogUtil;
 import org.xutils.image.ImageOptions;
@@ -569,11 +571,10 @@ public class MajorHazardFragment extends Fragment implements OnClickListener,
 		switch (requestCode) {
 		case Const.SUB_MAJOR_CHECK:
 			ToastUtils.showMessage(getActivity(), "提交隐患成功");
-			getActivity().sendBroadcast(new Intent(NewZfYhLrActivity.ACTION_UPDATE_LIST_YH));
-			getActivity().sendBroadcast(new Intent(NewZfCheckItemActivity.ACTION_UPDATE_LIST_YH_ITEM));
-			getActivity().sendBroadcast(new Intent(ZfCheckRecordListActivity.ACTION_UPDATE_LIST_CHECK_NEW));
-			getActivity().sendBroadcast(new Intent(
-					EnterpriseListActivity.ACTION_UPDATE_LIST_YH));
+			EventBus.getDefault().post(new MessageEvent(NewZfYhLrActivity.ACTION_UPDATE));
+			EventBus.getDefault().post(new MessageEvent(NewZfCheckItemActivity.ACTION_UPDATE));
+			EventBus.getDefault().post(new MessageEvent(ZfCheckRecordListActivity.ACTION_UPDATE));
+			EventBus.getDefault().post(new MessageEvent(EnterpriseListActivity.ACTION_UPDATE_DATA));
 			setMajor(true);
 			Intent	mIntent = new Intent(getActivity(),
 					NewZfYhLrActivity.class);

@@ -16,6 +16,9 @@ import com.safetys.zatgov.bean.SafetyMatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Author:Created by Ricky on 2017/11/15.
  * Description:
@@ -28,7 +31,7 @@ public class MyCheckContentAdapter extends BaseAdapter {
     private ArrayList<SafetyMatter> mdatas;
 
     public MyCheckContentAdapter(Context context,
-                                 ArrayList<SafetyMatter> mdatasTwo,ArrayList<SafetyMatter> mdatas) {
+                                 ArrayList<SafetyMatter> mdatasTwo, ArrayList<SafetyMatter> mdatas) {
         this.mContext = context;
         this.mInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -54,33 +57,27 @@ public class MyCheckContentAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView,
                         ViewGroup parent) {
+       final ViewHolder mHodler;
         if (convertView == null) {
             convertView = mInflater.inflate(
                     R.layout.list_view_string_remark_checkbox_item, null);
-            CheckContentViewHodler mHodler = new CheckContentViewHodler();
-            mHodler.mTextView1 = (TextView) convertView
-                    .findViewById(R.id.text1);
-            mHodler.mTextView2 = (TextView) convertView
-                    .findViewById(R.id.text2);
-            mHodler.iv_remark = (ImageView) convertView
-                    .findViewById(R.id.iv_remark);
-            mHodler.checkBox = (CheckBox) convertView
-                    .findViewById(R.id.checked);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        final CheckContentViewHodler mVH = (CheckContentViewHodler) convertView
-                .getTag();
-        mVH.mTextView1.setText(mdatasTwo.get(position).getContent());
-        mVH.iv_remark.setOnClickListener(new View.OnClickListener() {
+
+        mHodler.text1.setText(mdatasTwo.get(position).getContent());
+        mHodler.ivRemark.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                mVH.mTextView2.setText(mdatasTwo.get(position).getRemark());
+                mHodler.text2.setText(mdatasTwo.get(position).getRemark());
             }
         });
 
-        mVH.checkBox
+        mHodler.checked
                 .setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
                     @Override
@@ -109,13 +106,22 @@ public class MyCheckContentAdapter extends BaseAdapter {
                     }
                 });
 
-        mVH.checkBox.setChecked(mdatasTwo.get(position).isCheckTag());
+        mHodler.checked.setChecked(mdatasTwo.get(position).isCheckTag());
         return convertView;
     }
-    private class CheckContentViewHodler {
-        TextView mTextView1;
-        TextView mTextView2;
-        ImageView iv_remark;
-        CheckBox checkBox;
+
+    static class ViewHolder {
+        @BindView(R.id.checked)
+        CheckBox checked;
+        @BindView(R.id.text1)
+        TextView text1;
+        @BindView(R.id.iv_remark)
+        ImageView ivRemark;
+        @BindView(R.id.text2)
+        TextView text2;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

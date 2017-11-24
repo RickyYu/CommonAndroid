@@ -13,6 +13,9 @@ import com.safetys.zatgov.bean.HiddenDesInfoVo;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Author:Created by Ricky on 2017/11/15.
  * Description:隐患描述列表数据提供
@@ -49,35 +52,40 @@ public class HiddenListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder mHodler;
         if (convertView == null) {
             convertView = mInflater.inflate(
                     R.layout.list_view_string_three, null);
-            ViewHodler2 mHodler = new ViewHodler2();
-            mHodler.mTextView1 = (TextView) convertView
-                    .findViewById(R.id.text1);
-            mHodler.mTextView2 = (TextView) convertView
-                    .findViewById(R.id.text2);
-            mHodler.mTextView3 = (TextView) convertView
-                    .findViewById(R.id.text3);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        ViewHodler2 mVH = (ViewHodler2) convertView.getTag();
-        mVH.mTextView1.setText(mDatas.get(position).getContent());
-        mVH.mTextView1.setTextColor(Color.rgb(0, 0, 0));
-        mVH.mTextView2.setText("录入日期："
+
+        mHodler.text1.setText(mDatas.get(position).getContent());
+        mHodler.text1.setTextColor(Color.rgb(0, 0, 0));
+        mHodler.text2.setText("录入日期："
                 + mDatas.get(position).getCreateTime());
         if (mDatas.get(position).getRepaired()) {
-            mVH.mTextView3.setText("已整改");
-            mVH.mTextView3.setTextColor(Color.RED);
+            mHodler.text3.setText("已整改");
+            mHodler.text3.setTextColor(Color.RED);
         } else {
-            mVH.mTextView3.setText("未整改");
+            mHodler.text3.setText("未整改");
         }
         return convertView;
     }
-    private class ViewHodler2 {
-        TextView mTextView1;
-        TextView mTextView2;
-        TextView mTextView3;
+
+    static class ViewHolder {
+        @BindView(R.id.text1)
+        TextView text1;
+        @BindView(R.id.text3)
+        TextView text3;
+        @BindView(R.id.text2)
+        TextView text2;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }
 

@@ -12,6 +12,9 @@ import com.safetys.zatgov.bean.ReviewInfoGov;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Author:Created by Ricky on 2017/11/15.
  * Description:企业列表Adapter
@@ -48,32 +51,31 @@ public class ZFReviewCompanyListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder mHodler;
         if (convertView == null) {
-            convertView = mInflater
-                    .inflate(
-                            R.layout.list_view_string_and_arrow_and_date_item,
-                            null);
-            ViewHodler mHodler = new ViewHodler();
-            mHodler.mTextView1 = (TextView) convertView
-                    .findViewById(R.id.text1);
-            mHodler.mTextView2 = (TextView) convertView
-                    .findViewById(R.id.text2);
-            mHodler.mTextView3 = (TextView) convertView
-                    .findViewById(R.id.text3);
-
+            convertView = mInflater.inflate(
+                    R.layout.list_view_string_and_arrow_and_date_item, null);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
+        } else {
+            mHodler = (ViewHolder) convertView.getTag();
         }
-        ViewHodler mVH = (ViewHodler) convertView.getTag();
-        mVH.mTextView1.setText(mDatas.get(position).getCompanyName());
-        mVH.mTextView2.setText("未整改隐患数量("+mDatas.get(position).getHiddenNum()+")个");
-        mVH.mTextView3.setText("责令整改日期："+mDatas.get(position).getCleanUpTimeLimit());
-
-
+        mHodler.text1.setText(mDatas.get(position).getCompanyName());
+        mHodler.text2.setText("未整改隐患数量(" + mDatas.get(position).getHiddenNum() + ")个");
+        mHodler.text3.setText("责令整改日期：" + mDatas.get(position).getCleanUpTimeLimit());
         return convertView;
     }
-    private class ViewHodler {
-        TextView mTextView1;
-        TextView mTextView2;
-        TextView mTextView3;
+
+    static class ViewHolder {
+        @BindView(R.id.text1)
+        TextView text1;
+        @BindView(R.id.text3)
+        TextView text3;
+        @BindView(R.id.text2)
+        TextView text2;
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

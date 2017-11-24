@@ -34,6 +34,7 @@ import com.safetys.zatgov.config.AppConfig;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.config.PunishmentTypeEnum;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.PullToRefresh;
@@ -42,6 +43,7 @@ import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 import com.safetys.zatgov.utils.StringUtil;
 
+import org.greenrobot.eventbus.EventBus;
 import org.xutils.x;
 
 import java.text.SimpleDateFormat;
@@ -374,8 +376,8 @@ public class NewPunishmentAddActivity extends BaseActivity implements
             case Const.NET_ADD_PU_ITEM:
                 DialogUtil.showMsgDialog(NewPunishmentAddActivity.this, "新增成功。",
                         true, null);
-                sendBroadcast(new Intent(NewZfPunListActivity.ACTION_UPDATE_LIST));
-               sendBroadcast(new Intent(ZfCheckRecordListActivity.ACTION_UPDATE_LIST_CHECK_NEW));
+                EventBus.getDefault().post(new MessageEvent(NewZfPunListActivity.ACTION_UPDATE_DATA));
+                EventBus.getDefault().post(new MessageEvent(ZfCheckRecordListActivity.ACTION_UPDATE));
                 break;
 
             case Const.NET_GET_GOV_HIDDEN_LIST_CODE:// 获取隐患描述列表

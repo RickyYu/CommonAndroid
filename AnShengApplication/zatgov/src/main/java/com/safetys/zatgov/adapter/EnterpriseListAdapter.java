@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,6 +20,9 @@ import com.safetys.zatgov.config.ThirdTypeEnum;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import static com.safetys.zatgov.ui.activity.EnterpriseListActivity.SKIP_CHECK_RECORD_LIST;
 import static com.safetys.zatgov.ui.activity.EnterpriseListActivity.SKIP_SUPERVISE_CHECKT;
@@ -58,27 +62,19 @@ public class EnterpriseListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHodler mHodler;
+        ViewHolder mHodler;
         if (convertView == null) {
             convertView = mInflater.inflate(
                     R.layout.list_view_string_three, null);
-            mHodler = new ViewHodler();
-            mHodler.mTextView1 = (TextView) convertView
-                    .findViewById(R.id.text1);
-            mHodler.mTextView2 = (TextView) convertView
-                    .findViewById(R.id.text2);
-            mHodler.mTextView3 = (TextView) convertView
-                    .findViewById(R.id.text3);
-            mHodler.rllBgView = (RelativeLayout) convertView
-                    .findViewById(R.id.rll_bg_view);
+            mHodler = new ViewHolder(convertView);
             convertView.setTag(mHodler);
         } else {
-            mHodler = (ViewHodler) convertView.getTag();
+            mHodler = (ViewHolder) convertView.getTag();
         }
 
         CompanyVo companyListInfo = mdatas.get(position);
-        mHodler.mTextView1.setText(companyListInfo.getCompanyName());
-        mHodler.mTextView2.setText("负责人：" + companyListInfo.getFdDelegate()
+        mHodler.text1.setText(companyListInfo.getCompanyName());
+        mHodler.text2.setText("负责人：" + companyListInfo.getFdDelegate()
                 + "  所属区域：" + "湖州市"
                 + SecondTypeEnum.getValue(companyListInfo.getSecondArea())
                 + ThirdTypeEnum.getValue(companyListInfo.getThirdArea()));
@@ -93,7 +89,7 @@ public class EnterpriseListAdapter extends BaseAdapter {
                     // 不可新增隐患，只能查阅隐患
                     mHodler.rllBgView.setBackgroundColor(Color
                             .parseColor("#F5F5DC"));
-                }else{
+                } else {
                     mHodler.rllBgView.setBackgroundColor(Color
                             .parseColor("#FFFFFF"));
                 }
@@ -103,25 +99,36 @@ public class EnterpriseListAdapter extends BaseAdapter {
             }
 
             if (companyListInfo.getGridDangerNum().equals("0")) {
-                mHodler.mTextView3.setTextColor(Color.rgb(170, 170, 170));
-                mHodler.mTextView3.setText("未整改隐患数量：0个");
+                mHodler.text3.setTextColor(Color.rgb(170, 170, 170));
+                mHodler.text3.setText("未整改隐患数量：0个");
 
             } else {
                 // 检查记录需要的是政府未整改隐患数
-                mHodler.mTextView3.setText("未整改隐患数量："
+                mHodler.text3.setText("未整改隐患数量："
                         + companyListInfo.getGridDangerNum() + "个");
-                mHodler.mTextView3.setTextColor(Color.rgb(220, 20, 60));
+                mHodler.text3.setTextColor(Color.rgb(220, 20, 60));
 
             }
         }
         return convertView;
     }
 
-    private class ViewHodler {
-        TextView mTextView1;
-        TextView mTextView2;
-        TextView mTextView3;
+    static class ViewHolder {
+        @BindView(R.id.dot_img)
+        ImageView dotImg;
+        @BindView(R.id.text1)
+        TextView text1;
+        @BindView(R.id.text3)
+        TextView text3;
+        @BindView(R.id.text2)
+        TextView text2;
+        @BindView(R.id.text4)
+        TextView text4;
+        @BindView(R.id.rll_bg_view)
         RelativeLayout rllBgView;
-    }
 
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
+    }
 }

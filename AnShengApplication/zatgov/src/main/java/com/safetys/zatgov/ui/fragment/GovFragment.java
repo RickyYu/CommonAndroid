@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
+import com.safetys.widget.common.SPUtils;
 import com.safetys.zatgov.R;
 import com.safetys.zatgov.bean.BarChartQy2s;
 import com.safetys.zatgov.bean.MathInfo;
@@ -27,7 +28,7 @@ import java.util.List;
  * Author:Created by Ricky on 2017/11/15.
  * Description:
  */
-public class GovFragment extends Fragment implements View.OnClickListener, onNetCallback {
+public class GovFragment extends Fragment implements onNetCallback {
 
     private BarChartQy2s mBarChart3s;
     private TextView t1;
@@ -55,44 +56,45 @@ public class GovFragment extends Fragment implements View.OnClickListener, onNet
     private String m5;
     private String m6;
     private BarChart chart;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View mView = inflater.inflate(R.layout.fragment_gov, null);
         initView(mView);
         mloading = new LoadingDialogUtil(getActivity());
-        update();
+        initData();
         return mView;
+    }
+    private void initData(){
+        mloading.show();
+        String result = (String) SPUtils.getData("gov","success");
+        if(!result.equals("success")){
+            mloading.dismiss();
+            MathInfo mathInfo = JSON.parseObject(result,
+                    MathInfo.class);
+            bindData(mathInfo);
+        }
+        loadData();
     }
 
     public void update() {
         mloading.show();
+        loadData();
+    }
+
+    private void loadData() {
         HttpRequestHelper.getInstance().getGovCount(getActivity(),
                 Const.NET_GET_GOV_CODE, this);
     }
 
     private void initView(View mRootView) {
-
         t1 = (TextView) mRootView.findViewById(R.id.text_num_1);
         t2 = (TextView) mRootView.findViewById(R.id.text_num_2);
         t3 = (TextView) mRootView.findViewById(R.id.text_num_3);
         t4 = (TextView) mRootView.findViewById(R.id.text_num_4);
-
         chart = (BarChart) mRootView.findViewById(R.id.chart);
-
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_back:
-
-                break;
-            default:
-                break;
-        }
-    }
-
 
     @Override
     public void onError(String errorMsg) {
@@ -108,52 +110,54 @@ public class GovFragment extends Fragment implements View.OnClickListener, onNet
             case Const.NET_GET_GOV_CODE:
                 MathInfo mathInfo = JSON.parseObject(mJsonResult.getEntity(),
                         MathInfo.class);
-                t1.setText( mathInfo.getCheckNum());
-                t2.setText( mathInfo.getCallbackNum());
-                t3.setText( mathInfo.getDangerNum());
-                t4.setText( mathInfo.getRectifyRateNum());
-                monthCounts = mathInfo.getMonthCounts();
-//自查数
-                f1 = monthCounts.get(0).getByGov();
-                f2 = monthCounts.get(1).getByGov();
-                f3 = monthCounts.get(2).getByGov();
-                f4 = monthCounts.get(3).getByGov();
-                f5 = monthCounts.get(4).getByGov();
-                f6 = monthCounts.get(5).getByGov();
-
-                //整改数
-                f12 = monthCounts.get(0).getRepairedNum();
-                f22 = monthCounts.get(1).getRepairedNum();
-                f32 = monthCounts.get(2).getRepairedNum();
-                f42 = monthCounts.get(3).getRepairedNum();
-                f52 = monthCounts.get(4).getRepairedNum();
-                f62 = monthCounts.get(5).getRepairedNum();
-
-                m1 = monthCounts.get(0).getDateMonth().substring(3);
-                m2 = monthCounts.get(1).getDateMonth().substring(3);
-                m3 = monthCounts.get(2).getDateMonth().substring(3);
-                m4 = monthCounts.get(3).getDateMonth().substring(3);
-                m5 = monthCounts.get(4).getDateMonth().substring(3);
-                m6 = monthCounts.get(5).getDateMonth().substring(3);
-
-                mBarChart3s = new BarChartQy2s(chart);
-                BarData data = new BarData(mBarChart3s.getXAxisValues(m1,m2,m3,m4,m5,m6),
-                        mBarChart3s.getDataSet(f1,f2,f3,f4,f5,f6,
-                                f12,f22,f32,f42,f52,f62));
-                // 设置数据
-                chart.setData(data);
-           /*     new Handler().postDelayed(new Runnable() {
-                    public void run() {
-
-                    }
-                }, 1); // 2秒*/
-
-
+                SPUtils.saveData("gov",mJsonResult.getEntity());
+                bindData(mathInfo);
                 break;
-
             default:
                 break;
         }
 
+    }
+
+    /**
+     * 数据绑定
+     * @param mathInfo
+     */
+    private void bindData(MathInfo mathInfo) {
+
+        t1.setText( mathInfo.getCheckNum());
+        t2.setText( mathInfo.getCallbackNum());
+        t3.setText( mathInfo.getDangerNum());
+        t4.setText( mathInfo.getRectifyRateNum());
+        monthCounts = mathInfo.getMonthCounts();
+//自查数
+        f1 = monthCounts.get(0).getByGov();
+        f2 = monthCounts.get(1).getByGov();
+        f3 = monthCounts.get(2).getByGov();
+        f4 = monthCounts.get(3).getByGov();
+        f5 = monthCounts.get(4).getByGov();
+        f6 = monthCounts.get(5).getByGov();
+
+        //整改数
+        f12 = monthCounts.get(0).getRepairedNum();
+        f22 = monthCounts.get(1).getRepairedNum();
+        f32 = monthCounts.get(2).getRepairedNum();
+        f42 = monthCounts.get(3).getRepairedNum();
+        f52 = monthCounts.get(4).getRepairedNum();
+        f62 = monthCounts.get(5).getRepairedNum();
+
+        m1 = monthCounts.get(0).getDateMonth().substring(3);
+        m2 = monthCounts.get(1).getDateMonth().substring(3);
+        m3 = monthCounts.get(2).getDateMonth().substring(3);
+        m4 = monthCounts.get(3).getDateMonth().substring(3);
+        m5 = monthCounts.get(4).getDateMonth().substring(3);
+        m6 = monthCounts.get(5).getDateMonth().substring(3);
+
+        mBarChart3s = new BarChartQy2s(chart);
+        BarData data = new BarData(mBarChart3s.getXAxisValues(m1,m2,m3,m4,m5,m6),
+                mBarChart3s.getDataSet(f1,f2,f3,f4,f5,f6,
+                        f12,f22,f32,f42,f52,f62));
+        // 设置数据
+        chart.setData(data);
     }
 }

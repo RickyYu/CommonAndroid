@@ -1,9 +1,7 @@
 package com.safetys.zatgov.ui.activity;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,12 +21,18 @@ import com.safetys.zatgov.bean.ReviewInfoGov;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.config.PunishmentTypeEnum;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.PullToRefresh;
 import com.safetys.zatgov.ui.view.SearchBar;
 import com.safetys.zatgov.utils.DialogUtil;
+import com.safetys.zatgov.utils.GreenDaoUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +43,7 @@ import java.util.List;
  */
 public class NewZfPunListActivity extends BaseActivity implements
         View.OnClickListener, onNetCallback, SearchBar.onSearchListener {
-    public static final String ACTION_UPDATE_LIST = "cn.saftys.NewZfPunListActivity.update";
+    public static final String ACTION_UPDATE_DATA = "NewZfPunListActivity";
     protected static final int LOADING_MORE2 = 1;
     private View mBtn_back;
     private View mBtn_Trouble_dfc;// 未处罚
@@ -56,7 +60,6 @@ public class NewZfPunListActivity extends BaseActivity implements
     private int totalCount2 = 0;// 总数
     private LoadingDialogUtil mLoading;
     private String code;
-    private MyBroadcastReceiver mReceiver;
     private ArrayList<ReviewInfoGov> unPunDates;
     private ArrayList<Punishment> punDates;// 处罚数据
     private ZFReviewCompanyListAdapter unPunAdapter;
@@ -70,13 +73,9 @@ public class NewZfPunListActivity extends BaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zf_punlish_list);
+        EventBus.getDefault().register(this);
         initView();
-        mLoading.show();
         loadingUnPunListDatas();
-        // 注册通知刷新界面的广播
-        mReceiver = new MyBroadcastReceiver();
-        IntentFilter mFilter = new IntentFilter(ACTION_UPDATE_LIST);
-        registerReceiver(mReceiver, mFilter);
     }
 
     private void initView() {
@@ -217,11 +216,30 @@ public class NewZfPunListActivity extends BaseActivity implements
      * 获取未处罚信息列表
      */
     private void loadingUnPunListDatas() {
-
+        mLoading.show();
+        getLocalData();
         HttpRequestHelper.getInstance().getUnPunishmentList(this, mCurrentPage,
                 totalCount, mSearchBar.getSearchData(),
                 Const.NET_GET_GOV_UNPUN_LIST_CODE, this);
 
+    }
+
+    private void getLocalData() {
+        //先加载本地数据
+        if(mCurrentPage == 0) {//1、第一次加载,第一页，后续页暂无需获取缓存
+            List<ReviewInfoGov> reviewInfoGovs = new ArrayList<ReviewInfoGov>();
+            try {
+                reviewInfoGovs = GreenDaoUtil.getDaoSession().getReviewInfoGovDao().loadAll();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (reviewInfoGovs.size() > 0) {//2、如果本地有数据，则加载，显示，无数据则去网络中获取
+               // mLoading.dismiss(); 此处注释，因为未处罚所用实体类与复查相同，所以只是初步显示
+                unPunDates.addAll(reviewInfoGovs);
+            }
+            //再更新网络数据
+            unPunAdapter.notifyDataSetChanged();
+        }
     }
 
     /**
@@ -315,12 +333,17 @@ public class NewZfPunListActivity extends BaseActivity implements
                     }
                 } else {
 
-                    mCurrentPage = mCurrentPage + 10;
+                    mCurrentPage = mCurrentPage + Const.PAGE_SIZE;
                     totalCount = mJsonResult.getTotalCount();
                     List<ReviewInfoGov> list = JSONArray.parseArray(
                             (String) mJsonResult.getJson(), ReviewInfoGov.class);
                     if (list == null || list.size() == 0) {
                     } else {
+                        if(mCurrentPage == Const.PAGE_SIZE){//第一页加载则先清除
+                            unPunDates.clear();
+                            GreenDaoUtil.getDaoSession().getReviewInfoGovDao().deleteAll();
+                        }
+                        GreenDaoUtil.getDaoSession().getReviewInfoGovDao().insertOrReplaceInTx(list);
                         unPunDates.addAll(list);
                     }
                 }
@@ -338,7 +361,7 @@ public class NewZfPunListActivity extends BaseActivity implements
                     }
                 } else {
 
-                    mCurrentPage2 = mCurrentPage2 + 10;
+                    mCurrentPage2 = mCurrentPage2 + Const.PAGE_SIZE;
                     totalCount2 = mJsonResult.getTotalCount();
                     List<Punishment> list = JSONArray.parseArray(
                             (String) mJsonResult.getJson(), Punishment.class);
@@ -383,6 +406,7 @@ public class NewZfPunListActivity extends BaseActivity implements
         totalCount2 = 0;
         unPunDates.clear();
         punDates.clear();
+        GreenDaoUtil.getDaoSession().getReviewInfoGovDao().deleteAll();
         unPunAdapter.notifyDataSetChanged();
         punAdapter.notifyDataSetChanged();
         // loadingCheckListInfos();
@@ -392,20 +416,18 @@ public class NewZfPunListActivity extends BaseActivity implements
 
     }
 
-    /**
-     * @author sjw 刷新界面广播
-     */
-    private class MyBroadcastReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-     
-            if (intent.getAction().equals(ACTION_UPDATE_LIST)) {
-                updata();
-
-            }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent messageEvent) {
+        if(messageEvent.getMessage().equals(ACTION_UPDATE_DATA)){
+            updata();
         }
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //取消注册事件
+        EventBus.getDefault().unregister(this);
     }
 
     private class PunListAdapter extends BaseAdapter {
@@ -472,12 +494,5 @@ public class NewZfPunListActivity extends BaseActivity implements
         TextView mTextView2;
         TextView mTextView3;
     }
-    @Override
-    protected void onDestroy() {
- 
-        super.onDestroy();
-        if(mReceiver!=null){
-            unregisterReceiver(mReceiver);
-        }
-    }
+
 }

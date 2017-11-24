@@ -1,9 +1,7 @@
 package com.safetys.zatgov.ui.activity;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,12 +18,17 @@ import com.safetys.zatgov.R;
 import com.safetys.zatgov.bean.CheckList;
 import com.safetys.zatgov.bean.HyCheckItemInfo;
 import com.safetys.zatgov.entity.JsonResult;
+import com.safetys.zatgov.entity.MessageEvent;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.ui.view.PullToRefresh;
 import com.safetys.zatgov.ui.view.SearchBar;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -37,7 +40,7 @@ import java.util.List;
  */
 public class NewZfYhLrActivity extends BaseActivity implements View.OnClickListener,
         onNetCallback, SearchBar.onSearchListener {
-    public static final String ACTION_UPDATE_LIST_YH = "cn.saftys.NewZfYhLrActivity.updat.list";
+    public static final String ACTION_UPDATE = "cn.saftys.NewZfYhLrActivity.updat.list";
     private View mBtnBack;
     private PullToRefresh mListView;
     private MyListAdapter mAdapter;
@@ -49,10 +52,9 @@ public class NewZfYhLrActivity extends BaseActivity implements View.OnClickListe
     private EditText ed;
     private View llIshave;
     private View btnSubmit;
-    private MyBroadcastReceiver mReceiver;
+
     private View btnAdd;
     private View btnLook;
-
     private String companyid;
     private String have;
     private String isform;
@@ -62,11 +64,8 @@ public class NewZfYhLrActivity extends BaseActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_yh);
+        EventBus.getDefault().register(this);
         initView();
-        // 注册通知刷新界面的广播
-        mReceiver = new MyBroadcastReceiver();
-        IntentFilter mFilter = new IntentFilter(ACTION_UPDATE_LIST_YH);
-        registerReceiver(mReceiver, mFilter);
     }
 
     /**
@@ -178,8 +177,7 @@ public class NewZfYhLrActivity extends BaseActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_back:
-                this.sendBroadcast(new Intent(
-                        EnterpriseListActivity.ACTION_UPDATE_LIST_YH));
+                EventBus.getDefault().post(new MessageEvent(EnterpriseListActivity.ACTION_UPDATE_DATA));
                 finish();
                 break;
 
@@ -209,8 +207,7 @@ public class NewZfYhLrActivity extends BaseActivity implements View.OnClickListe
                 if (mDatas.size() == 0) {
                     Toast.makeText(this, "请先添加隐患", Toast.LENGTH_SHORT).show();
                 } else {
-                    this.sendBroadcast(new Intent(
-                            EnterpriseListActivity.ACTION_UPDATE_LIST_YH));
+                    EventBus.getDefault().post(new MessageEvent(EnterpriseListActivity.ACTION_UPDATE_DATA));
                     ToastUtils.showMessage(getApplicationContext(), "提交成功");
                     finish();
 	/*			// TODO判断是否无隐患。
@@ -344,29 +341,20 @@ public class NewZfYhLrActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
-    /**
-     * @author sjw 刷新界面广播
-     */
-    private class MyBroadcastReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-     
-            if (intent.getAction().equals(ACTION_UPDATE_LIST_YH)) {
-                reLoadListDatas();
-            }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent messageEvent) {
+        if(messageEvent.getMessage().equals(ACTION_UPDATE)){
+            reLoadListDatas();
         }
-
     }
 
     @Override
     protected void onDestroy() {
- 
         super.onDestroy();
-        if (mReceiver != null) {
-            unregisterReceiver(mReceiver);
-        }
+        //取消注册事件
+        EventBus.getDefault().unregister(this);
     }
+
 
     private void reLoadListDatas() {
         // 刷新列表
