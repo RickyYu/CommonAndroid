@@ -47,7 +47,6 @@ public class UpgradeDetector {
         public void onSuccess(int requestCode, JsonResult mJsonResult) {
             switch (requestCode) {
                 case 211:
-
                     handler = getHandler(x.app());
                     newVerInfo = null;
                     if(mJsonResult.getEntity()!=null){
@@ -102,18 +101,15 @@ public class UpgradeDetector {
                 Object isBackstage = msg.obj;
                 if (what > 0) {
                     //有新版本
-
                     SPUtils.saveData(PrefKeys.PREF_HAVE_NEW_VERSION, true);
                     // 提示下载
                     DialogUtil.showSystemMsgDialog(context, "检查到最新版本，是否立即下载？", "取消", new View.OnClickListener(){
 
                         @Override
                         public void onClick(View v) {
-                            //
                             //"http://dldir1.qq.com/qqfile/QQIntl/QQi_wireless/Android/qqi_4.6.13.6034_office.apk"
                             DownloadFileUtil.startDownloadFile(context,AppConfig.HOST_ADDRESS_YH+newVerInfo.getFileRealPath() , true);
                         }
-
                     });
                 } else {//已经是最新版
 

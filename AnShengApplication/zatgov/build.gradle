@@ -33,6 +33,7 @@ dependencies {
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.github.paolorotolo:appintro:3.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {

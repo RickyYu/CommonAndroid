@@ -50,13 +50,15 @@
         android:hardwareAccelerated="false"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+    >
+
+  <!-- android:theme="@style/AppTheme"-->
 
        <!-- 百度Key：Ylw6uiHGV0ThNvqmgc5t8QiawvYVPVs4-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="Ylw6uiHGV0ThNvqmgc5t8QiawvYVPVs4" />
-
 
         <!-- 友盟SDK -->
         <meta-data
@@ -65,6 +67,22 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="PersonalID" />
+        <!-- 测试用Activity -->
+        <activity
+            android:name=".ui.activity.AppIntroActivity"
+            android:screenOrientation="portrait">s
+        </activity>
+        <activity
+            android:name=".MainTestActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:screenOrientation="portrait" />
+
+
+
+
         <!-- 欢迎界面 -->
         <activity
             android:name=".ui.activity.WelcomeActivity"
@@ -83,17 +101,6 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"/>
-
-        <activity
-            android:name=".MainTestActivity"
-            android:screenOrientation="portrait">
-
-
-        </activity>
-        <!-- 主界面 -->
-        <activity
-            android:name=".SecondActivity"
-            android:screenOrientation="portrait" />
         <!-- 密码修改 -->
         <activity
             android:name=".ui.activity.ChangePasswordActivity"

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.alibaba.fastjson.JSON;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -21,7 +20,6 @@ import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;
 import com.safetys.zatgov.utils.DialogUtil;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
-
 import java.util.List;
 
 /**
@@ -130,7 +128,6 @@ public class ComFragment extends Fragment implements onNetCallback {
         f4 = monthCounts.get(3).getByCom();
         f5 = monthCounts.get(4).getByCom();
         f6 = monthCounts.get(5).getByCom();
-
 
         //整改数
         f12 = monthCounts.get(0).getRepairedNum();
