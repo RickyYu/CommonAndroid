@@ -73,10 +73,6 @@
             android:screenOrientation="portrait">s
         </activity>
         <activity
-            android:name=".MainTestActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
             android:name=".SecondActivity"
             android:screenOrientation="portrait" />
 

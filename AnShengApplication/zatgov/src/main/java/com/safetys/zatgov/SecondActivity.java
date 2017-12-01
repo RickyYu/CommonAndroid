@@ -16,7 +16,7 @@ import butterknife.OnClick;
 
 /**
  * Author:Created by Ricky on 2017/10/27.
- * Description:
+ * Description:测试
  */
 public class SecondActivity extends AppCompatActivity {
 

@@ -18,6 +18,7 @@ import com.alibaba.fastjson.JSON;
 import com.safetys.widget.common.SPUtils;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.CheckListInfo;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.config.PrefKeys;

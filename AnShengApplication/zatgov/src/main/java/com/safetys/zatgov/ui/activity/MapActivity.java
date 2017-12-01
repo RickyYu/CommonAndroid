@@ -48,6 +48,7 @@ import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.utils.baidumap.BikingRouteOverlay;
 import com.safetys.zatgov.utils.baidumap.DrivingRouteOverlay;
 import com.safetys.zatgov.utils.baidumap.OverlayManager;

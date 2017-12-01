@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.entity.JsonResult;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;

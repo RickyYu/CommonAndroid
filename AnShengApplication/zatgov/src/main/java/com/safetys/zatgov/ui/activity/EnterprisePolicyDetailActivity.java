@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.ReadTextInfo;
 import com.safetys.zatgov.entity.JsonResult;
 import com.safetys.zatgov.http.HttpRequestHelper;

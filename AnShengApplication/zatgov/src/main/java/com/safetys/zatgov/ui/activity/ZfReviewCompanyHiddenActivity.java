@@ -25,6 +25,7 @@ import com.safetys.widget.common.DateParseUtils;
 import com.safetys.widget.common.SPUtils;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.CheckItemInfo;
 import com.safetys.zatgov.bean.GovGelCheckInfoVo;
 import com.safetys.zatgov.bean.HiddenDesInfoVo;

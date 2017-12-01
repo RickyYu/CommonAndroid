@@ -1,4 +1,4 @@
-package com.safetys.zatgov.ui.activity;
+package com.safetys.zatgov.base;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.ui.activity.ViewPhotosActivity;
 import com.safetys.zatgov.utils.LoadingDialogUtil;
 import com.umeng.analytics.MobclickAgent;
 

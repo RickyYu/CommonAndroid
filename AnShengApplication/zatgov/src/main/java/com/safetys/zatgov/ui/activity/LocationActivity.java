@@ -37,6 +37,7 @@ import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.CompanyInfo;
 import com.safetys.zatgov.entity.JsonResult;
 import com.safetys.zatgov.http.HttpRequestHelper;

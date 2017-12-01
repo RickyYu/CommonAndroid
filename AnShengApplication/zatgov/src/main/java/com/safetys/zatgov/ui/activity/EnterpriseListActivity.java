@@ -15,6 +15,7 @@ import com.safetys.widget.common.DateDistanceUtils;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
 import com.safetys.zatgov.adapter.EnterpriseListAdapter;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.CompanyVo;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.entity.JsonResult;

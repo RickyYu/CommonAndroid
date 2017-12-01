@@ -6,6 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

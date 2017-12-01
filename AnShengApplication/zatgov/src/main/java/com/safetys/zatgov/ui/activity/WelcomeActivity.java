@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import com.safetys.widget.common.SPUtils;
 import com.safetys.zatgov.R;
 import com.safetys.zatgov.adapter.WelcomePagerAdapter;
+import com.safetys.zatgov.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;

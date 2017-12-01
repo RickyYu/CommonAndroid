@@ -19,6 +19,7 @@ import com.baidu.navisdk.adapter.BNRoutePlanNode;
 import com.baidu.navisdk.adapter.BNaviSettingManager;
 import com.baidu.navisdk.adapter.BaiduNaviManager;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import java.util.List;
  * Author:Created by Ricky on 2017/11/16.
  * Description:
  */
-public class BNDemoMainActivity  extends BaseActivity{
+public class BNDemoMainActivity  extends BaseActivity {
     public static List<Activity> activityList = new LinkedList<Activity>();
 
     private static final String APP_FOLDER_NAME = "BNSDKSimpleDemo";

@@ -22,6 +22,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.safetys.widget.common.DateParseUtils;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.CheckList;
 import com.safetys.zatgov.bean.GovGelCheckInfoVo;
 import com.safetys.zatgov.bean.HyCheckItemInfo;

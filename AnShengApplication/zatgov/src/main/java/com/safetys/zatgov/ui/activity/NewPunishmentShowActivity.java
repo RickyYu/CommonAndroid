@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.Punishment;
 import com.safetys.zatgov.config.PunishmentTypeEnum;
 import com.safetys.zatgov.entity.JsonResult;

@@ -21,6 +21,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.CheckItemInfo;
 import com.safetys.zatgov.bean.HyCheckItemInfo;
 import com.safetys.zatgov.bean.ImageInfo;

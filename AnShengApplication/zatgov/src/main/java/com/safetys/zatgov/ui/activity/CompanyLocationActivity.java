@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSONArray;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.CompanyVo;
 import com.safetys.zatgov.config.SecondTypeEnum;
 import com.safetys.zatgov.config.ThirdTypeEnum;

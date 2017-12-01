@@ -24,6 +24,7 @@ import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
 import com.safetys.zatgov.adapter.HiddenListAdapter;
 import com.safetys.zatgov.adapter.ReviewHistoryListAdapter;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.CheckItemInfo;
 import com.safetys.zatgov.bean.CompanyInfo;
 import com.safetys.zatgov.bean.HiddenDesInfoVo;

@@ -22,6 +22,7 @@ import com.safetys.zatgov.R;
 import com.safetys.zatgov.adapter.CheckListAdapter;
 import com.safetys.zatgov.adapter.MyCheckContentAdapter;
 import com.safetys.zatgov.adapter.WgyMakeCheckListAdapter;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.SafetyCheck;
 import com.safetys.zatgov.bean.SafetyMatter;
 import com.safetys.zatgov.config.Const;

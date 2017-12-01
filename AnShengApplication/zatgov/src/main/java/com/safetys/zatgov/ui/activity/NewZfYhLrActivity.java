@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONArray;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.CheckList;
 import com.safetys.zatgov.bean.HyCheckItemInfo;
 import com.safetys.zatgov.entity.JsonResult;

@@ -13,6 +13,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
 import com.safetys.zatgov.adapter.ZFReviewCompanyListAdapter;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.ReviewInfoGov;
 import com.safetys.zatgov.config.Const;
 import com.safetys.zatgov.entity.JsonResult;

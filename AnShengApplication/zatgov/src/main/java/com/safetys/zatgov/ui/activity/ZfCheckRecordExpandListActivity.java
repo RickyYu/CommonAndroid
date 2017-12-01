@@ -17,6 +17,7 @@ import com.alibaba.fastjson.JSON;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
 import com.safetys.zatgov.adapter.HistoryCheckRecordExpandAdapter;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.CheckListInfo;
 import com.safetys.zatgov.bean.WgyHiddenItemInfo;
 import com.safetys.zatgov.config.Const;

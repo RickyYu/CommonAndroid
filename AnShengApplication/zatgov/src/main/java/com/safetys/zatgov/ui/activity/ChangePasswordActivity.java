@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.entity.JsonResult;
 import com.safetys.zatgov.http.HttpRequestHelper;
 import com.safetys.zatgov.http.onNetCallback;

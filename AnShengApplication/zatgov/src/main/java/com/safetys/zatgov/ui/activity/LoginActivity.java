@@ -20,6 +20,7 @@ import com.safetys.widget.common.SPUtils;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.MainActivity;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.UserInfo;
 import com.safetys.zatgov.config.AppConfig;
 import com.safetys.zatgov.config.PrefKeys;

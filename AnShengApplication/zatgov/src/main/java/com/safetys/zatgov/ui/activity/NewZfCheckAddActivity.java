@@ -36,6 +36,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.safetys.widget.common.DateParseUtils;
 import com.safetys.widget.common.ToastUtils;
 import com.safetys.zatgov.R;
+import com.safetys.zatgov.base.BaseActivity;
 import com.safetys.zatgov.bean.CheckList;
 import com.safetys.zatgov.bean.CompanyDetailInfo;
 import com.safetys.zatgov.bean.HyCheckInfo;
