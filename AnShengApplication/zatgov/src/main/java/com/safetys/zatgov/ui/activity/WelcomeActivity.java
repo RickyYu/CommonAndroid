@@ -119,10 +119,6 @@ public class WelcomeActivity extends BaseActivity {
 
     }
 
-/*    @OnPageChange(value = R.id.vp_show_page )
-   private void  setOnPageChangeListener(){
-
-   }*/
 
     /**
      * 移动指针到相邻的位置
